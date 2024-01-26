@@ -1,0 +1,19 @@
+//fonts
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+@import "header";
+@import "home_page";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anton", sans-serif;
+}
+
+html,
+body {
+    background-color: #ff90bc;
+    min-height: 100vh;
+}
