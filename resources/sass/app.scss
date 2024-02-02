@@ -2,8 +2,18 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
+//Glider
+
+// Required Core Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// Optional Theme Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
 @import "header";
+@import "nav-menu";
 @import "home_page";
+@import "footer";
 
 * {
     margin: 0;
@@ -14,6 +24,5 @@
 
 html,
 body {
-    background-color: #ff90bc;
     min-height: 100vh;
 }

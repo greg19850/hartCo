@@ -1,0 +1,118 @@
+.footer {
+    border-top: 1px solid #fff;
+    background-color: #ac87c5;
+    color: #fff;
+
+    .img-container {
+        cursor: pointer;
+        padding-top: 10px;
+        width: 60px;
+        // margin: 20px 0 0 20px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .footer-details {
+        width: 100%;
+        justify-content: space-between;
+
+        .opening-hours {
+            list-style: none;
+
+            li {
+                font-size: 8px;
+            }
+        }
+
+        .contact {
+            h2 {
+                align-self: flex-end;
+            }
+            .address {
+                font-size: 10px;
+                align-self: flex-end;
+                text-align: end;
+            }
+            .socials {
+                align-self: flex-end;
+                svg {
+                    color: #fff;
+                    width: 25px;
+                    margin: 2px 5px;
+                }
+            }
+        }
+    }
+
+    .footer-menu {
+        list-style: none;
+        li {
+            cursor: pointer;
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 12px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 576px) {
+        .footer-details {
+            .opening-hours {
+                list-style: none;
+                li {
+                    // text-align: center;
+                    font-size: 10px;
+                }
+            }
+
+            .contact {
+                h2 {
+                    font-size: 30px;
+                }
+                .address {
+                    font-size: 12px;
+                }
+                .socials {
+                    svg {
+                        color: #fff;
+                        width: 30px;
+                        margin: 2px 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .footer-details {
+            justify-content: space-around;
+            .opening-hours {
+                list-style: none;
+                li {
+                    // text-align: center;
+                    font-size: 10px;
+                }
+            }
+
+            .contact {
+                h2 {
+                    font-size: 30px;
+                }
+                .address {
+                    font-size: 12px;
+                }
+                .socials {
+                    svg {
+                        color: #fff;
+                        width: 30px;
+                        margin: 2px 5px;
+                    }
+                }
+            }
+        }
+    }
+}

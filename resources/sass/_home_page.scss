@@ -1,4 +1,4 @@
-@keyframes arrowdown {
+@keyframes arrowDown {
     0% {
         transform: translateY(0%);
     }
@@ -11,7 +11,7 @@
     }
 }
 
-@keyframes arrowup {
+@keyframes arrowUp {
     0% {
         transform: translateY(0%);
     }
@@ -25,7 +25,13 @@
 }
 
 .home-page {
+    background-color: #ff90bc;
+
+    h2 {
+        color: #fff;
+    }
     .heart-up-icon {
+        cursor: pointer;
         position: fixed;
         display: none;
         bottom: 20px;
@@ -37,17 +43,30 @@
 
         &.active {
             display: block;
-        }
 
-        &:hover {
-            animation: arrowdown 1000ms;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
+            &:hover {
+                animation: arrowUp 1000ms;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
         }
     }
 
     #hart-carousel {
         position: relative;
+
+        &::after {
+            content: ""; // ::before and ::after both require content
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($color: #000000, $alpha: 0.7);
+            opacity: 0.7;
+            z-index: 5;
+        }
+
         .carousel-item {
             height: 100vh;
             img {
@@ -56,7 +75,7 @@
         }
 
         .motto {
-            z-index: 10;
+            z-index: 6;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -73,22 +92,72 @@
                 color: #ff90bc;
                 width: 50px;
                 height: 50px;
-                animation: arrowdown 1000ms;
+                animation: arrowDown 1000ms;
                 animation-timing-function: linear;
-                animation-iteration-count: 3;
-
-                &:hover {
-                }
+                animation-iteration-count: infinite;
             }
         }
     }
 
     .about-us {
-        background-color: #ff90bc;
+        margin: 20px auto;
+        width: 90%;
+        background-color: #ac87c5;
         color: #fff;
         text-align: center;
         h2 {
             font-size: 40px;
+        }
+    }
+
+    .menus {
+        background-color: #ff90bc;
+
+        h2 {
+            color: #fff;
+        }
+
+        .menus-container {
+            flex-wrap: wrap;
+
+            .menu-item {
+                position: relative;
+                text-align: center;
+                height: 400px;
+
+                &::after {
+                    content: ""; // ::before and ::after both require content
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-image: linear-gradient(120deg, #eaee44, #33d0ff);
+                    // mix-blend-mode: color;
+                    mix-blend-mode: hue;
+                    // mix-blend-mode: hard-light;
+                    opacity: 0.6;
+                    z-index: 5;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                h3 {
+                    position: absolute;
+                    text-transform: uppercase;
+                    padding: 10px;
+                    font-weight: bold;
+                    background-color: #ac87c5;
+                    color: #fff;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 6;
+                }
+            }
         }
     }
 }
