@@ -6,6 +6,7 @@ const downArrow = document.querySelector(".heart-down-icon");
 
 const burgerBtn = document.querySelector(".menu-icon");
 const closeMenuBtn = document.querySelector(".close-menu-btn ");
+const menuOptions = document.querySelectorAll(".menuItem");
 
 const showArrow = () => {
     if (window.scrollY >= window.innerHeight) {
@@ -36,3 +37,9 @@ upArrow.addEventListener("click", scrollToTop);
 
 burgerBtn.addEventListener("click", openMenu);
 closeMenuBtn.addEventListener("click", closeMenu);
+
+menuOptions.forEach((option) => {
+    option.addEventListener("click", function () {
+        closeMenu();
+    });
+});

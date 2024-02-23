@@ -37,32 +37,32 @@
 
     <div id="menus" class="menus d-flex flex-column align-items-center p-3">
         <h2 class="text-uppercase" data-aos="fade-up">Check Our Menus</h2>
-        <div class="glide py-4 menus-container d-flex justify-content-center px-2" data-aos="fade-up">
+        <div class="glide menus py-4 menus-container d-flex justify-content-center px-2" data-aos="fade-up">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
                     <li class="glide__slide menu-item breakfast-menu">
                         <img src="images/hartphotos/IMG_5502.jpg" alt="">
-                        <h3>Breakfast Menu</h3>
+                        <h5><a href="">Breakfast Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item main-menu">
                         <img src='images/hartphotos/IMG_5503.jpg' alt="">
-                        <h3>Main Menu</h3>
+                        <h5><a href="">Main Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item brunch-menu">
                         <img src='images/hartphotos/IMG_5504.jpg' alt="">
-                        <h3>Botomless Brunch Menu</h3>
+                        <h5><a href="">Botomless Brunch Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item set-menu">
                         <img src='images/hartphotos/IMG_5505.jpg' alt="">
-                        <h3>Set Menu</h3>
+                        <h5><a href="">Set Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item snack-menu">
                         <img src='images/hartphotos/IMG_5509.jpg' alt="">
-                        <h3>Snack Menu</h3>
+                        <h5><a href="">Snack Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item drinks-menu">
                         <img src='images/hartphotos/IMG_5507.jpg' alt="">
-                        <h3>Drinks Menu</h3>
+                        <h5><a href="">Drinks Menu</a></h5>
                     </li>
                 </ul>
             </div>
@@ -79,15 +79,71 @@
     </div>
 
 
-    <div class="masterclass p-3 text-center">
-        <h2 class="text-uppercase" data-aos="fade-up">Cocktail Masterclass</h2>
+    <div id="masterclass" class="masterclass p-3 text-center">
+        <h2 class="text-uppercase mb-3" data-aos="fade-up">Bjorns Cocktail Masterclass</h2>
+        <h5 data-aos="fade-up">Cocktail Masterclass withj one of the Hart Family!</h5>
+        <p data-aos="fade-up">What's included?</p>
+        <p data-aos="fade-up">Welcome 'Bjornstar' Martini on arrival</p>
+        <p data-aos="fade-up">Three taught Family recipe cocktails which include:</p>
+        <ul>
+            <li data-aos="fade-up"><span class='fw-bold'>Nanny Violet's Bramble</span> (Gin, Lemons and Blackberries)</li>
+            <li data-aos="fade-up"><span class='fw-bold'>Mummy Hart's Chocolate Overindulgence</span> (White chocolate liquor, Disaranno and Hazelnut Rum)</li>
+            <li data-aos="fade-up"><span class='fw-bold'>Glitterbomb Martini</span> (Vodka, Pineapple and strawberries)</li>
+            <p data-aos="fade-up">The chance to learn variety of cocktail skills and the opportunity to ask the family any questions!</p>
+            <p data-aos="fade-up">£37pp</p>
+            <button type="button" class="btn mb-3" data-bs-toggle="modal" data-bs-target="#tc-modal" data-aos="fade-up">
+                Read Masterclass Terms and Conditions
+            </button>
+            <a href="https://www.instagram.com/hartleamington/?hl=en" class='d-block' data-aos="fade-up">For Bookings DM us on instagram</a>
+        </ul>
     </div>
 
-    <div class="hire p-3 text-center">
-        <h2 class="text-uppercase" data-aos="fade-up">Private Hire</h2>
+    <div id="events" class="events p-3 text-center">
+        <h2 class="text-uppercase" data-aos="fade-up">Events</h2>
+        <div class="glide events py-4 events-container d-flex justify-content-center px-2" data-aos="fade-up">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    <li class="glide__slide event-item">
+                        <img src='images/hartphotos/IMG_5504.jpg' alt="">
+                        <h5><a href="">
+                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                    </li>
+                    <li class="glide__slide event-item">
+                        <img src='images/hartphotos/IMG_5505.jpg' alt="">
+                        <h5><a href="">
+                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                    </li>
+                    <li class="glide__slide event-item">
+                        <img src='images/hartphotos/IMG_5509.jpg' alt="">
+                        <h5><a href="">
+                                <x-go-link-16 />
+                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                    </li>
+                    <li class="glide__slide event-item">
+                        <img src='images/hartphotos/IMG_5507.jpg' alt="">
+                        <h5><a href="">
+                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+            </div>
+        </div>
     </div>
-    <div class="faq p-3 text-center">
+    <div id="hire" class="hire p-3 text-center">
+        <h2 class="text-uppercase" data-aos="fade-up">Private Hire</h2>
+        <p data-aos="fade-up">We do hire HART out!</p>
+        <p data-aos="fade-up">We can hire out small areas of the bar or the entire venue.</p>
+        <p data-aos="fade-up">There is no charge or minimum spend to hire out small areas.</p>
+        <p data-aos="fade-up">There is no charge but a minimum spend which varies depending on the date you book to hire the entire venue.</p>
+        <p data-aos="fade-up">Drop us a message with all of your event details including date, timings and number of guests and we can provide more info!</p>
+    </div>
+    <div id="faq" class="faq p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">FAQ's</h2>
     </div>
+    <x-termsConditionsModal />
 </div>
 @endsection
