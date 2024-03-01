@@ -42,27 +42,27 @@
                 <ul class="glide__slides">
                     <li class="glide__slide menu-item breakfast-menu">
                         <img src="images/hartphotos/IMG_5502.jpg" alt="">
-                        <h5><a href="">Breakfast Menu</a></h5>
+                        <h5><a href="/menus/breakfast_menu">Breakfast Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item main-menu">
                         <img src='images/hartphotos/IMG_5503.jpg' alt="">
-                        <h5><a href="">Main Menu</a></h5>
+                        <h5><a href="/menus/main_menu">Main Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item brunch-menu">
                         <img src='images/hartphotos/IMG_5504.jpg' alt="">
-                        <h5><a href="">Botomless Brunch Menu</a></h5>
+                        <h5><a href="/menus/brunch_menu">Botomless Brunch Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item set-menu">
                         <img src='images/hartphotos/IMG_5505.jpg' alt="">
-                        <h5><a href="">Set Menu</a></h5>
+                        <h5><a href="/menus/set_menu">Set Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item snack-menu">
                         <img src='images/hartphotos/IMG_5509.jpg' alt="">
-                        <h5><a href="">Snack Menu</a></h5>
+                        <h5><a href="/menus/snack_menu">Snack Menu</a></h5>
                     </li>
                     <li class="glide__slide menu-item drinks-menu">
                         <img src='images/hartphotos/IMG_5507.jpg' alt="">
-                        <h5><a href="">Drinks Menu</a></h5>
+                        <h5><a href="/menus/drinks_menu">Drinks Menu</a></h5>
                     </li>
                 </ul>
             </div>
@@ -116,7 +116,6 @@
                     <li class="glide__slide event-item">
                         <img src='images/hartphotos/IMG_5509.jpg' alt="">
                         <h5><a href="">
-                                <x-go-link-16 />
                                 <x-go-link-16 /> Get Your Tickets Here</a></h5>
                     </li>
                     <li class="glide__slide event-item">
