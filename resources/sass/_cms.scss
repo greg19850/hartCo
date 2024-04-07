@@ -1,0 +1,71 @@
+body.cms-body {
+    display: flex;
+    min-height: 100vh;
+
+    .cms-nav {
+        width: 20%;
+        min-height: 100vh;
+        background-color: #ac87c5;
+
+        .logo {
+            .img-container {
+                text-align: center;
+                align-self: center;
+
+                img {
+                    width: 45px;
+                }
+            }
+
+            .text {
+                color: #fff;
+                font-size: 18px;
+                // text-align: start;
+                align-self: center;
+            }
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                margin-bottom: 15px;
+                font-size: 18px;
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+        }
+
+        .accordion-item {
+            .accordion-button {
+                background-color: #ac87c5;
+                font-size: 18px;
+                color: #fff;
+
+                &:focus {
+                    box-shadow: none;
+                    border-color: rgba(0, 0, 0, 0.125);
+                    border-bottom: none;
+                }
+
+                &:after {
+                    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+                }
+            }
+
+            .accordion-body {
+                background-color: #ac87c5;
+
+                li {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    .cms-page-content {
+        width: 80%;
+    }
+}
