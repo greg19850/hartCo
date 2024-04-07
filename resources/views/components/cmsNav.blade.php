@@ -1,12 +1,12 @@
- <div class="cms-nav p-2">
-     <div class="logo row mb-3 p-2">
+ <div class="cms-nav p-1">
+     <div class="logo row my-3">
          <div class="img-container col-5">
              <img src='../images/hart logo.png' alt="logo" />
          </div>
          <div class=" text col-7">CMS Panel</div>
      </div>
 
-     <ul class="cms-options">
+     <ul class="cms-options ps-2">
          <li><a class="cmsMenuItem" href="/cms/home">Home</a></li>
          <li><a class="cmsMenuItem" href="/cms/meet_the_fam">Meet The Family</a></li>
          <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -33,5 +33,7 @@
          <li><a class="cmsMenuItem" href="#">Events</a></li>
          <li><a class="cmsMenuItem" href="#">Private Hire</a></li>
          <li><a class="cmsMenuItem" href="#">FAQ</a></li>
+         <li><a class="cmsMenuItem" href="#">Settings</a></li>
+         <li><a class="cmsMenuItem" href="/">Exit CMS</a></li>
      </ul>
  </div>
