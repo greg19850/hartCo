@@ -11,12 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
             $table->string('name');
-            $table->string('serving time')->nullable();
+            $table->string('composition')->nullable();
+            $table->float('price');
+            $table->boolean('vegan')->default(false);
+
+            $table->unsignedBigInteger('sub_menu_id');
+
+            $table->foreign('sub_menu_id')
+                ->references('id')
+                ->on('sub_menus')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->softDeletes();
 
@@ -29,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('menu_items');
     }
 };
