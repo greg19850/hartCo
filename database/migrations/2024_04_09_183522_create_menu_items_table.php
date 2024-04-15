@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->string('name');
-            $table->string('composition')->nullable();
+            $table->string('ingredients')->nullable();
             $table->float('price');
             $table->boolean('vegan')->default(false);
 
