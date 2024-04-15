@@ -31,6 +31,8 @@ const scrollToTop = () => {
     window.scrollBy(0, -window.scrollY);
 };
 
+
+
 document.addEventListener("scroll", showArrow);
 downArrow.addEventListener("click", scrollBeyondBanner);
 upArrow.addEventListener("click", scrollToTop);
@@ -43,3 +45,6 @@ menuOptions.forEach((option) => {
         closeMenu();
     });
 });
+
+
+

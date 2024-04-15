@@ -34,18 +34,21 @@ Route::prefix("/menus")->group(
 
 Route::prefix("/cms")->group(
     function () {
-        Route::get('home', [CmsController::class, 'showCmsHome'])->name('showCmsHome');
-        Route::get('meet_the_fam', [CmsController::class, 'meetTheFamily'])->name('meetTheFamily');
+        Route::get('home', [CmsController::class, 'showCmsHome'])->name('cms.showCmsHome');
+        Route::get('meet_the_fam', [CmsController::class, 'meetTheFamily'])->name('cms.meetTheFamily');
+//        Route::get('menus', [CmsMenusController::class, 'showMenusPanel'])->name('showMenusPanel');
     }
 );
 
 Route::prefix("/cms/menus")->group(
     function () {
-        Route::get('breakfast_menu', [CmsMenusController::class, 'showCmsBreakfastMenuPanel'])->name('showCmsBreakfastMenuPanel');
-        Route::get('main_menu', [CmsMenusController::class, 'showCmsMainMenuPanel'])->name('showCmsMainMenuPanel');
-        Route::get('brunch_menu', [CmsMenusController::class, 'showCmsBrunchMenuPanel'])->name('showCmsBrunchMenuPanel');
-        Route::get('set_menu', [CmsMenusController::class, 'showCmsSetMenuPanel'])->name('showCmsSetMenuPanel');
-        Route::get('snack_menu', [CmsMenusController::class, 'showCmsSnackMenuPanel'])->name('showCmsSnackMenuPanel');
-        Route::get('drinks_menu', [CmsMenusController::class, 'showCmsDrinksMenuPanel'])->name('showCmsDrinksMenuPanel');
+        Route::get('/', [CmsMenusController::class, 'showMenusPanel'])->name('cms.showMenusPanel');
+        Route::post('/create_menu', [CmsMenusController::class, 'createNewMenu'])->name('cms.createNewMenu');
+//        Route::get('breakfast_menu', [CmsMenusController::class, 'showCmsBreakfastMenuPanel'])->name('showCmsBreakfastMenuPanel');
+//        Route::get('main_menu', [CmsMenusController::class, 'showCmsMainMenuPanel'])->name('showCmsMainMenuPanel');
+//        Route::get('brunch_menu', [CmsMenusController::class, 'showCmsBrunchMenuPanel'])->name('showCmsBrunchMenuPanel');
+//        Route::get('set_menu', [CmsMenusController::class, 'showCmsSetMenuPanel'])->name('showCmsSetMenuPanel');
+//        Route::get('snack_menu', [CmsMenusController::class, 'showCmsSnackMenuPanel'])->name('showCmsSnackMenuPanel');
+//        Route::get('drinks_menu', [CmsMenusController::class, 'showCmsDrinksMenuPanel'])->name('showCmsDrinksMenuPanel');
     }
 );

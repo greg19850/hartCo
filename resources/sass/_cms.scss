@@ -68,4 +68,14 @@ body.cms-body {
     .cms-page-content {
         width: 80%;
     }
+
+    .menus-page {
+        .spinner-border {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
 }

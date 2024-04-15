@@ -2,37 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateMenuRequest;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class CmsMenusController extends Controller
 {
-    public function showCmsBreakfastMenuPanel()
+    public function showMenusPanel()
     {
-        return view('cms.menus.cmsBreakfastMenu');
+
+        $menus = Menu::all();
+
+        return view('cms.menus.cmsMenusPanel', [
+            'menus' => $menus
+        ]);
     }
 
-    public function showCmsMainMenuPanel()
+    public function createNewMenu(CreateMenuRequest $request)
     {
-        return view('cms.menus.cmsMainMenu');
-    }
+        dd($request->input('menu_name'));
 
-    public function showCmsBrunchMenuPanel()
-    {
-        return view('cms.menus.cmsBrunchMenu');
-    }
+        Menu::create([
+            'name' => $request->input('menu_name')
+        ]);
 
-    public function showCmsSetMenuPanel()
-    {
-        return view('cms.menus.cmsSetMenu');
-    }
-
-    public function showCmsSnackMenuPanel()
-    {
-        return view('cms.menus.cmsSnackMenu');
-    }
-
-    public function showCmsDrinksMenuPanel()
-    {
-        return view('cms.menus.cmsDrinksMenu');
+        return redirect()->route("cms.showMenusPanel")->with('message', 'New menu added');
     }
 }
