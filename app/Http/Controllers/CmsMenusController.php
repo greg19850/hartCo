@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateMenuRequest;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CmsMenusController extends Controller
 {
@@ -20,12 +21,23 @@ class CmsMenusController extends Controller
 
     public function createNewMenu(CreateMenuRequest $request)
     {
-        dd($request->input('menu_name'));
+        $hasFile = $request->hasFile('menu_img');
+
+        if ($hasFile) {
+            $imgFile = $request->file('menu_img');
+
+            $link = Storage::putFile('public', $imgFile);
+
+            $imgUrl = Storage::url($link);
+        } else {
+            $imgUrl = "/images/menu_default.jpg";
+        }
 
         Menu::create([
-            'name' => $request->input('menu_name')
+            'name' => $request->input('menu_name'),
+            'image' => $imgUrl,
         ]);
 
-        return redirect()->route("cms.showMenusPanel")->with('message', 'New menu added');
+        return redirect()->route("cms.showMenusPanel")->with('success', 'New menu added successfully');
     }
 }

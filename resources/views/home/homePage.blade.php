@@ -5,11 +5,11 @@
 @section('content')
 
 <div class="home-page">
-    <x-tabler-heart-up class="heart-up-icon" />
+    <div class="heart-up-icon"> heart up icon</div>
     <div id="hart-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="motto d-flex flex-column align-items-center justify-content-center">
             <h1>You Local Girl Gang</h1>
-            <x-tabler-heart-down class="heart-down-icon" />
+            <div class="heart-down-icon">down icon</div>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -106,22 +106,22 @@
                     <li class="glide__slide event-item">
                         <img src='images/hartphotos/IMG_5504.jpg' alt="">
                         <h5><a href="">
-                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                                Get Your Tickets Here</a></h5>
                     </li>
                     <li class="glide__slide event-item">
                         <img src='images/hartphotos/IMG_5505.jpg' alt="">
                         <h5><a href="">
-                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                                Get Your Tickets Here</a></h5>
                     </li>
                     <li class="glide__slide event-item">
                         <img src='images/hartphotos/IMG_5509.jpg' alt="">
                         <h5><a href="">
-                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                                Get Your Tickets Here</a></h5>
                     </li>
                     <li class="glide__slide event-item">
                         <img src='images/hartphotos/IMG_5507.jpg' alt="">
                         <h5><a href="">
-                                <x-go-link-16 /> Get Your Tickets Here</a></h5>
+                                Get Your Tickets Here</a></h5>
                     </li>
                 </ul>
             </div>

@@ -12,5 +12,5 @@
          <li><a class="menuItem" href="#hire" data-text="Hire">Private Hire</a></li>
          <li><a class="menuItem" href="#" data-text="FAQ">FAQ</a></li>
      </ul>
-     <x-pixelarticons-close class="close-menu-btn" />
+     <div class="close-menu-btn"> close menu icon</div>
  </div>
