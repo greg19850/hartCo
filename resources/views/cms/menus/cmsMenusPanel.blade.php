@@ -3,7 +3,7 @@
 @section('content')
 <div class="menus-page">
     <div class="header d-flex justify-content-between align-items-center">
-        <h4>Menu Panel</h4>
+        <h4 class="mb-0">Menu Panel</h4>
         <button class="btn btn-primary group-modal-btn p-2" data-bs-toggle="modal" data-bs-target="#add-menu-modal">Add Menu</button>
     </div>
     <hr />
@@ -11,11 +11,18 @@
         @if(count($menus) === 0)
         <p>No Menus Available. After Creating Menu, it will be available here.</p>
         @else
-        @foreach($menus as $menu)
-        <div>
-            @dd($menus)
+        <div class="d-flex flex-wrap">
+            @foreach($menus as $menu)
+            <div class="card m-2" style="width: 30%;">
+                <img src="{{asset($menu->image)}}" class="card-img-top" alt="{{$menu->name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{$menu->name}}</h5>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            @endforeach
         </div>
-        @endforeach
         @endif
     </div>
 
@@ -26,13 +33,20 @@
                     <h5 class="modal-title" id="add-menu-modal-label">Add New Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="create-menu-form" name="create-menu-form" method="POST" action="{{url('cms/menus/create_menu')}}">
+                <form id="create-menu-form" name="create-menu-form" method="POST" action="{{url('cms/menus/create_menu')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
-                        <div class="form-group">
+                        <div class="form-group pb-2">
                             <label for="menu_name" class="form-label">Menu Name:</label>
                             <input type="text" class="form-control" id="menu_name" name="menu_name" placeholder="Enter Menu Name" @error('menu_name') is-invalid @enderror>
                             @error('menu_name')
+                            <small class="pt-1" style="color: red">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="menu_img" class="form-label">Menu Image (optional):</label>
+                            <input type="file" class="form-control" id="menu_img" name="menu_img" placeholder="Enter Menu Name" @error('menu_img') is-invalid @enderror>
+                            @error('menu_img')
                             <small class="pt-1" style="color: red">{{ $message }}</small>
                             @enderror
                         </div>
@@ -48,5 +62,36 @@
             </div>
         </div>
     </div>
+    {{-- @if(session('success'))
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div class="toast align-items-center text-primary bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    {{session('success')}}
 </div>
+<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+</div>
+</div>
+@endif --}}
+</div>
+
+
+<script>
+    @if(session('success'))
+    toastr.options = {
+        'closeButton': true
+        , 'timeOut': 1000
+        , 'positionClass': 'toast-bottom-right'
+    }
+    toastr.success("{{Session::get('success')}}");
+    @endif
+
+    @if(count($errors) > 0)
+    $(document).ready(function() {
+        $("#add-menu-modal").modal('show');
+    });
+    @endif
+
+</script>
 @endsection

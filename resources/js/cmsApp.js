@@ -14,12 +14,6 @@ const progressForm = (e) => {
 
     setTimeout(function () {
         createMenuForm.submit();
-        formSubmitBtn.disabled = false;
-        formCancelBtn.disabled = false;
-        menuNameInput.value = "";
-        loadingSpinner.classList.remove("active");
-        const modalInstance = bootstrap.Modal.getOrCreateInstance(addMenuModal); // Get or create modal instance
-        modalInstance.hide(); // Enable the submit button
     }, 2000);
 };
 
