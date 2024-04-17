@@ -47,6 +47,12 @@ class CmsMenusController extends Controller
             return redirect()->back()->withError("Sorry, menu not found");
         }
 
+        $menuImg = basename($menuToDelete->image);
+
+        if (Storage::disk('public')->exists($menuImg)) {
+            Storage::disk('public')->delete($menuImg);
+        }
+
         $menuToDelete->delete();
 
         return redirect()->back()->with('success', 'Menu removed');

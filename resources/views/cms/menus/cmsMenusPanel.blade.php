@@ -14,7 +14,7 @@
         <div class="d-flex flex-wrap">
             @foreach($menus as $menu)
             <div class="card m-2" style="width: 30%;">
-                <img src="{{asset($menu->image)}}" class="card-img-top" alt="{{$menu->name}}">
+                <img src="{{asset($menu->image)}}" class="card-img-top" alt="{{$menu->name}}" style="height: 60%;">
                 <div class="card-body">
                     <h5 class="card-title">{{$menu->name}}</h5>
                     <a href="#" class="btn btn-primary">Edit</a>

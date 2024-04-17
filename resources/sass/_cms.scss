@@ -34,6 +34,11 @@ body.cms-body {
                 a {
                     text-decoration: none;
                     color: #fff;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: #feece2;
+                    }
                 }
             }
         }

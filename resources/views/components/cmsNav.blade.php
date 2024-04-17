@@ -7,9 +7,9 @@
      </div>
 
      <ul class="cms-options ps-2">
-         <li><a class="cmsMenuItem" href="/cms/home">Home / Meet The Fam</a></li>
+         <li><a class="cmsMenuItem" href="{{route('cms.showCmsHome')}}">Home / Meet The Fam</a></li>
          {{-- <li><a class="cmsMenuItem" href="/cms/meet_the_fam">Meet The Family</a></li> --}}
-         <li><a class="cmsMenuItem" href="/cms/menus">Menus</a></li>
+         <li><a class="cmsMenuItem" href="{{route('cms.showMenusPanel')}}">Menus</a></li>
          <li><a class="cmsMenuItem" href="#">Reservations</a></li>
          <li><a class="cmsMenuItem" href="#">Cocktail Masterclass</a></li>
          <li><a class="cmsMenuItem" href="#">Events</a></li>
