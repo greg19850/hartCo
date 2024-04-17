@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$menu->name}}</h5>
                     <a href="#" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-modal" data-menuid={{$menu->id}}>Delete</button>
                 </div>
             </div>
             @endforeach
@@ -69,29 +69,23 @@
             </div>
         </div>
     </div>
-    {{-- @if(session('success'))
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div class="toast align-items-center text-primary bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    {{session('success')}}
-</div>
-<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-</div>
-</div>
-</div>
-@endif --}}
+    <x-confirmMenuDeleteModal />
 </div>
 
 
 <script>
-    @if(session('success'))
     toastr.options = {
         'closeButton': true
         , 'timeOut': 1500
         , 'positionClass': 'toast-bottom-right'
     }
+
+    @if(session('success'))
     toastr.success("{{Session::get('success')}}");
+    @endif
+
+    @if(session('error'))
+    toastr.error("{{Session::get('error')}}");
     @endif
 
     @if(count($errors) > 0)
