@@ -40,4 +40,15 @@ class CmsMenusController extends Controller
 
         return redirect()->route("cms.showMenusPanel")->with('success', 'New menu added successfully');
     }
+
+    public function deleteMenu($menuId)
+    {
+        if (!$menuToDelete = Menu::where('id', $menuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu not found");
+        }
+
+        $menuToDelete->delete();
+
+        return redirect()->back()->with('success', 'Menu removed');
+    }
 }

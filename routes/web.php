@@ -44,6 +44,7 @@ Route::prefix("/cms/menus")->group(
     function () {
         Route::get('/', [CmsMenusController::class, 'showMenusPanel'])->name('cms.showMenusPanel');
         Route::post('/create_menu', [CmsMenusController::class, 'createNewMenu'])->name('cms.createNewMenu');
+        Route::delete('/delete_menu/{menuId}', [CmsMenusController::class, 'deleteMenu'])->name('cms.deleteMenu');
         //        Route::get('breakfast_menu', [CmsMenusController::class, 'showCmsBreakfastMenuPanel'])->name('showCmsBreakfastMenuPanel');
         //        Route::get('main_menu', [CmsMenusController::class, 'showCmsMainMenuPanel'])->name('showCmsMainMenuPanel');
         //        Route::get('brunch_menu', [CmsMenusController::class, 'showCmsBrunchMenuPanel'])->name('showCmsBrunchMenuPanel');
