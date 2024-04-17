@@ -33,13 +33,20 @@
                     <h5 class="modal-title" id="add-menu-modal-label">Add New Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="create-menu-form" name="create-menu-form" method="POST" action="{{url('cms/menus/create_menu')}}" enctype="multipart/form-data">
+                <form id="create-menu-form" name="create-menu-form" method="POST" action="{{route('cms.createNewMenu')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group pb-2">
                             <label for="menu_name" class="form-label">Menu Name:</label>
                             <input type="text" class="form-control" id="menu_name" name="menu_name" placeholder="Enter Menu Name" @error('menu_name') is-invalid @enderror>
                             @error('menu_name')
+                            <small class="pt-1" style="color: red">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group pb-2">
+                            <label for="menu_slug" class="form-label">Menu Short Name:</label>
+                            <input type="text" class="form-control" id="menu_slug" name="menu_slug" placeholder="Enter Menu Short Name" @error('menu_slug') is-invalid @enderror>
+                            @error('menu_slug')
                             <small class="pt-1" style="color: red">{{ $message }}</small>
                             @enderror
                         </div>
@@ -81,7 +88,7 @@
     @if(session('success'))
     toastr.options = {
         'closeButton': true
-        , 'timeOut': 1000
+        , 'timeOut': 1500
         , 'positionClass': 'toast-bottom-right'
     }
     toastr.success("{{Session::get('success')}}");

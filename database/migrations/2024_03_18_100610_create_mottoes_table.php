@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string('motto')->default('Your Local Girl Gang');
+            $table->string('motto');
 
             $table->softDeletes();
 

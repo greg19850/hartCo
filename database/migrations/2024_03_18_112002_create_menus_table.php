@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->string('name');
+            $table->string('slug');
             $table->string('serving time')->nullable();
             $table->string('image')->nullable();
 

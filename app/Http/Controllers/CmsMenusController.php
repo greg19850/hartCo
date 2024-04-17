@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateMenuRequest;
 use App\Models\Menu;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class CmsMenusController extends Controller
@@ -35,6 +34,7 @@ class CmsMenusController extends Controller
 
         Menu::create([
             'name' => $request->input('menu_name'),
+            'slug' => $request->input('menu_slug'),
             'image' => $imgUrl,
         ]);
 
