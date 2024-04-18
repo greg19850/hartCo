@@ -75,12 +75,87 @@ body.cms-body {
     }
 
     .menus-page {
-        .spinner-border {
+        .spinner-add-menu {
             display: none;
 
             &.active {
                 display: block;
             }
+        }
+    }
+
+    .edit-menu-card {
+        .top-panel {
+            height: 260px;
+
+            .edit-img-btn {
+                display: block;
+
+                &.hidden {
+                    display: none;
+                }
+            }
+            .edit-menu-img-panel {
+                display: none;
+
+                input,
+                button {
+                    font-size: 14px;
+                }
+
+                &.active {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+            .spinner-img-edit {
+                display: none;
+
+                &.active {
+                    display: block;
+                }
+            }
+
+            .edit-menu-details-form {
+                width: 80%;
+                div {
+                    .form-label {
+                        font-size: 15px;
+                    }
+                    input {
+                        font-size: 15px;
+                    }
+                }
+
+                button.edit-menu-details-btn {
+                    display: block;
+                    align-self: flex-end;
+
+                    &.hidden {
+                        display: none;
+                    }
+                }
+
+                div.menu-edit-details-panel {
+                    display: none;
+
+                    &.active {
+                        display: flex;
+                        justify-content: end;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.confirm-modal {
+    .spinner-menu-delete {
+        display: none;
+
+        &.active {
+            display: block;
         }
     }
 }

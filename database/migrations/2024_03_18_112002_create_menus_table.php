@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('slug');
-            $table->string('serving time')->nullable();
+            $table->string('serving_time')->nullable();
             $table->string('image')->nullable();
 
             $table->softDeletes();

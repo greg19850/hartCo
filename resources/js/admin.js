@@ -1,7 +1,7 @@
 const createMenuForm = document.getElementById("create-menu-form");
 const formSubmitBtn = document.querySelector(".create-menu-btn");
 const formCancelBtn = document.querySelector(".cancel-btn");
-const loadingSpinner = document.querySelector(".spinner-border");
+const loadingSpinner = document.querySelector(".spinner-add-menu");
 const addMenuModal = document.getElementById("add-menu-modal");
 const menuNameInput = document.getElementById("menu_name");
 
@@ -14,7 +14,7 @@ const progressForm = (e) => {
 
     setTimeout(function () {
         createMenuForm.submit();
-    }, 2000);
+    }, 1000);
 };
 
 createMenuForm.addEventListener("submit", progressForm);

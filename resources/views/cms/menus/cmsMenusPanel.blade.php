@@ -17,7 +17,7 @@
                 <img src="{{asset($menu->image)}}" class="card-img-top" alt="{{$menu->name}}" style="height: 60%;">
                 <div class="card-body">
                     <h5 class="card-title">{{$menu->name}}</h5>
-                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="{{route('cms.editMenu', $menu->id)}}" class="btn btn-primary">Edit</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-modal" data-menuid={{$menu->id}}>Delete</button>
                 </div>
             </div>
@@ -52,14 +52,14 @@
                         </div>
                         <div class="form-group">
                             <label for="menu_img" class="form-label">Menu Image (optional):</label>
-                            <input type="file" class="form-control" id="menu_img" name="menu_img" placeholder="Enter Menu Name" @error('menu_img') is-invalid @enderror>
+                            <input type="file" class="form-control" id="menu_img" name="menu_img" @error('menu_img') is-invalid @enderror>
                             @error('menu_img')
                             <small class="pt-1" style="color: red">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <div class="spinner-border" role="status">
+                        <div class="spinner-add-menu spinner-border" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                         <button type="button" class="cancel-btn btn btn-secondary" data-bs-dismiss="modal">Close</button>

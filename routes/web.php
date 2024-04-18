@@ -45,12 +45,8 @@ Route::prefix("/cms/menus")->group(
         Route::get('/', [CmsMenusController::class, 'showMenusPanel'])->name('cms.showMenusPanel');
         Route::post('/create_menu', [CmsMenusController::class, 'createNewMenu'])->name('cms.createNewMenu');
         Route::delete('/delete_menu/{menuId}', [CmsMenusController::class, 'deleteMenu'])->name('cms.deleteMenu');
-        Route::delete('/edit_menu/{menuId}', [CmsMenusController::class, 'editMenu'])->name('cms.editeMenu');
-        //        Route::get('breakfast_menu', [CmsMenusController::class, 'showCmsBreakfastMenuPanel'])->name('showCmsBreakfastMenuPanel');
-        //        Route::get('main_menu', [CmsMenusController::class, 'showCmsMainMenuPanel'])->name('showCmsMainMenuPanel');
-        //        Route::get('brunch_menu', [CmsMenusController::class, 'showCmsBrunchMenuPanel'])->name('showCmsBrunchMenuPanel');
-        //        Route::get('set_menu', [CmsMenusController::class, 'showCmsSetMenuPanel'])->name('showCmsSetMenuPanel');
-        //        Route::get('snack_menu', [CmsMenusController::class, 'showCmsSnackMenuPanel'])->name('showCmsSnackMenuPanel');
-        //        Route::get('drinks_menu', [CmsMenusController::class, 'showCmsDrinksMenuPanel'])->name('showCmsDrinksMenuPanel');
+        Route::get('/edit_menu/{menuId}', [CmsMenusController::class, 'editMenu'])->name('cms.editMenu');
+        Route::post('/edit_menu/{menuId}/update_img', [CmsMenusController::class, 'updateMenuImg'])->name('cms.updateMenuImg');
+        Route::post('/edit_menu/{menuId}/update_menu_details', [CmsMenusController::class, 'updateMenuDetails'])->name('cms.updateMenuDetails');
     }
 );
