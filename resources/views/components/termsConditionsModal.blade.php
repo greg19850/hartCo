@@ -1,7 +1,3 @@
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
 <div class="modal fade" id="tc-modal" tabindex="-1" aria-labelledby="tc-modal-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
