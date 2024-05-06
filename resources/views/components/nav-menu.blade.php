@@ -12,5 +12,5 @@
          <li><a class="menuItem" href="#hire" data-text="Hire">Private Hire</a></li>
          <li><a class="menuItem" href="#" data-text="FAQ">FAQ</a></li>
      </ul>
-     <div class="close-menu-btn"> close menu icon</div>
+     <x-tabler-arrow-left-from-arc class="close-menu-btn" />
  </div>

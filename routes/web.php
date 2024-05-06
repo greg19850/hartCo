@@ -45,8 +45,25 @@ Route::prefix("/cms/menus")->group(
         Route::get('/', [CmsMenusController::class, 'showMenusPanel'])->name('cms.showMenusPanel');
         Route::post('/create_menu', [CmsMenusController::class, 'createNewMenu'])->name('cms.createNewMenu');
         Route::delete('/delete_menu/{menuId}', [CmsMenusController::class, 'deleteMenu'])->name('cms.deleteMenu');
-        Route::get('/edit_menu/{menuId}', [CmsMenusController::class, 'editMenu'])->name('cms.editMenu');
-        Route::post('/edit_menu/{menuId}/update_img', [CmsMenusController::class, 'updateMenuImg'])->name('cms.updateMenuImg');
-        Route::post('/edit_menu/{menuId}/update_menu_details', [CmsMenusController::class, 'updateMenuDetails'])->name('cms.updateMenuDetails');
+    }
+);
+
+// Single menu
+
+Route::prefix('/cms/menus/edit_menu/{menuId}')->group(
+    function () {
+        Route::get('/', [CmsMenusController::class, 'editMenu'])->name('cms.editMenu');
+        Route::post('/update_img', [CmsMenusController::class, 'updateMenuImg'])->name('cms.updateMenuImg');
+        Route::post('/update_menu_details', [CmsMenusController::class, 'updateMenuDetails'])->name('cms.updateMenuDetails');
+
+        Route::get('/add_menu_rules_form', [CmsMenusController::class, 'addMenuRulesForm'])->name('cms.addMenuRulesForm');
+
+        Route::post('/add_menu_rules', [CmsMenusController::class, 'addMenuRules'])->name('cms.addMenuRules');
+
+        Route::get('/edit_menu_rules_form/rule/{ruleId}', [CmsMenusController::class, 'editMenuRulesForm'])->name('cms.editMenuRulesForm');
+
+        Route::post('/update_menu_rules/{ruleId}', [CmsMenusController::class, 'updateMenuRules'])->name('cms.updateMenuRules');
+
+        Route::delete('/delete_menu_rules/{ruleId}', [CmsMenusController::class, 'deleteMenuRules'])->name('cms.deleteMenuRules');
     }
 );

@@ -23,9 +23,12 @@ class PageController extends Controller
             $description = $familyDescription->description;
         }
 
+        $menus = Menu::all();
+
         return view('home.homePage', [
             'motto' => $text,
-            'famDescription' => $description
+            'famDescription' => $description,
+            'menus' => $menus
         ]);
     }
 }

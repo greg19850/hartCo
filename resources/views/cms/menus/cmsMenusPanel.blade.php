@@ -25,7 +25,6 @@
         </div>
         @endif
     </div>
-
     <div class="modal fade" id="add-menu-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="add-menu-modal-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -40,13 +39,6 @@
                             <label for="menu_name" class="form-label">Menu Name:</label>
                             <input type="text" class="form-control" id="menu_name" name="menu_name" placeholder="Enter Menu Name" @error('menu_name') is-invalid @enderror>
                             @error('menu_name')
-                            <small class="pt-1" style="color: red">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group pb-2">
-                            <label for="menu_slug" class="form-label">Menu Short Name:</label>
-                            <input type="text" class="form-control" id="menu_slug" name="menu_slug" placeholder="Enter Menu Short Name" @error('menu_slug') is-invalid @enderror>
-                            @error('menu_slug')
                             <small class="pt-1" style="color: red">{{ $message }}</small>
                             @enderror
                         </div>
@@ -69,7 +61,7 @@
             </div>
         </div>
     </div>
-    <x-confirmMenuDeleteModal />
+    <x-confirm-menu-delete-modal />
 </div>
 
 

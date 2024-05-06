@@ -23,7 +23,6 @@ class EditMenuDetailsRequest extends FormRequest
     {
         return [
             'edit_menu_name' => 'required',
-            'edit_menu_slug' => 'required',
         ];
     }
 
@@ -36,7 +35,6 @@ class EditMenuDetailsRequest extends FormRequest
     {
         return [
             'edit_menu_name.required' => 'Menu name is required',
-            'edit_menu_slug.required' => 'Menu short name is required'
         ];
     }
 }

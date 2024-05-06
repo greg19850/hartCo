@@ -86,7 +86,7 @@ body.cms-body {
 
     .edit-menu-card {
         .top-panel {
-            height: 260px;
+            height: 280px;
 
             .edit-img-btn {
                 display: block;
@@ -157,5 +157,27 @@ body.cms-body {
         &.active {
             display: block;
         }
+    }
+}
+
+#add_rules_form,
+#edit_rules_form {
+    .spinner-rule {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.single-menu-rule {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    .rule-content {
+        width: 80%;
     }
 }

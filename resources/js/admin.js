@@ -16,5 +16,6 @@ const progressForm = (e) => {
         createMenuForm.submit();
     }, 1000);
 };
-
-createMenuForm.addEventListener("submit", progressForm);
+if (createMenuForm) {
+    createMenuForm.addEventListener("submit", progressForm);
+}

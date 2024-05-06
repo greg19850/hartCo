@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string('title')->nullable();
-            $table->string('body');
+            $table->text('body');
+            $table->integer('position')->nullable();
 
             $table->unsignedBigInteger('menu_id');
 

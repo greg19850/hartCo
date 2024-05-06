@@ -3,13 +3,12 @@
 @section('title', 'Home Page')
 
 @section('content')
-
 <div class="home-page">
-    <div class="heart-up-icon"> heart up icon</div>
+    <x-tabler-heart-up class="heart-up-icon" />
     <div id="hart-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="motto d-flex flex-column align-items-center justify-content-center">
             <h1>{{$motto}}</h1>
-            <div class="heart-down-icon">down icon</div>
+            <x-tabler-heart-down class="heart-down-icon" />
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -37,43 +36,27 @@
 
     <div id="menus" class="menus d-flex flex-column align-items-center p-3">
         <h2 class="text-uppercase" data-aos="fade-up">Check Our Menus</h2>
+        @if(!$menus)
+        <p>Menus section coming soon</p>
+        @else
         <div class="glide menus py-4 menus-container d-flex justify-content-center px-2" data-aos="fade-up">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
+                    @foreach($menus as $menu)
                     <li class="glide__slide menu-item breakfast-menu">
-                        <img src="images/hartphotos/IMG_5502.jpg" alt="">
-                        <h5><a href="/menus/breakfast_menu">Breakfast Menu</a></h5>
+                        <img src={{$menu->image}} alt="">
+                        <h5><a href="/menus/breakfast_menu">{{$menu->name}}</a></h5>
                     </li>
-                    <li class="glide__slide menu-item main-menu">
-                        <img src='images/hartphotos/IMG_5503.jpg' alt="">
-                        <h5><a href="/menus/main_menu">Main Menu</a></h5>
-                    </li>
-                    <li class="glide__slide menu-item brunch-menu">
-                        <img src='images/hartphotos/IMG_5504.jpg' alt="">
-                        <h5><a href="/menus/brunch_menu">Botomless Brunch Menu</a></h5>
-                    </li>
-                    <li class="glide__slide menu-item set-menu">
-                        <img src='images/hartphotos/IMG_5505.jpg' alt="">
-                        <h5><a href="/menus/set_menu">Set Menu</a></h5>
-                    </li>
-                    <li class="glide__slide menu-item snack-menu">
-                        <img src='images/hartphotos/IMG_5509.jpg' alt="">
-                        <h5><a href="/menus/snack_menu">Snack Menu</a></h5>
-                    </li>
-                    <li class="glide__slide menu-item drinks-menu">
-                        <img src='images/hartphotos/IMG_5507.jpg' alt="">
-                        <h5><a href="/menus/drinks_menu">Drinks Menu</a></h5>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
-
             <div class="glide__arrows" data-glide-el="controls">
                 <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
                 <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
             </div>
         </div>
     </div>
-
+    @endif
     <div class="contact p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">Reservations/Contract Page/Opening Hours</h2>
     </div>
@@ -143,6 +126,6 @@
     <div id="faq" class="faq p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">FAQ's</h2>
     </div>
-    <x-termsConditionsModal />
+    <x-terms-conditions-modal />
 </div>
 @endsection

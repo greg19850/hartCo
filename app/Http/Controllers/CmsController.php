@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateDescriptionRequest;
-use App\Http\Requests\UpdateMottoRequest;
 use App\Models\FamilyDescription;
 use App\Models\Motto;
+
+// Requests
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateDescriptionRequest;
+use App\Http\Requests\UpdateMottoRequest;
+
+
 
 class CmsController extends Controller
 {

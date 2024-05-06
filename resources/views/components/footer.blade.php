@@ -22,11 +22,11 @@
             <div class="address mb-2">27 AUGUSTA PLACE CV32 5EL Royal Leamington Spa</div>
             <div class="socials d-flex justify-content-center">
                 <a href="https://www.instagram.com/hartleamington/?hl=en">
-                    inst icon</a>
+                    <x-entypo-instagram /></a>
                 <a href="https://www.facebook.com/hartrestaurants1">
-                    fb icon</a>
+                    <x-entypo-facebook class="facebook-icon" /></a>
                 <a href="mailto:reservations@hartrestaurants.co.uk">
-                    email icon</a>
+                    <x-entypo-email /></a>
             </div>
         </div>
     </div>

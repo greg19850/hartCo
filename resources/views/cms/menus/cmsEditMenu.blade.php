@@ -1,11 +1,11 @@
 @extends('cmsLayout')
 
 @section('content')
-{{-- @dd($menu->slug); --}}
+
 <div class='edit-menu-card'>
     <h3 class='mb-3'>{{$menu->name}}</h3>
     <hr class="mb-3" />
-    <div class='top-panel d-flex '>
+    <div class='top-panel d-flex mb-5'>
         <form id='img_form' name='img_form' class='img-form' method="POST" action="{{route('cms.updateMenuImg' , $menu->id)}}" enctype="multipart/form-data">
             @csrf
             <div class="card border-0" style="width: 18rem;">
@@ -37,13 +37,6 @@
                 <small class="pt-1" style="color: red">{{ $message }}</small>
                 @enderror
             </div>
-            <div class="mb-1">
-                <label for="edit_menu_short_name" class="form-label mb-1">Menu Short Name</label>
-                <input type="text" class="form-control py-1" id="edit_menu_slug" name='edit_menu_slug' value="{{$menu->slug}}" @error('edit_menu_slug') is-invalid @enderror disabled>
-                @error('edit_menu_slug')
-                <small class="pt-1" style="color: red">{{ $message }}</small>
-                @enderror
-            </div>
             <div class="mb-2">
                 <label for="edit_menu_serving_times" class="form-label mb-1">Menu Serving Times</label>
                 <input type="text" class="form-control py-1" id="edit_menu_serving_times" name='edit_menu_serving_times' value="{{$menu->serving_time}} " disabled>
@@ -56,12 +49,21 @@
             </div>
         </form>
     </div>
-    <hr class="mb-3" />
-    <div class='menu-rules d-flex justify-content-between align-items-center'>
-        <h4 class="mb-0">Menu Rules</h4>
-        <button class="btn btn-primary rule-modal-btn p-2" data-bs-toggle="modal" data-bs-target="#add-rules-modal" style="width:150px">Add Rules</button>
+    <div class='menu-rules '>
+        <div class='rules-header d-flex justify-content-between align-items-center'>
+            <h4 class="mb-0">Menu Rules</h4>
+            <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addMenuRulesForm' , $menu->id)}}" style="width:150px">Add Rules</a>
+        </div>
+        <div class="rules-content">
+            <ul class="p-0">
+                @if($rules)
+                @foreach($rules as $rule)
+                <x-menu-rule :rule=$rule />
+                @endforeach
+                @endif
+            </ul>
+        </div>
     </div>
-    <x-menuRulesModal />
 </div>
 
 <script>
@@ -113,7 +115,7 @@
 
         setTimeout(function() {
             imageForm.submit();
-        }, 1000);
+        }, 500);
     }
 
     showEditImgBtn.addEventListener("click", showEditImagePanel);

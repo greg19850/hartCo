@@ -23,7 +23,6 @@ class CreateMenuRequest extends FormRequest
     {
         return [
             'menu_name' => 'required',
-            'menu_slug' => 'required',
             'menu_img' => 'nullable|mimes:jpeg,jpg,png,gif|max:5120'
             // 'menu_img' => $this->getValidationRule('article_img')
         ];
@@ -46,7 +45,6 @@ class CreateMenuRequest extends FormRequest
     {
         return [
             'menu_name.required' => 'Menu name is required',
-            'menu_slug.required' => 'Menu short name is required',
             'menu_img.max' => 'Max size of image exceeded, max size of file: 5mb',
             'menu_img.mimes' => 'Incorrect file type'
         ];

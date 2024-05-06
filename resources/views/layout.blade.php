@@ -15,7 +15,7 @@
         <div class="img-container">
             <img src='images/hart logo.png' alt="logo" />
         </div>
-        <div class="menu-icon">menu icon</div>
+        <x-tabler-menu-deep class="menu-icon" />
         <x-nav-menu />
     </header>
 
