@@ -55,7 +55,7 @@
             <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addMenuRulesForm' , $menu->id)}}" style="width:150px">Add Rules</a>
         </div>
         <div class="rules-content">
-            <ul class="p-0">
+            <ul id="sort_rules" class="rules-list p-0">
                 @if($rules)
                 @foreach($rules as $rule)
                 <x-menu-rule :rule=$rule />
@@ -163,11 +163,14 @@
         }, 1000);
     }
 
-
-
     showMenuEditPanelBtn.addEventListener('click', showMenuPanel)
     editMenuDetailsCancelBtn.addEventListener('click', closeMenuPanel)
     editMenuDetailsForm.addEventListener('submit', submitMenuDetailsForm)
+
+    // sort rules
+    const sortRulesList = document.getElementById('sort_rules')
+
+    console.log(sortRulesList)
 
 </script>
 @endsection

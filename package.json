@@ -12,7 +12,6 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "@glidejs/glide": "^3.6.0",
-        "quill-delta-to-html": "^0.12.1"
+        "@glidejs/glide": "^3.6.0"
     }
 }

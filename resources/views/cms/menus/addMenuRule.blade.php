@@ -53,7 +53,7 @@
 
      // Submit form with rules 
      const form = document.getElementById('add_rules_form')
-     const spinner = document.querySelector('.spinner-add-rule')
+     const spinner = document.querySelector('.spinner-rule')
      const submitBtn = document.querySelector('.submit-rule-btn')
      const cancelRuleBtn = document.querySelector('.cancel-btn')
 
