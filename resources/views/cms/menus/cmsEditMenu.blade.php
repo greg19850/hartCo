@@ -49,16 +49,32 @@
             </div>
         </form>
     </div>
-    <div class='menu-rules '>
+    <div class='menu-rules mb-5'>
         <div class='rules-header d-flex justify-content-between align-items-center'>
             <h4 class="mb-0">Menu Rules</h4>
             <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addMenuRulesForm' , $menu->id)}}" style="width:150px">Add Rules</a>
         </div>
         <div class="rules-content">
-            <ul id="sort_rules" class="rules-list p-0">
+            <ol id="sort_rules" class="rules-list p-0">
                 @if($rules)
                 @foreach($rules as $rule)
                 <x-menu-rule :rule=$rule />
+                @endforeach
+                @endif
+            </ol>
+        </div>
+    </div>
+    <div class="sub-menus">
+        <div class='sub-menu-header d-flex justify-content-between align-items-center'>
+            <h4 class="mb-0">Sub Menus</h4>
+            <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addSubMenuForm' , $menu->id)}}" style="width:150px">Add Category</a>
+        </div>
+        <div class="menu-content">
+            <ul id="menu_items" class="menu-items-list p-0">
+                @if($sub_menus)
+                @foreach($sub_menus as $category)
+                {{-- @dd($category); --}}
+                <x-sub-menu :category="$category" />
                 @endforeach
                 @endif
             </ul>
@@ -66,6 +82,9 @@
     </div>
 </div>
 
+<!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
 <script>
     // success / error push notifications
     toastr.options = {
@@ -168,9 +187,41 @@
     editMenuDetailsForm.addEventListener('submit', submitMenuDetailsForm)
 
     // sort rules
-    const sortRulesList = document.getElementById('sort_rules')
+    /* const sortRulesList = document.getElementById('sort_rules')
+    Sortable.create(sortRulesList, {
+        animation: 150
+        , handle: '.handle'
+        , ghostClass: 'blue-background-class'
+    });
+    */
 
-    console.log(sortRulesList)
+
+    /* $(document).ready(function() {
+        $("#sort_rules").sortable({
+            animation: 150
+            , handle: '.handle'
+            , opacity: 0.6
+            , cursor: 'move'
+            , tolerance: 'pointer'
+            , revert: true
+            , items: 'li'
+            , placeholder: 'state'
+            , forcePlaceholderSize: true
+            , ghostClass: 'blue-background-class'
+            , onUpdate: function(evt, ui) {
+                $.ajax({
+                    url: "/cms/menus/update_rules"
+                    , method: 'POST'
+                    , data: {
+                        'order': $("#sort_rules").sortable('toArray')
+                    , }
+                    , cache: false
+                    , processData: false,
+
+                });
+            }
+        });
+    }); */
 
 </script>
 @endsection

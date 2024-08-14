@@ -171,7 +171,12 @@ body.cms-body {
     }
 }
 
-.single-menu-rule {
+.menu-items-list {
+    list-style: none;
+}
+
+.single-menu-rule,
+.single-menu-category {
     display: flex;
     justify-content: space-between;
     border: 1px solid #ddd;
@@ -179,5 +184,13 @@ body.cms-body {
 
     .rule-content {
         width: 80%;
+
+        .handle {
+            cursor: grab;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
     }
 }
