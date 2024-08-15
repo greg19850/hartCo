@@ -58,25 +58,20 @@ Route::prefix('/cms/menus/edit_menu/{menuId}')->group(
         Route::post('/update_menu_details', [CmsMenusController::class, 'updateMenuDetails'])->name('cms.updateMenuDetails');
 
         Route::get('/add_menu_rules_form', [CmsMenusController::class, 'addMenuRulesForm'])->name('cms.addMenuRulesForm');
-
         Route::post('/add_menu_rules', [CmsMenusController::class, 'addMenuRules'])->name('cms.addMenuRules');
 
         Route::get('/edit_menu_rules_form/rule/{ruleId}', [CmsMenusController::class, 'editMenuRulesForm'])->name('cms.editMenuRulesForm');
-
         Route::post('/update_menu_rules/{ruleId}', [CmsMenusController::class, 'updateMenuRules'])->name('cms.updateMenuRules');
-
         Route::delete('/delete_menu_rules/{ruleId}', [CmsMenusController::class, 'deleteMenuRules'])->name('cms.deleteMenuRules');
 
         Route::get('/add_submenu_form', [CmsMenusController::class, 'addSubMenuForm'])->name('cms.addSubMenuForm');
-
         Route::post('/add_sub_menu', [CmsMenusController::class, 'addSubMenu'])->name('cms.addSubMenu');
 
+        Route::get('/edit_menu_category/{subMenuId}', [CmsMenusController::class, 'editMenuCategoryForm'])->name('cms.editMenuCategoryForm');
+        Route::post('/update_menu_category/{subMenuId}', [CmsMenusController::class, 'updateMenuCategory'])->name('cms.updateMenuCategory');
+        Route::delete('/delete_menu_category/{subMenuId}', [CmsMenusController::class, 'deleteMenuCategory'])->name('cms.deleteMenuCategory');
+
         Route::get('/sub_menu/add_menu_items_form/{subMenuId}', [CmsMenusController::class, 'addMenuItemsForm'])->name('cms.addMenuItemsForm');
-
-        Route::get('/edit_menu_category/{categoryId}', [CmsMenusController::class, 'editMenuCategoryForm'])->name('cms.editMenuCategoryForm');
-
-        Route::post('/update_menu_category/{categoryId}', [CmsMenusController::class, 'updateMenuCategory'])->name('cms.updateMenuCategory');
-
-        Route::delete('/delete_menu_category/{categoryId}', [CmsMenusController::class, 'deleteMenuCategory'])->name('cms.deleteMenuCategory');
+        Route::post('/sub_menu/add_menu_items/{subMenuId}', [CmsMenusController::class, 'addMenuItems'])->name('cms.addMenuItems');
     }
 );

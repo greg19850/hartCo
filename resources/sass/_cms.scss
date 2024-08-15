@@ -204,3 +204,27 @@ body.cms-body {
 //     display: flex;
 //     align-items: center;
 // }
+
+.menu-items-list {
+    padding: 0;
+
+    .item-remove {
+        line-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .bi-file-minus {
+            font-size: 25px;
+            max-height: 100%;
+            cursor: pointer;
+            transition: .2s;
+
+            &:hover {
+                font-size: 28px;
+            }
+        }
+    }
+
+
+}

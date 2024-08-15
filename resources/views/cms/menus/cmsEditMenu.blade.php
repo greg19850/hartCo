@@ -70,9 +70,9 @@
         <div class="menu-content">
             <ul id="menu_items" class="menu-items-list p-0">
                 @if($sub_menus)
-                @foreach($sub_menus as $category)
+                @foreach($sub_menus as $subMenu)
                 {{-- @dd($category); --}}
-                <x-sub-menu :category="$category" />
+                <x-sub-menu :subMenu="$subMenu" />
                 @endforeach
                 @endif
             </ul>

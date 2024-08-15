@@ -6,12 +6,12 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class SubMenu extends Component
+class menuItemCreate extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public $subMenu)
+    public function __construct()
     {
         //
     }
@@ -21,6 +21,6 @@ class SubMenu extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.sub-menu');
+        return view('components.menu-item-create');
     }
 }
