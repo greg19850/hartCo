@@ -249,7 +249,8 @@ class CmsMenusController extends Controller
         };
 
         return view('cms.menus.addMenuItems', [
-            'menu' => $menu
+            'menu' => $menu,
+            'subMenu' => $subMenu
         ]);
     }
 

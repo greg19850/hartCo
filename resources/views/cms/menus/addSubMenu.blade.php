@@ -1,4 +1,4 @@
- @extends('cmsLayout')
+ @extends('layouts.cmsLayout')
 
  @section('content')
  <form id='add_sub_menu_form' name='add_sub_menu_form' class="add-sub-menu-form" method="POST" action="{{route('cms.addSubMenu' , $menu->id)}}">

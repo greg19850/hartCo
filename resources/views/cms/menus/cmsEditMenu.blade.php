@@ -1,4 +1,4 @@
-@extends('cmsLayout')
+@extends('layouts.cmsLayout')
 
 @section('content')
 
@@ -55,16 +55,14 @@
             <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addMenuRulesForm' , $menu->id)}}" style="width:150px">Add Rules</a>
         </div>
         <div class="rules-content">
-            <ol id="sort_rules" class="rules-list p-0">
-                @if($rules)
-                @foreach($rules as $rule)
-                <x-menu-rule :rule=$rule />
-                @endforeach
-                @endif
-            </ol>
+            @if($rules)
+            @foreach($rules as $rule)
+            <x-menu-rule :rule=$rule />
+            @endforeach
+            @endif
         </div>
     </div>
-    <div class="sub-menus">
+    <div class="sub-menus mb-5">
         <div class='sub-menu-header d-flex justify-content-between align-items-center'>
             <h4 class="mb-0">Sub Menus</h4>
             <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addSubMenuForm' , $menu->id)}}" style="width:150px">Add Category</a>
@@ -88,9 +86,9 @@
 <script>
     // success / error push notifications
     toastr.options = {
-        'closeButton': true
-        , 'timeOut': 1500
-        , 'positionClass': 'toast-bottom-right'
+        'closeButton': true,
+        'timeOut': 1500,
+        'positionClass': 'toast-bottom-right'
     }
 
     @if(session('success'))
@@ -222,6 +220,5 @@
             }
         });
     }); */
-
 </script>
 @endsection

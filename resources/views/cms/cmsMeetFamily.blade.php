@@ -1,4 +1,4 @@
-@extends('cmsLayout')
+@extends('layouts.cmsLayout')
 
 @section('content')
 

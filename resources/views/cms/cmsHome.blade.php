@@ -1,4 +1,4 @@
-@extends('cmsLayout')
+@extends('layouts.cmsLayout')
 
 @section('content')
 <div class="cms-home">
@@ -42,12 +42,11 @@
 <script>
     @if(session('success'))
     toastr.options = {
-        'closeButton': true
-        , 'timeOut': 1500
-        , 'positionClass': 'toast-bottom-right'
+        'closeButton': true,
+        'timeOut': 1500,
+        'positionClass': 'toast-bottom-right'
     }
     toastr.success("{{Session::get('success')}}");
     @endif
-
 </script>
 @endsection

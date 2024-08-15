@@ -71,7 +71,7 @@ Route::prefix('/cms/menus/edit_menu/{menuId}')->group(
 
         Route::post('/add_sub_menu', [CmsMenusController::class, 'addSubMenu'])->name('cms.addSubMenu');
 
-        Route::get('/sub_menu/{subMenuId}/add_menu_items_form', [CmsMenusController::class, 'addMenuItemsForm'])->name('cms.addMenuItemsForm');
+        Route::get('/sub_menu/add_menu_items_form/{subMenuId}', [CmsMenusController::class, 'addMenuItemsForm'])->name('cms.addMenuItemsForm');
 
         Route::get('/edit_menu_category/{categoryId}', [CmsMenusController::class, 'editMenuCategoryForm'])->name('cms.editMenuCategoryForm');
 
