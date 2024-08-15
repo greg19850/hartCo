@@ -45,6 +45,7 @@ Route::prefix("/cms/menus")->group(
         Route::get('/', [CmsMenusController::class, 'showMenusPanel'])->name('cms.showMenusPanel');
         Route::post('/create_menu', [CmsMenusController::class, 'createNewMenu'])->name('cms.createNewMenu');
         Route::delete('/delete_menu/{menuId}', [CmsMenusController::class, 'deleteMenu'])->name('cms.deleteMenu');
+        Route::post('/update_rules', [CmsMenusController::class, 'updateRules'])->name('cms.updateRules');
     }
 );
 
@@ -65,5 +66,17 @@ Route::prefix('/cms/menus/edit_menu/{menuId}')->group(
         Route::post('/update_menu_rules/{ruleId}', [CmsMenusController::class, 'updateMenuRules'])->name('cms.updateMenuRules');
 
         Route::delete('/delete_menu_rules/{ruleId}', [CmsMenusController::class, 'deleteMenuRules'])->name('cms.deleteMenuRules');
+
+        Route::get('/add_submenu_form', [CmsMenusController::class, 'addSubMenuForm'])->name('cms.addSubMenuForm');
+
+        Route::post('/add_sub_menu', [CmsMenusController::class, 'addSubMenu'])->name('cms.addSubMenu');
+
+        Route::get('/sub_menu/add_menu_items_form/{subMenuId}', [CmsMenusController::class, 'addMenuItemsForm'])->name('cms.addMenuItemsForm');
+
+        Route::get('/edit_menu_category/{categoryId}', [CmsMenusController::class, 'editMenuCategoryForm'])->name('cms.editMenuCategoryForm');
+
+        Route::post('/update_menu_category/{categoryId}', [CmsMenusController::class, 'updateMenuCategory'])->name('cms.updateMenuCategory');
+
+        Route::delete('/delete_menu_category/{categoryId}', [CmsMenusController::class, 'deleteMenuCategory'])->name('cms.deleteMenuCategory');
     }
 );

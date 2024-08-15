@@ -31,6 +31,7 @@ body.cms-body {
             li {
                 margin-bottom: 15px;
                 font-size: 18px;
+
                 a {
                     text-decoration: none;
                     color: #fff;
@@ -95,6 +96,7 @@ body.cms-body {
                     display: none;
                 }
             }
+
             .edit-menu-img-panel {
                 display: none;
 
@@ -119,10 +121,12 @@ body.cms-body {
 
             .edit-menu-details-form {
                 width: 80%;
+
                 div {
                     .form-label {
                         font-size: 15px;
                     }
+
                     input {
                         font-size: 15px;
                     }
@@ -171,13 +175,32 @@ body.cms-body {
     }
 }
 
-.single-menu-rule {
+.menu-items-list {
+    list-style: none;
+}
+
+.single-menu-rule,
+.single-menu-category {
     display: flex;
     justify-content: space-between;
+    // align-items: center;
     border: 1px solid #ddd;
     border-radius: 10px;
 
     .rule-content {
         width: 80%;
+
+        .handle {
+            cursor: grab;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
     }
 }
+
+// .category-content {
+//     display: flex;
+//     align-items: center;
+// }

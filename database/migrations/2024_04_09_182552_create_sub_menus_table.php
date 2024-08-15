@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('price')->nullable();
+            $table->boolean('per_person')->nullable();
 
             $table->unsignedBigInteger('menu_id');
 

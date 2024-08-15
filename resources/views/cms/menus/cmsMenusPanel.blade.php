@@ -1,4 +1,4 @@
-@extends('cmsLayout')
+@extends('layouts.cmsLayout')
 
 @section('content')
 <div class="menus-page">
@@ -67,9 +67,9 @@
 
 <script>
     toastr.options = {
-        'closeButton': true
-        , 'timeOut': 1500
-        , 'positionClass': 'toast-bottom-right'
+        'closeButton': true,
+        'timeOut': 1500,
+        'positionClass': 'toast-bottom-right'
     }
 
     @if(session('success'))
@@ -85,6 +85,5 @@
         $("#add-menu-modal").modal('show');
     });
     @endif
-
 </script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('cmsLayout')
+@extends('layouts.cmsLayout')
 
 @section('content')
 <input type="hidden" id="menu_rule_body" class="menu-rule-body" value="{{ $rule->body }}">
@@ -35,21 +35,20 @@
         let ruleBody = $('#menu_rule_body').val();
 
         $('#summernoteEdit').summernote({
-            placeholder: 'Write your menu rules here'
-            , tabsize: 2
-            , height: 200
-            , lineHeights: ['0.2', '0.5', '1.0', '1.2', '1.5', '2.0', '3.0']
-            , toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']]
-                , ['font', ['strikethrough', 'superscript', 'subscript']]
-                , ['fontname', ['fontname']]
-                , ['fontsize', ['fontsize']]
-                , ['color', ['color']]
-                , ['para', ['ul', 'ol', 'paragraph']], 
-                , ['table', ['table']]
-                , ['insert', ['link']]
-                , ['height', ['height']]
-                , ['view', ['help']]
+            placeholder: 'Write your menu rules here',
+            tabsize: 2,
+            height: 200,
+            lineHeights: ['0.2', '0.5', '1.0', '1.2', '1.5', '2.0', '3.0'],
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']], , ['table', ['table']],
+                ['insert', ['link']],
+                ['height', ['height']],
+                ['view', ['help']]
             ]
         });
 
@@ -79,6 +78,5 @@
     }
 
     form.addEventListener('submit', updateRules)
-
 </script>
 @endsection

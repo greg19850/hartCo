@@ -10,8 +10,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CreateMenuRequest;
 use App\Http\Requests\EditMenuDetailsRequest;
 use App\Http\Requests\EditMenuImageRequest;
+use App\Http\Requests\MenuCategoryRequest;
 use App\Http\Requests\MenuRuleRequest;
+use App\Http\Requests\SubMenuRequest;
 use App\Models\MenuRule;
+use App\Models\SubMenu;
 
 class CmsMenusController extends Controller
 {
@@ -71,6 +74,7 @@ class CmsMenusController extends Controller
         }
 
         $rules = MenuRule::where('menu_id', $menuId)->get();
+        $sub_menus = SubMenu::where('menu_id', $menuId)->get();
 
         // foreach ($rules as $rule) {
         //     $ruleTxt = json_decode($rule->body);
@@ -79,7 +83,8 @@ class CmsMenusController extends Controller
         // die;
         return view('cms.menus.cmsEditMenu', [
             'menu' => $menu,
-            'rules' => $rules
+            'rules' => $rules,
+            'sub_menus' => $sub_menus
         ]);
     }
 
@@ -143,9 +148,13 @@ class CmsMenusController extends Controller
     public function addMenuRules(MenuRuleRequest $request, int $menuId)
     {
 
+        $rules = MenuRule::where('menu_id', $menuId)->get();
+
+
         MenuRule::create([
             'body' => $request->input('rule_data'),
-            'menu_id' => $menuId
+            'menu_id' => $menuId,
+            'position' => count($rules) + 1
         ]);
 
         return redirect()->route('cms.editMenu', $menuId)->with('success', 'Rules Added');
@@ -186,6 +195,108 @@ class CmsMenusController extends Controller
 
         $ruleToDelete->delete();
 
+        $rules = MenuRule::where('menu_id', $menuId)->get();
+
+        foreach ($rules as $index => $rule) {
+            $rule->position = $index + 1;
+
+            $rule->save();
+        }
+
         return redirect()->route('cms.editMenu', $menuId)->with('success', 'Rules Removed');
+    }
+
+    public function addSubMenuForm(int $menuId)
+    {
+        if (!$menu = Menu::where('id', $menuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu not found");
+        };
+
+        return view('cms.menus.addSubMenu', [
+            'menu' => $menu
+        ]);
+    }
+
+    public function addSubMenu(SubMenuRequest $request, int $menuId)
+    {
+        $subMenu = new SubMenu();
+
+        $subMenu->menu_id = $menuId;
+        $subMenu->title = $request->input('name');
+        $subMenu->price = $request->input('price');
+        $subMenu->description = $request->input('description');
+
+        if ($request->input('price') !== null && $request->input('pp_check') !== null) {
+            $subMenu->per_person = true;
+        } else {
+            $subMenu->per_person = false;
+        }
+
+        $subMenu->save();
+
+        return redirect()->route('cms.addMenuItemsForm', ['menuId' => $menuId, 'subMenuId' => $subMenu->id])->with('success', 'Menu Category Created');
+    }
+
+    public function addMenuItemsForm(int $menuId, int $subMenuId)
+    {
+
+        if (!$menu = Menu::where('id', $menuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu not found");
+        };
+
+        if (!$subMenu = SubMenu::where('id', $subMenuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu category not found");
+        };
+
+        return view('cms.menus.addMenuItems', [
+            'menu' => $menu,
+            'subMenu' => $subMenu
+        ]);
+    }
+
+    public function editMenuCategoryForm(int $menuId, int $categoryId)
+    {
+
+        if (!$ruleToUpdate = SubMenu::where('id', $categoryId)->first()) {
+            return redirect()->back()->withError("Sorry, sub menu not found");
+        };
+
+        // $categoryToUpdate->body = $request->input('rule_data');
+        // $categoryToUpdate->save();
+
+        // return redirect()->route('cms.editMenu', $menuId)->with('success', 'Rules Updated');
+    }
+
+    public function updateMenuCategory(MenuCategoryRequest $request, int $menuId, int $categoryId)
+    {
+
+        if (!$ruleToUpdate = SubMenu::where('id', $categoryId)->first()) {
+            return redirect()->back()->withError("Sorry, sub menu not found");
+        };
+
+        // $categoryToUpdate->body = $request->input('rule_data');
+        // $categoryToUpdate->save();
+
+        // return redirect()->route('cms.editMenu', $menuId)->with('success', 'Rules Updated');
+    }
+
+    public function deleteMenuCategory(int $menuId, int $categoryId)
+    {
+
+        if (!$categoryToDelete = SubMenu::where('id', $categoryId)->first()) {
+            return redirect()->back()->withError("Sorry, sub menu not found");
+        };
+
+        $categoryToDelete->delete();
+
+        // $rules = SubMenu::where('menu_id', $menuId)->get();
+
+        // foreach ($rules as $index => $rule) {
+        //     $rule->position = $index + 1;
+
+        //     $rule->save();
+        // }
+
+        return redirect()->route('cms.editMenu', $menuId)->with('success', 'Menu Category Removed');
     }
 }
