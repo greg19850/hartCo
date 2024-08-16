@@ -20,6 +20,10 @@ if (createMenuForm) {
     createMenuForm.addEventListener("submit", progressForm);
 }
 
+
+
+
+
 // Hide menu items submit button
 $('.submit-menu-items').hide();
 
@@ -40,11 +44,13 @@ $(".add-menu-item-btn").on('click', function () {
                     <div class="item-remove col-1">
                         <i class="bi bi-file-minus"></i>
                     </div>
-                    <div class="col-12 form-check mx-3 mt-2">
-                        <input type="checkbox" name="is_vegan[]" class="form-check-input" type="checkbox" id="veganCheck">
-                        <label class="form-check-label" for="veganCheck">
+                    <div class='row'>
+                        <div class="col-12 form-check mx-3 mt-2">
+                            <input type="checkbox" name="is_vegan[]" class="form-check-input" type="checkbox" value="1"  id="veganCheck">
+                            <label class="form-check-label" for="veganCheck">
                             Vegan?
-                        </label>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </li>`;
@@ -52,7 +58,10 @@ $(".add-menu-item-btn").on('click', function () {
 
     if ($('.menu-items-list').children('li').length >= 1) {
         $('.submit-menu-items').show();
+        $('.submit-menu-items').prop('disabled', true);
     }
+
+    processMenuItems();
 });
 
 
@@ -65,3 +74,44 @@ $('.menu-items-list').on('click', '.item-remove', function () {
     }
 });
 
+
+// check if isVegan checkbox is checked and add appropriate value before posting form
+$("#menu-items-form").submit(function () {
+
+    var this_master = $(this);
+
+    this_master.find('input[type="checkbox"]').each(function () {
+        var checkbox_this = $(this);
+
+
+        if (checkbox_this.is(":checked") == true) {
+            checkbox_this.attr('value', '1');
+        } else {
+            checkbox_this.prop('checked', true);
+            //DONT' ITS JUST CHECK THE CHECKBOX TO SUBMIT FORM DATA
+            checkbox_this.attr('value', '0');
+        }
+    })
+})
+
+
+// Activate submit form button for menu items, based on all menu items names being filled out, or disable button if at least one name field is empty
+function processMenuItems() {
+    let allFilled = true;
+
+    $('.menu-item-name').each(function() {
+        if ($(this).val().trim() === '') {
+            allFilled = false;
+            $('.submit-menu-items').prop('disabled', true);
+        }
+    });
+
+    if (allFilled) {
+        $('.submit-menu-items').prop('disabled', false);
+    }
+}
+
+processMenuItems();
+$('.menu-items-list').on('input', '.menu-item-name', function() {
+    processMenuItems();
+});

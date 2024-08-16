@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('ingredients')->nullable();
-            $table->float('price');
+            $table->float('price')->nullable();
             $table->boolean('vegan')->default(false);
 
             $table->unsignedBigInteger('sub_menu_id');

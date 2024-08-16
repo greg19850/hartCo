@@ -14,7 +14,7 @@
                     <button type="button" id='edit-img-btn' class="edit-img-btn btn btn-primary mt-4">Edit Menu Photo</button>
                     <div class="edit-menu-img-panel form-group">
                         <input type="file" class="form-control my-2" id="menu_img_edit" name="menu_img_edit" @error('menu_img_edit') is-invalid @enderror>
-                        <div class='img-butttons d-flex align-items-center'>
+                        <div class='img-buttons d-flex align-items-center'>
                             <button type="button" class="cancel-edit-img btn btn-secondary me-2">Cancel</button>
                             <button type="submit" class="submit-edited-img btn btn-primary me-2">Update Image</button>
                             <div class="spinner-img-edit spinner-border" role="status">
