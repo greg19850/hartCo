@@ -57,7 +57,7 @@
         <div class="rules-content">
             @if($rules)
             @foreach($rules as $rule)
-            <x-menu-rule :rule=$rule />
+            <x-menu-rule :rule="$rule" />
             @endforeach
             @endif
         </div>

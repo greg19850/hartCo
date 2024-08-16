@@ -72,6 +72,8 @@ $('.menu-items-list').on('click', '.item-remove', function () {
     if ($('.menu-items-list').children('li').length === 0) {
         $('.submit-menu-items').hide();
     }
+
+    processMenuItems();
 });
 
 

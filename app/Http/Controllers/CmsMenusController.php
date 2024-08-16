@@ -75,17 +75,12 @@ class CmsMenusController extends Controller
         }
 
         $rules = MenuRule::where('menu_id', $menuId)->get();
-        $sub_menus = SubMenu::where('menu_id', $menuId)->get();
+        $subMenus = SubMenu::where('menu_id', $menuId)->with('menuItem')->get();
 
-        // foreach ($rules as $rule) {
-        //     $ruleTxt = json_decode($rule->body);
-        //     dump($ruleTxt);
-        // }
-        // die;
         return view('cms.menus.cmsEditMenu', [
             'menu' => $menu,
             'rules' => $rules,
-            'sub_menus' => $sub_menus
+            'sub_menus' => $subMenus
         ]);
     }
 
@@ -245,6 +240,9 @@ class CmsMenusController extends Controller
             return redirect()->back()->withError("Sorry, sub menu not found");
         };
 
+        return view('cms.menus.cmsEditMenuCategory', [
+            'menu' => $menu
+        ]);
         // $categoryToUpdate->body = $request->input('rule_data');
         // $categoryToUpdate->save();
 
