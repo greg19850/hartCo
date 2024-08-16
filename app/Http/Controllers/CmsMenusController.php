@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\MenuItem;
 use Illuminate\Support\Facades\Storage;
 
 // Request
@@ -303,6 +304,27 @@ class CmsMenusController extends Controller
 
     public function addMenuItems(Request $request, int $menuId, int $subMenuId)
     {
-        dd($request);
+        $menuItems = [];
+
+        foreach ($request->input('name') as $index => $name) {
+            $menuItems[] = [
+                'name' => $name,
+                'description' => $request->input('description')[$index],
+                'price' => $request->input('price')[$index],
+                'is_vegan' => $request->input('is_vegan')[$index],
+            ];
+        }
+
+        foreach ($menuItems as $menuItem) {
+            MenuItem::create([
+                'name' => $menuItem['name'],
+                'ingredients' => $menuItem['description'],
+                'price' => $menuItem['price'],
+                'vegan' => $menuItem['is_vegan'],
+                'sub_menu_id' => $subMenuId,
+            ]);
+        }
+
+        return redirect()->route('cms.editMenu', $menuId)->with('success', 'Menu Items added successfully to menu');
     }
 }
