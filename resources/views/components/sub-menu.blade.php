@@ -1,9 +1,9 @@
 <li class="sub-menu-container mt-2 p-3" id="{{ $subMenu->id }}">
 
-    <form id="single_menu_category" name="single_menu_category" class="single-menu-category" method="POST" action="{{route('cms.deleteMenuCategory', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}">
+    <div id="single_menu_category" class="single-menu-category">
         @csrf
         @method('delete')
-        <div id="content" class="category-content w-75 mb-3 pb-2">
+        <div id="content" class="category-content mb-3 pb-2">
             <div class="row mb-2">
                 <div class="col-8">
                     {{$subMenu->title}}
@@ -30,9 +30,10 @@
                 <a href="{{route('cms.addMenuItemsForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}" class="btn edit-category btn-success"><i class="bi bi-plus-square-dotted"></i></a>
             @endif
             <a href="{{route('cms.editMenuCategoryForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}" class="btn edit-category btn-warning"><i class="bi bi-pencil-square"></i></a>
-            <button type="submit" class="btn remove-category btn-danger"><i class="bi bi-trash3"></i></button>
+{{--            <button type="submit" class="btn remove-category btn-danger"><i class="bi bi-trash3"></i></button>--}}
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#sub-menu-delete-confirm-modal"><i class="bi bi-trash3"></i></button>
         </div>
-    </form>
+    </div>
     <div class="menu-items-show">
         <h5>Menu Items:</h5>
         @foreach($subMenu->menuItem as $menuItem)
@@ -55,4 +56,5 @@
         </div>
         @endforeach
     </div>
+    <x-sub-menu-delete-confirm-modal :subMenu="$subMenu" :deleteText="$subMenuDeleteText"/>
 </li>

@@ -23,8 +23,8 @@
 
 <script>
     const deleteMenuForm = document.getElementById("deleteMenuForm");
-    const deleteBtn = document.querySelector(".delete-btn");
-    const loadingSpinner = document.querySelector(".spinner-menu-delete");
+    const deleteBtn = deleteMenuForm.querySelector(".delete-btn");
+    const loadingSpinner = deleteMenuForm.querySelector(".spinner-menu-delete");
 
     // pass menu ID to modal, for deletion
     $('#confirm-modal').on('show.bs.modal', function(e) {
