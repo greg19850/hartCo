@@ -42,6 +42,7 @@
                 </div>
                 <button type="submit" class="btn d-block submit-rule-btn btn-primary ms-auto">Update Menu Category</button>
         </form>
+        @if(count($subMenu->menuItem) >= 1)
         <form id='edit_menu_items' name='edit_menu_items' class="edit-menu_items" method="POST" action="{{route('cms.updateMenuItems' , ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}">
             @csrf
             <div class="edit-menu-items-header">
@@ -59,6 +60,7 @@
             </div>
             <button type="button" class="btn clear-menu-items-list btn-danger d-block ms-auto w-25" data-bs-toggle="modal" data-bs-target="#menu-items-delete-confirm-modal">Reset Items List</button>
         </form>
+        @endif
         <x-menu-items-delete-confirm-modal :subMenu="$subMenu" :deleteText="$menuItemsDeleteText" />
     </div>
     <script>
