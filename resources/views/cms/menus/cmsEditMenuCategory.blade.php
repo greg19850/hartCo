@@ -57,8 +57,9 @@
                 <button type="button" class="btn btn-success add-menu-item-btn">Add next item</button>
                 <button id="menu-items-form" type="submit" class="btn btn-primary submit-update-menu-items w-25">Update Menu Items</button>
             </div>
-            <a href="{{route('cms.editMenu', ['menuId' => $subMenu->menu_id])}}" class="btn clear-menu-items-list btn-danger d-block ms-auto w-25">Reset Items List</a>
+            <button type="button" class="btn clear-menu-items-list btn-danger d-block ms-auto w-25" data-bs-toggle="modal" data-bs-target="#menu-items-delete-confirm-modal">Reset Items List</button>
         </form>
+        <x-menu-items-delete-confirm-modal :subMenu="$subMenu" :deleteText="$menuItemsDeleteText" />
     </div>
     <script>
         // success / error push notifications

@@ -204,8 +204,10 @@ body.cms-body {
     }
 
     .category-content{
+        width: 80%;
         border-bottom: 1px dashed #000;
     }
+
 }
 
 // .category-content {
@@ -231,6 +233,20 @@ body.cms-body {
             &:hover {
                 font-size: 28px;
             }
+        }
+    }
+}
+
+.rule-delete-confirm-modal,
+.sub-menu-delete-confirm-modal,
+.menu-items-delete-confirm-modal {
+    .spinner-rule-delete,
+    .spinner-sub-menu-delete,
+    .spinner-menu-items-delete {
+        display: none;
+
+        &.active {
+            display: block;
         }
     }
 }

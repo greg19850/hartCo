@@ -367,4 +367,11 @@ class CmsMenusController extends Controller
         }
 
     }
+
+    public function resetMenuItems(Request $request, int $menuId, int $subMenuId)
+    {
+            MenuItem::where('sub_menu_id', $subMenuId)->delete();
+
+            return redirect()->back()->withSuccess('Menu Items list cleared successfully');
+    }
 }
