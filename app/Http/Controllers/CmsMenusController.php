@@ -236,30 +236,37 @@ class CmsMenusController extends Controller
     public function editMenuCategoryForm(int $menuId, int $subMenuId)
     {
 
-        if (!$ruleToUpdate = SubMenu::where('id', $subMenuId)->first()) {
+        if (!$subMenuToUpdate = SubMenu::where('id', $subMenuId)->with('menuItem')->first()) {
             return redirect()->back()->withError("Sorry, sub menu not found");
         };
 
         return view('cms.menus.cmsEditMenuCategory', [
-            'menu' => $menu
+            'subMenu' => $subMenuToUpdate
         ]);
-        // $categoryToUpdate->body = $request->input('rule_data');
-        // $categoryToUpdate->save();
-
-        // return redirect()->route('cms.editMenu', $menuId)->with('success', 'Rules Updated');
     }
 
-    public function updateMenuCategory(MenuCategoryRequest $request, int $menuId, int $subMenuId)
+    public function updateSubMenu(SubMenuRequest $request, int $menuId, int $subMenuId)
     {
 
-        if (!$ruleToUpdate = SubMenu::where('id', $subMenuId)->first()) {
+        if (!$subMenuToUpdate = SubMenu::where('id', $subMenuId)->first()) {
             return redirect()->back()->withError("Sorry, sub menu not found");
-        };
+        }
 
-        // $categoryToUpdate->body = $request->input('rule_data');
-        // $categoryToUpdate->save();
+        $subMenuToUpdate = SubMenu::where('id', $subMenuId)->first();
 
-        // return redirect()->route('cms.editMenu', $menuId)->with('success', 'Rules Updated');
+        $subMenuToUpdate->title = $request->input('name');
+        $subMenuToUpdate->description = $request->input('description');
+        $subMenuToUpdate->price = $request->input('price');
+
+        if ($request->input('price') !== null && $request->input('pp_check') !== null) {
+            $subMenuToUpdate->per_person = true;
+        } else {
+            $subMenuToUpdate->per_person = false;
+        }
+
+        $subMenuToUpdate->save();
+
+        return redirect()->back()->withSuccess('Sub menu details updated');
     }
 
     public function deleteMenuCategory(int $menuId, int $subMenuId)
@@ -324,5 +331,40 @@ class CmsMenusController extends Controller
         }
 
         return redirect()->route('cms.editMenu', $menuId)->with('success', 'Menu Items added successfully to menu');
+    }
+
+
+    public function updateMenuItems(Request $request, int $menuId, int $subMenuId)
+    {
+
+        try{
+            MenuItem::where('sub_menu_id', $subMenuId)->delete();
+
+            $menuItems = [];
+
+            foreach ($request->input('name') as $index => $name) {
+                $menuItems[] = [
+                    'name' => $name,
+                    'description' => $request->input('description')[$index],
+                    'price' => $request->input('price')[$index],
+                    'is_vegan' => $request->input('is_vegan')[$index],
+                ];
+            }
+
+            foreach ($menuItems as $menuItem) {
+                MenuItem::create([
+                    'name' => $menuItem['name'],
+                    'ingredients' => $menuItem['description'],
+                    'price' => $menuItem['price'],
+                    'vegan' => $menuItem['is_vegan'],
+                    'sub_menu_id' => $subMenuId,
+                ]);
+            }
+
+            return redirect()->back()->withSuccess('Menu Items list updated successfully');
+        } catch(Exception $e){
+            return redirect()->back()->withError($e->getMessage());
+        }
+
     }
 }

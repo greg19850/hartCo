@@ -68,10 +68,12 @@ Route::prefix('/cms/menus/edit_menu/{menuId}')->group(
         Route::post('/add_sub_menu', [CmsMenusController::class, 'addSubMenu'])->name('cms.addSubMenu');
 
         Route::get('/edit_menu_category/{subMenuId}', [CmsMenusController::class, 'editMenuCategoryForm'])->name('cms.editMenuCategoryForm');
-        Route::post('/update_menu_category/{subMenuId}', [CmsMenusController::class, 'updateMenuCategory'])->name('cms.updateMenuCategory');
+        Route::post('/update_menu_category/{subMenuId}', [CmsMenusController::class, 'updateSubMenu'])->name('cms.updateSubMenu');
         Route::delete('/delete_menu_category/{subMenuId}', [CmsMenusController::class, 'deleteMenuCategory'])->name('cms.deleteMenuCategory');
 
         Route::get('/sub_menu/add_menu_items_form/{subMenuId}', [CmsMenusController::class, 'addMenuItemsForm'])->name('cms.addMenuItemsForm');
         Route::post('/sub_menu/add_menu_items/{subMenuId}', [CmsMenusController::class, 'addMenuItems'])->name('cms.addMenuItems');
+
+        Route::post('/sub_menu/update_menu_items/{subMenuId}', [CmsMenusController::class, 'updateMenuItems'])->name('cms.updateMenuItems');
     }
 );

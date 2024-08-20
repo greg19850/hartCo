@@ -46,7 +46,7 @@ $(".add-menu-item-btn").on('click', function () {
                     </div>
                     <div class='row'>
                         <div class="col-12 form-check mx-3 mt-2">
-                            <input type="checkbox" name="is_vegan[]" class="form-check-input" type="checkbox" value="1"  id="veganCheck">
+                            <input type="checkbox" name="is_vegan[]" class="form-check-input" id="veganCheck">
                             <label class="form-check-label" for="veganCheck">
                             Vegan?
                             </label>
@@ -85,12 +85,27 @@ $("#menu-items-form").submit(function () {
     this_master.find('input[type="checkbox"]').each(function () {
         var checkbox_this = $(this);
 
+        if (checkbox_this.is(":checked") == true) {
+            checkbox_this.attr('value', '1');
+        } else {
+            checkbox_this.prop('checked', true);
+            checkbox_this.attr('value', '0');
+        }
+    })
+})
+
+$("#edit_menu_items").submit(function () {
+
+    var this_master = $(this);
+
+    console.log(this_master)
+    this_master.find('input[type="checkbox"]').each(function () {
+        var checkbox_this = $(this);
 
         if (checkbox_this.is(":checked") == true) {
             checkbox_this.attr('value', '1');
         } else {
             checkbox_this.prop('checked', true);
-            //DONT' ITS JUST CHECK THE CHECKBOX TO SUBMIT FORM DATA
             checkbox_this.attr('value', '0');
         }
     })

@@ -10,7 +10,7 @@
          <hr />
          <div class="row mb-3">
              <div class="col">
-                 <label for="name" class="form-label">Catregory name</label>
+                 <label for="name" class="form-label">Category name</label>
                  <input type="text" class="form-control" name='name' aria-label="Category name" @error('name') is-invalid @enderror>
                  @error('name')
                  <small class="pt-1" style="color: red">{{ $message }}</small>
@@ -18,7 +18,7 @@
              </div>
              <div class="col row">
                  <div class="col-auto">
-                     <label for="price" class="form-label">Catregory price (optonal)</label>
+                     <label for="price" class="form-label">Category price (optional)</label>
                      <input type="number" step="0.01" class="form-control" name='price' aria-label="Category price">
                  </div>
                  <div class="col-auto form-check">
@@ -32,15 +32,11 @@
          </div>
          <div class="row mb-3">
              <div class="col">
-                 <label for="description" class="form-label">Catregory description (optional)</label>
+                 <label for="description" class="form-label">Category description (optional)</label>
                  <textarea class="form-control" id="description" name='description' rows="3"></textarea>
              </div>
          </div>
      </div>
      <button type="submit" class="btn submit-rule-btn btn-primary">Add Menu Category</button>
  </form>
-
- <script>
-
- </script>
  @endsection
