@@ -75,5 +75,6 @@ Route::prefix('/cms/menus/edit_menu/{menuId}')->group(
         Route::post('/sub_menu/add_menu_items/{subMenuId}', [CmsMenusController::class, 'addMenuItems'])->name('cms.addMenuItems');
 
         Route::post('/sub_menu/update_menu_items/{subMenuId}', [CmsMenusController::class, 'updateMenuItems'])->name('cms.updateMenuItems');
+        Route::delete('/sub_menu/reset_menu_items/{subMenuId}', [CmsMenusController::class, 'resetMenuItems'])->name('cms.resetMenuItems');
     }
 );

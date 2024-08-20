@@ -24,7 +24,6 @@
 <script>
     const deleteSubMenuForm = document.getElementById("subMenuDeleteForm");
     const deleteSubMenuBtn = deleteSubMenuForm.querySelector(".sub-menu-delete-btn");
-    // const cancelBtn = deleteMenuForm.querySelector(".delete-btn");
     const loadingSubMenuSpinner = deleteSubMenuForm.querySelector(".spinner-sub-menu-delete");
 
     // pass menu ID to modal, for deletion

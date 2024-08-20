@@ -24,7 +24,6 @@
 <script>
     const deleteRuleForm = document.getElementById("ruleDeleteForm");
     const deleteRuleBtn = deleteRuleForm.querySelector(".rule-delete-btn");
-    // const cancelBtn = deleteMenuForm.querySelector(".delete-btn");
     const loadingRuleSpinner = deleteRuleForm.querySelector(".spinner-rule-delete");
 
     // pass menu ID to modal, for deletion

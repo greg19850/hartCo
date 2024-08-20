@@ -30,7 +30,6 @@
                 <a href="{{route('cms.addMenuItemsForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}" class="btn edit-category btn-success"><i class="bi bi-plus-square-dotted"></i></a>
             @endif
             <a href="{{route('cms.editMenuCategoryForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}" class="btn edit-category btn-warning"><i class="bi bi-pencil-square"></i></a>
-{{--            <button type="submit" class="btn remove-category btn-danger"><i class="bi bi-trash3"></i></button>--}}
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#sub-menu-delete-confirm-modal"><i class="bi bi-trash3"></i></button>
         </div>
     </div>

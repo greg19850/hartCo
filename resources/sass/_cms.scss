@@ -237,18 +237,12 @@ body.cms-body {
     }
 }
 
-.rule-delete-confirm-modal {
-    .spinner-rule-delete {
-        display: none;
-
-        &.active {
-            display: block;
-        }
-    }
-}
-
-.sub-menu-delete-confirm-modal {
-    .spinner-sub-menu-delete {
+.rule-delete-confirm-modal,
+.sub-menu-delete-confirm-modal,
+.menu-items-delete-confirm-modal {
+    .spinner-rule-delete,
+    .spinner-sub-menu-delete,
+    .spinner-menu-items-delete {
         display: none;
 
         &.active {
