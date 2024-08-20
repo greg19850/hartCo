@@ -179,13 +179,17 @@ body.cms-body {
     list-style: none;
 }
 
+.sub-menu-container{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
 .single-menu-rule,
 .single-menu-category {
     display: flex;
     justify-content: space-between;
     // align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+
 
     .rule-content {
         width: 80%;
@@ -197,6 +201,10 @@ body.cms-body {
         p {
             margin-bottom: 0;
         }
+    }
+
+    .category-content{
+        border-bottom: 1px dashed #000;
     }
 }
 
@@ -225,6 +233,4 @@ body.cms-body {
             }
         }
     }
-
-
 }
