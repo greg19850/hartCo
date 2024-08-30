@@ -17,10 +17,11 @@
                 </button>
             </h5>
             <div id="flush-collapseMon" class="accordion-collapse collapse" aria-labelledby="flush-headingMon" data-bs-parent="#accordion-flush">
-                <form class="accordion-body">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours')}}">
+                    @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closedCheckboxMon" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -51,7 +52,7 @@
                 <form class="accordion-body">
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closedCheckboxMon" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -82,7 +83,7 @@
                 <form class="accordion-body">
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closedCheckboxMon" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -113,7 +114,7 @@
                 <form class="accordion-body">
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closedCheckboxMon" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -144,7 +145,7 @@
                 <form class="accordion-body">
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closedCheckboxMon" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -175,7 +176,7 @@
                 <form class="accordion-body">
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closedCheckboxMon" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -206,7 +207,7 @@
                 <form class="accordion-body">
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closedCheckboxMon" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
