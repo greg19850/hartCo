@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FamilyDescription;
-use App\Models\Motto;
-
-// Requests
-use Illuminate\Http\Request;
 use App\Http\Requests\UpdateDescriptionRequest;
 use App\Http\Requests\UpdateMottoRequest;
+use App\Models\FamilyDescription;
+use App\Models\Motto;
+use Illuminate\Http\Request;
 
-
-
-class CmsController extends Controller
+class CmsHomeController extends Controller
 {
     public function showCmsHome()
     {
@@ -51,4 +47,5 @@ class CmsController extends Controller
 
         return redirect()->route("cms.showCmsHome")->with('success', 'Description Updated');
     }
+
 }

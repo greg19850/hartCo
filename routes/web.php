@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\MenusController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\CmsController;
+use App\Http\Controllers\CmsHomeController;
 use App\Http\Controllers\CmsMenusController;
+use App\Http\Controllers\CmsReservationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,13 @@ Route::prefix("/menus")->group(
 
 Route::prefix("/cms")->group(
     function () {
-        Route::get('home', [CmsController::class, 'showCmsHome'])->name('cms.showCmsHome');
-        Route::post('home/post_motto', [CmsController::class, 'updateMotto'])->name('cms.updateMotto');
-        Route::post('home/post_description', [CmsController::class, 'updateDescription'])->name('cms.updateDescription');
+        //  Home/Meet the family
+        Route::get('home', [CmsHomeController::class, 'showCmsHome'])->name('cms.showCmsHome');
+        Route::post('home/post_motto', [CmsHomeController::class, 'updateMotto'])->name('cms.updateMotto');
+        Route::post('home/post_description', [CmsHomeController::class, 'updateDescription'])->name('cms.updateDescription');
+
+        //  Reservations
+        Route::get('reservations', [CmsReservationsController::class, 'showCmsReservations'])->name('cms.showCmsReservations');
     }
 );
 
