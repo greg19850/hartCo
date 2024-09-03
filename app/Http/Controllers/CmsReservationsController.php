@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WeekDay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\TryCatch;
 
 class CmsReservationsController extends Controller
 {
@@ -10,13 +13,30 @@ class CmsReservationsController extends Controller
         return view('cms.cmsReservations');
     }
 
-    public function updateCmsOpeningHours(Request $request){
+    public function updateCmsOpeningHours(Request $request, $day){
+        if($dayOfTheWeek = WeekDay::where('name', $day)->first()){
 
+            $dayOfTheWeek->delete();
 
-        if (Request::has('closed')){
-            dd($request);
+            if ($request->has('closed')){
+                $dayOfTheWeek->closed = true;
+                $dayOfTheWeek->save();
+
+                return redirect()->back()->with('success', "${$day} opening hours updated");
+            } else{
+                $dayOfTheWeek->closed = false;
+
+                foreach ($request->input() as $key=> $value) {
+                    if(str_contains($key, 'time_from')){
+                        dump($key);
+                    }
+                }
+                die;
+                $dayOfTheWeek->save();
+            }
         }
-//        return view('cms.updateCmsOpeningHours');
-        dd('no');
+
+        return redirect()->back()->withError("Something went wrong, please try again");
+
     }
 }

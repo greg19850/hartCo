@@ -17,11 +17,11 @@
                 </button>
             </h5>
             <div id="flush-collapseMon" class="accordion-collapse collapse" aria-labelledby="flush-headingMon" data-bs-parent="#accordion-flush">
-                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours')}}">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours', ['day' => 'Monday'])}}">
                     @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -49,10 +49,11 @@
                 </button>
             </h5>
             <div id="flush-collapseTue" class="accordion-collapse collapse" aria-labelledby="flush-headingTue" data-bs-parent="#accordion-flush">
-                <form class="accordion-body">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours', ['day' => 'Tuesday'])}}">
+                    @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -80,10 +81,11 @@
                 </button>
             </h5>
             <div id="flush-collapseWed" class="accordion-collapse collapse" aria-labelledby="flush-headingWed" data-bs-parent="#accordion-flush">
-                <form class="accordion-body">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours', ['day' => 'Wednesday'])}}">
+                    @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -111,10 +113,11 @@
                 </button>
             </h5>
             <div id="flush-collapseThu" class="accordion-collapse collapse" aria-labelledby="flush-headingThu" data-bs-parent="#accordion-flush">
-                <form class="accordion-body">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours', ['day' => 'Thursday'])}}">
+                    @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -142,10 +145,11 @@
                 </button>
             </h5>
             <div id="flush-collapseFri" class="accordion-collapse collapse" aria-labelledby="flush-headingFri" data-bs-parent="#accordion-flush">
-                <form class="accordion-body">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours', ['day' => 'Friday'])}}">
+                    @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -173,10 +177,11 @@
                 </button>
             </h5>
             <div id="flush-collapseSat" class="accordion-collapse collapse" aria-labelledby="flush-headingSat" data-bs-parent="#accordion-flush">
-                <form class="accordion-body">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours', ['day' => 'Saturday'])}}">
+                    @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>
@@ -204,10 +209,11 @@
                 </button>
             </h5>
             <div id="flush-collapseSun" class="accordion-collapse collapse" aria-labelledby="flush-headingSun" data-bs-parent="#accordion-flush">
-                <form class="accordion-body">
+                <form class="accordion-body" method="POST" action="{{route('cms.updateCmsOpeningHours', ['day' => 'Sunday'])}}">
+                    @csrf
                     <div class="buttons d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" name="closed" type="checkbox" value="" id="closedCheckboxMon">
+                            <input class="form-check-input" name="closed" type="checkbox" id="closedCheckboxMon">
                             <label class="form-check-label" for="closedCheckboxMon">
                                 Closed?
                             </label>

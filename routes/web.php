@@ -42,7 +42,7 @@ Route::prefix("/cms")->group(
 
         //  Reservations
         Route::get('reservations', [CmsReservationsController::class, 'showCmsReservations'])->name('cms.showCmsReservations');
-        Route::post('reservations/update_hours', [CmsReservationsController::class, 'updateCmsOpeningHours'])->name('cms.updateCmsOpeningHours');
+        Route::post('reservations/update_hours/{day}', [CmsReservationsController::class, 'updateCmsOpeningHours'])->name('cms.updateCmsOpeningHours');
     }
 );
 
