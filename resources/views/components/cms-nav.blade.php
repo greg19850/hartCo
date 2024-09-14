@@ -8,12 +8,8 @@
 
     <ul class="cms-options ps-2">
         <li><a class="cmsMenuItem" href="{{route('cms.showCmsHome')}}">Home / Meet The Fam</a></li>
-        {{-- <li><a class="cmsMenuItem" href="/cms/meet_the_fam">Meet The Family</a></li> --}}
         <li><a class="cmsMenuItem" href="{{route('cms.showMenusPanel')}}">Menus</a></li>
-        <li><a class="cmsMenuItem" href="{{route('cms.showCmsReservations')}}">Reservations</a></li>
-        <li><a class="cmsMenuItem" href="#">Cocktail Masterclass</a></li>
         <li><a class="cmsMenuItem" href="#">Events</a></li>
-        <li><a class="cmsMenuItem" href="#">Private Hire</a></li>
         <li><a class="cmsMenuItem" href="#">FAQ</a></li>
         <li><a class="cmsMenuItem" href="#">Settings</a></li>
         <li><a class="cmsMenuItem" href="/">Exit CMS</a></li>

@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\CmsHomeController;
 use App\Http\Controllers\CmsMenusController;
 use App\Http\Controllers\CmsReservationsController;
+use App\Http\Controllers\CmsMasterclassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +40,6 @@ Route::prefix("/cms")->group(
         Route::get('home', [CmsHomeController::class, 'showCmsHome'])->name('cms.showCmsHome');
         Route::post('home/post_motto', [CmsHomeController::class, 'updateMotto'])->name('cms.updateMotto');
         Route::post('home/post_description', [CmsHomeController::class, 'updateDescription'])->name('cms.updateDescription');
-
-        //  Reservations
-        Route::get('reservations', [CmsReservationsController::class, 'showCmsReservations'])->name('cms.showCmsReservations');
-        Route::post('reservations/update_hours', [CmsReservationsController::class, 'updateCmsOpeningHours'])->name('cms.updateCmsOpeningHours');
     }
 );
 
