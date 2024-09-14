@@ -250,3 +250,25 @@ body.cms-body {
         }
     }
 }
+
+// FAQ
+.cms-faq{
+    .spinner-faq, .spinner-faq-edit{
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .faq-item-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .faq-question{
+            font-weight: bold;
+        }
+    }
+}
+
