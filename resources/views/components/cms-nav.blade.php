@@ -10,7 +10,7 @@
         <li><a class="cmsMenuItem" href="{{route('cms.showCmsHome')}}">Home / Meet The Fam</a></li>
         <li><a class="cmsMenuItem" href="{{route('cms.showMenusPanel')}}">Menus</a></li>
         <li><a class="cmsMenuItem" href="#">Events</a></li>
-        <li><a class="cmsMenuItem" href="#">FAQ</a></li>
+        <li><a class="cmsMenuItem" href="{{route('cms.showFaqPanel')}}">FAQ</a></li>
         <li><a class="cmsMenuItem" href="#">Settings</a></li>
         <li><a class="cmsMenuItem" href="/">Exit CMS</a></li>
     </ul>

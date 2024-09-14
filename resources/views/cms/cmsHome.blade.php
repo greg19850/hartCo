@@ -9,7 +9,7 @@
                 <label for="motto" class="form-label">Update Welcome Motto</label>
                 <input type="text" class="form-control" id="motto" name="motto" aria-describedby="motto" @error('motto') is-invalid @enderror>
                 @error('motto')
-                <small class="pt-1" style="color: red">{{ $message }}</small>
+                <small class="pt-1" style="color: red; float: right">{{ $message }}</small>
                 @enderror
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -27,7 +27,7 @@
                 <label for="family_description" class="form-label">Update "Meet Family" Description</label>
                 <textarea class="form-control" id="family_description" name="family_description" aria-describedby="family_description" rows="5" @error('family_description') is-invalid @enderror></textarea>
                 @error('family_description')
-                <small class="pt-1" style="color: red">{{ $message }}</small>
+                <small class="pt-1" style="color: red; float: right">{{ $message }}</small>
                 @enderror
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
