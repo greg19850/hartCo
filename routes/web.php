@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\CmsHomeController;
 use App\Http\Controllers\CmsMenusController;
 use App\Http\Controllers\CmsFaqController;
+use App\Http\Controllers\CmsEventController;
 
 
 /*
@@ -46,6 +47,11 @@ Route::prefix("/cms")->group(
         Route::post('/add_question', [CmsFaqController::class, 'addQuestion'])->name('cms.addQuestion');
         Route::post('/edit_question/{questionId}', [CmsFaqController::class, 'editQuestion'])->name('cms.editQuestion');
         Route::delete('/delete_question/{questionId}', [CmsFaqController::class, 'deleteQuestion'])->name('cms.deleteQuestion');
+
+        // CMS Events
+        Route::get('/events', [CmsEventController::class, 'showEventsPanel'])->name('cms.showEventsPanel');
+        Route::post('/events/add_event', [CmsEventController::class, 'addEvent'])->name('cms.addEvent');
+        Route::delete('/events/delete_event/{eventId}', [CmsEventController::class, 'deleteEvent'])->name('cms.deleteEvent');
 
         // CMS Menus
         Route::prefix("/menus")->group(
