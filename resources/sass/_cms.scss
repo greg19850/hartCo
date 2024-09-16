@@ -272,3 +272,43 @@ body.cms-body {
     }
 }
 
+// Events
+
+.cms-events{
+    .event-image-preview{
+        height: 87%;
+        .event-image-container{
+            height: 60%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .add-event-btn{
+        width: 85%;
+    }
+
+    .spinner-add-event{
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .spinner-event-delete{
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+
+// Summernote double dropdown arrows fix
+.note-btn.dropdown-toggle:after {
+    content: none;
+}

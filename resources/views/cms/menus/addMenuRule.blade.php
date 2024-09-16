@@ -37,7 +37,7 @@
              height: 200,
              lineHeights: ['0.2', '0.5', '1.0', '1.2', '1.5', '2.0', '3.0'],
              toolbar: [
-                 ['style', ['bold', 'italic', 'underline', 'clear']],
+                 ['style', ['bold', 'underline', 'clear']],
                  ['font', ['strikethrough', 'superscript', 'subscript']],
                  ['fontname', ['fontname']],
                  ['fontsize', ['fontsize']],
@@ -50,7 +50,7 @@
          });
      });
 
-     // Submit form with rules 
+     // Submit form with rules
      const form = document.getElementById('add_rules_form')
      const spinner = document.querySelector('.spinner-rule')
      const submitBtn = document.querySelector('.submit-rule-btn')
