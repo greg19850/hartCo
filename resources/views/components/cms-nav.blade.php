@@ -12,6 +12,6 @@
         <li><a class="cmsMenuItem" href="{{route('cms.showEventsPanel')}}">Events</a></li>
         <li><a class="cmsMenuItem" href="{{route('cms.showFaqPanel')}}">FAQ</a></li>
         <li><a class="cmsMenuItem" href="#">Settings</a></li>
-        <li><a class="cmsMenuItem" href="/">Exit CMS</a></li>
+        <li><a class="cmsMenuItem" href="{{route('cms.logout')}}">Logout / Exit CMS</a></li>
     </ul>
 </div>
