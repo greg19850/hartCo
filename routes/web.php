@@ -10,6 +10,7 @@ use App\Http\Controllers\CmsMenusController;
 use App\Http\Controllers\CmsFaqController;
 use App\Http\Controllers\CmsEventController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\CmsSettingsController;
 
 
 /*
@@ -43,8 +44,9 @@ Route::prefix("/cms")->group(
         Route::match(['get', 'post'], 'login', [AdminAuthController::class, 'login'])->name('cms.login');
         Route::group(['middleware' => 'admin'], function () {
 
-            //  Logout
-            Route::get('/logout', [AdminAuthController::class, 'logout'])->name('cms.logout');
+            //  Logout / Admin settings
+            Route::get('logout', [AdminAuthController::class, 'logout'])->name('cms.logout');
+            Route::post('update_password', [AdminAuthController::class, 'updatePassword'])->name('cms.updatePassword');
 
             //  Home/Meet the family
             Route::get('home', [CmsHomeController::class, 'showCmsHome'])->name('cms.showCmsHome');
@@ -100,6 +102,9 @@ Route::prefix("/cms")->group(
                     );
                 }
             );
+
+            //  Settings
+            Route::get('/settings', [CmsSettingsController::class, 'showSettingsPanel'])->name('cms.showSettingsPanel');
         });
     }
 );

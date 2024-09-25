@@ -3,7 +3,7 @@
 @section('content')
 <div class="menu-items-container">
     <div class="menu-items-header d-flex align-items-center justify-content-between">
-        <h4>{{$subMenu->title}} menu items</h4>
+        <h5>{{$subMenu->title}} menu items</h5>
         <a href="{{route('cms.editMenu', ['menuId' => $subMenu->menu_id])}}" class="btn edit-category btn-warning">Add Menu Items Later</a>
     </div>
     <p>please add menu items below. <strong>Name field is required for each menu item.</strong></p>

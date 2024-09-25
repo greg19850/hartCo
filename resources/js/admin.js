@@ -132,6 +132,3 @@ processMenuItems();
 $('.menu-items-list').on('input', '.menu-item-name', function() {
     processMenuItems();
 });
-
-
-//add work form on each add button press

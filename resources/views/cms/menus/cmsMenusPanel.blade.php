@@ -3,7 +3,7 @@
 @section('content')
 <div class="menus-page">
     <div class="header d-flex justify-content-between align-items-center">
-        <h4 class="mb-0">Menu Panel</h4>
+        <h5 class="mb-0">Menu Panel</h5>
         <button class="btn btn-primary group-modal-btn p-2" data-bs-toggle="modal" data-bs-target="#add-menu-modal">Add Menu</button>
     </div>
     <hr />
