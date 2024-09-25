@@ -16,7 +16,7 @@
         </form>
         <div class="current-motto mt-5">
             <h5 class="mb-3">Current Motto:</h5>
-            <h4>{{$motto ? $motto->motto : "Your Local Girl Gang"}}</h4>
+            <h5>{{$motto ? $motto->motto : "Your Local Girl Gang"}}</h5>
         </div>
     </div>
     <hr class="mb-5" />

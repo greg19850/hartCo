@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AdminAuthController extends Controller
@@ -43,5 +45,16 @@ class AdminAuthController extends Controller
         Session::flush();
         Auth::guard('admin')->logout();
         return redirect(route('homepage'));
+    }
+
+    public function updatePassword(Request $request){
+        $data = $request->all();
+        if(Hash::check($data['current_password'],Auth::guard('admin')->user()['password'])){
+            Admin::where('id', Auth::guard('admin')->user()['id'])->update(['password' => bcrypt($data['new_password'])]);
+
+            return redirect()->back()->with('success', 'Password updated successfully');
+        }else{
+            return redirect()->back()->with('error_message', 'Your current password is incorrect');
+        }
     }
 }

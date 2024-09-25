@@ -3,7 +3,7 @@
 @section('content')
 
 <div class='edit-menu-card'>
-    <h3 class='mb-3'>{{$menu->name}}</h3>
+    <h4 class='mb-3'>{{$menu->name}}</h4>
     <hr class="mb-3" />
     <div class='top-panel d-flex mb-5'>
         <form id='img_form' name='img_form' class='img-form' method="POST" action="{{route('cms.updateMenuImg' , $menu->id)}}" enctype="multipart/form-data">
@@ -51,7 +51,7 @@
     </div>
     <div class='menu-rules mb-5'>
         <div class='rules-header d-flex justify-content-between align-items-center'>
-            <h4 class="mb-0">Menu Rules</h4>
+            <h5 class="mb-0">Menu Rules</h5>
             <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addMenuRulesForm' , $menu->id)}}" style="width:150px">Add Rules</a>
         </div>
         <div class="rules-content">
@@ -64,7 +64,7 @@
     </div>
     <div class="sub-menus mb-5">
         <div class='sub-menu-header d-flex justify-content-between align-items-center'>
-            <h4 class="mb-0">Sub Menus</h4>
+            <h5 class="mb-0">Sub Menus</h5>
             <a class="btn btn-primary rule-modal-btn p-2" href="{{route('cms.addSubMenuForm' , $menu->id)}}" style="width:150px">Add Category</a>
         </div>
         <div class="menu-content">

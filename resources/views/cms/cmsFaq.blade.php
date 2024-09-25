@@ -3,7 +3,7 @@
 @section('content')
     <div class="cms-faq">
         <div class="faq-header d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">Add next question and answer</h4>
+            <h5 class="mb-0">Add next question and answer</h5>
         </div>
         <hr />
         <form class="faq-form mb-5" method="POST" action="{{route('cms.addQuestion')}}">
@@ -30,7 +30,7 @@
             </div>
         </form>
         <div class="faq-list-header d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">Current Questions List</h4>
+            <h5 class="mb-0">Current Questions List</h5>
         </div>
         <hr />
         @if(!count($faqList))
