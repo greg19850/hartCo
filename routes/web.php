@@ -42,6 +42,11 @@ Route::prefix("/cms")->group(
     function () {
 
         Route::match(['get', 'post'], 'login', [AdminAuthController::class, 'login'])->name('cms.login');
+        Route::get( 'forget_password', [AdminAuthController::class, 'forgetPassword'])->name('cms.forgetPassword');
+        Route::post( 'forget_password', [AdminAuthController::class, 'forgetPasswordPost'])->name('cms.forgetPasswordPost');
+        Route::get( 'reset_password/{token}', [AdminAuthController::class, 'resetPassword'])->name('cms.resetPassword');
+        Route::post( 'reset_password', [AdminAuthController::class, 'resetPasswordPost'])->name('cms.resetPasswordPost');
+
         Route::group(['middleware' => 'admin'], function () {
 
             //  Logout / Admin settings

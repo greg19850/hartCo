@@ -312,3 +312,82 @@ body.cms-body {
 .note-btn.dropdown-toggle:after {
     content: none;
 }
+
+// CMS Login
+.login-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .cms-login-form{
+        width: 400px;
+
+        .login-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .login-img-container {
+                height: 50px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .forgot-pwd-link{
+            text-decoration: none;
+        }
+    }
+
+    .login-errors{
+        list-style: none;
+        width: 400px;
+    }
+}
+
+// Forget password
+.forget-password{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .forget-password-text{
+        width: 400px;
+    }
+
+    .forget-password-form{
+        width: 400px;
+
+    }
+
+    .forget-pwd-errors{
+        list-style: none;
+        width: 400px;
+    }
+}
+
+// Reset Password
+.reset-password{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .reset-password-form{
+        width: 400px;
+
+    }
+
+    .reset-pwd-errors{
+        list-style: none;
+        width: 400px;
+    }
+}
