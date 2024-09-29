@@ -3,7 +3,7 @@
         <div class="img-container col-5">
             <img src='{{url('/images/hart logo.png')}}' alt="logo" />
         </div>
-        <div class=" text col-7">Welcome {{\Illuminate\Support\Facades\Auth::guard('admin')->user()['name']}}</div>
+        <div class="text col-7">Welcome {{\Illuminate\Support\Facades\Auth::guard('admin')->user()['name']}}</div>
     </div>
 
     <ul class="cms-options ps-2">
