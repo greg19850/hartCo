@@ -110,6 +110,7 @@ Route::prefix("/cms")->group(
 
             //  Settings
             Route::get('/settings', [CmsSettingsController::class, 'showSettingsPanel'])->name('cms.showSettingsPanel');
+            Route::post('/update_hours/{day}', [CmsSettingsController::class, 'updateOpeningHours'])->name('cms.updateOpeningHours');
         });
     }
 );

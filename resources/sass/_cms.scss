@@ -19,18 +19,18 @@ body.cms-body {
 
             .text {
                 color: #fff;
-                font-size: 18px;
-                // text-align: start;
+                font-size: 16px;
                 align-self: center;
             }
         }
 
         ul {
             list-style: none;
+            margin-top: 30px;
 
             li {
                 margin-bottom: 15px;
-                font-size: 18px;
+                font-size: 16px;
 
                 a {
                     text-decoration: none;
@@ -391,3 +391,11 @@ body.cms-body {
         width: 400px;
     }
 }
+
+// Settings
+.contact-info-form{
+    input{
+        font-size: 14px;
+    }
+}
+
