@@ -58,7 +58,40 @@
     </div>
     @endif
     <div class="contact p-3 text-center">
-        <h2 class="text-uppercase" data-aos="fade-up">Reservations/Contract Page/Opening Hours</h2>
+        <h2 class="text-uppercase" data-aos="fade-up">Hart + Co</h2>
+        <div class="address mb-3">27 AUGUSTA PLACE CV32 5EL Royal Leamington Spa</div>
+        <div class="hours-and-map mb-3">
+            <iframe width="400" height="300" style="border:0" loading="lazy" allowfullscreen
+                    src="https://www.google.com/maps/embed/v1/place?q=HART%20%2B%20CO%2C%20%2027%20Augusta%20Place%2C%20Leamington%20Spa%2C%20UK&key=AIzaSyAO0cZT9L0ZQOBhFHA0JzU3DPxYOWl8TVc">
+            </iframe>
+            <ul class="opening-hours">
+                <h4>Opening Hours</h4>
+                <li>Friday: 10:00 AM - 11:00 PM</li>
+                <li>Saturday: 10:00 AM- 11:00 PM</li>
+                <li>Sunday: 10:00 AM- 4:00 PM</li>
+                <li>Monday: 9:30 AM - 2:00 PM</li>
+                <li>Tuesday: 9:30 AM - 3:00 PM / 6:00 PM- 10:00 PM (reservations only )</li>
+                <li>
+                    Wednesday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
+                </li>
+                <li>
+                    Thursday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
+                </li>
+            </ul>
+        </div>
+        <div class="reservations">
+            <h4 class="me-5">
+                All Reservations can be placed through our social media:
+            </h4>
+            <div class="socials d-flex justify-content-center mt-3">
+                <a href="https://www.instagram.com/hartleamington/?hl=en">
+                    <x-entypo-instagram /></a>
+                <a href="https://www.facebook.com/hartrestaurants1">
+                    <x-entypo-facebook class="facebook-icon" /></a>
+                <a href="mailto:reservations@hartrestaurants.co.uk">
+                    <x-entypo-email /></a>
+            </div>
+        </div>
     </div>
 
 
