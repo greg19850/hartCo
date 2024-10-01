@@ -37,7 +37,7 @@ class AdminAuthController extends Controller
             if (Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
                 return redirect(route('cms.showCmsHome'));
             }else{
-                return redirect()->back()->with('error_message', 'Invalid Email or Password');
+                return redirect()->back()->with('error', 'Invalid Email or Password');
             }
         }
 
@@ -108,8 +108,8 @@ class AdminAuthController extends Controller
             'email.required' => 'Email is required',
             'email.email' => 'Email is invalid',
             'email.exists' => 'Email does not exist',
-            'password.required' => 'Password is required',
-            'password.min' => 'New password cannot be less than 6 characters',
+            'new_password.required' => 'Password is required',
+            'new_password.min' => 'New password cannot be less than 6 characters',
             'new_password.confirmed' => 'Passwords do not match',
             'new_password_confirmation.required' => 'Confirm Password is required',
         ];
