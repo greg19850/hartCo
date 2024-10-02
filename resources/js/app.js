@@ -43,3 +43,145 @@ menuOptions.forEach((option) => {
         closeMenu();
     });
 });
+
+// Embla menus carousel
+const emblaNode = document.querySelector('.embla')
+const viewportNode = emblaNode.querySelector('.embla__viewport')
+const prevBtn = emblaNode.querySelector('.embla__button--prev')
+const nextBtn = emblaNode.querySelector('.embla__button--next')
+
+const options = {
+    loop: true,
+}
+// const plugins = []
+
+const emblaApi = EmblaCarousel(viewportNode, options)
+
+const addTogglePrevNextBtnsActive = (emblaApi, prevBtn, nextBtn) => {
+    const togglePrevNextBtnsState = () => {
+        if (emblaApi.canScrollPrev()) prevBtn.removeAttribute('disabled')
+        else prevBtn.setAttribute('disabled', 'disabled')
+
+        if (emblaApi.canScrollNext()) nextBtn.removeAttribute('disabled')
+        else nextBtn.setAttribute('disabled', 'disabled')
+    }
+
+    emblaApi
+        .on('select', togglePrevNextBtnsState)
+        .on('init', togglePrevNextBtnsState)
+        .on('reInit', togglePrevNextBtnsState)
+
+    return () => {
+        prevBtn.removeAttribute('disabled')
+        nextBtn.removeAttribute('disabled')
+    }
+}
+
+const addPrevNextBtnsClickHandlers = (emblaApi, prevBtn, nextBtn) => {
+    const scrollPrev = () => {
+        emblaApi.scrollPrev()
+    }
+    const scrollNext = () => {
+        emblaApi.scrollNext()
+    }
+    prevBtn.addEventListener('click', scrollPrev, false)
+    nextBtn.addEventListener('click', scrollNext, false)
+
+    const removeTogglePrevNextBtnsActive = addTogglePrevNextBtnsActive(
+        emblaApi,
+        prevBtn,
+        nextBtn
+    )
+
+    return () => {
+        removeTogglePrevNextBtnsActive()
+        prevBtn.removeEventListener('click', scrollPrev, false)
+        nextBtn.removeEventListener('click', scrollNext, false)
+    }
+}
+
+const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+    emblaApi,
+    prevBtn,
+    nextBtn
+)
+
+emblaApi.on('destroy', removePrevNextBtnsClickHandlers)
+
+
+// Embla events carousel
+const emblaEventNode = document.querySelector('.emblaEvents')
+const viewportEventNode = emblaEventNode.querySelector('.embla__viewport')
+const prevEventBtn = emblaEventNode.querySelector('.embla__button--prev')
+const nextEventBtn = emblaEventNode.querySelector('.embla__button--next')
+
+const eventOptions = {
+    loop: true,
+}
+// const plugins = [EmblaCarouselAutoScroll({
+//     stopOnMouseEnter: true,
+//     // stopOnInteraction: false,
+//     speed: 1,
+//     breakpoints: {
+//         '(max-width: 768px)': {
+//             speed: 1
+//         }
+//     }
+// })]
+
+const emblaEventApi = EmblaCarousel(viewportEventNode, eventOptions)
+
+const addTogglePrevNextBtnsActiveEvent = (emblaApi, prevBtn, nextBtn) => {
+    const togglePrevNextBtnsState = () => {
+        if (emblaApi.canScrollPrev()) prevBtn.removeAttribute('disabled')
+        else prevBtn.setAttribute('disabled', 'disabled')
+
+        if (emblaApi.canScrollNext()) nextBtn.removeAttribute('disabled')
+        else nextBtn.setAttribute('disabled', 'disabled')
+    }
+
+    emblaApi
+        .on('select', togglePrevNextBtnsState)
+        .on('init', togglePrevNextBtnsState)
+        .on('reInit', togglePrevNextBtnsState)
+
+    return () => {
+        prevBtn.removeAttribute('disabled')
+        nextBtn.removeAttribute('disabled')
+    }
+}
+
+const addPrevNextBtnsClickHandlersEvent = (emblaApi, prevBtn, nextBtn) => {
+    const scrollPrev = () => {
+        emblaApi.scrollPrev()
+    }
+    const scrollNext = () => {
+        emblaApi.scrollNext()
+    }
+    prevBtn.addEventListener('click', scrollPrev, false)
+    nextBtn.addEventListener('click', scrollNext, false)
+
+    const removeTogglePrevNextBtnsActive = addTogglePrevNextBtnsActiveEvent(
+        emblaApi,
+        prevBtn,
+        nextBtn
+    )
+
+    return () => {
+        removeTogglePrevNextBtnsActive()
+        prevBtn.removeEventListener('click', scrollPrev, false)
+        nextBtn.removeEventListener('click', scrollNext, false)
+    }
+}
+
+const removePrevNextBtnsClickHandlersEvent = addPrevNextBtnsClickHandlersEvent(
+    emblaEventApi,
+    prevEventBtn,
+    nextEventBtn
+)
+
+emblaEventApi.on('destroy', removePrevNextBtnsClickHandlersEvent)
+
+
+
+
