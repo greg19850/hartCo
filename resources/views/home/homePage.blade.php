@@ -39,24 +39,49 @@
         @if(!$menus)
         <p>Menus section coming soon</p>
         @else
-        <div class="glide menus py-4 menus-container d-flex justify-content-center px-2" data-aos="fade-up">
-            <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
-                    @foreach($menus as $menu)
-                    <li class="glide__slide menu-item breakfast-menu">
-                        <img src={{$menu->image}} alt="">
-                        <h5><a href="/menus/breakfast_menu">{{$menu->name}}</a></h5>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+        <div class="menus pt-4 menus-container" data-aos="fade-up">
+            <div class="embla">
+                <div class="embla__viewport">
+                    <div class="embla__container">
+                        @foreach($menus as $menu)
+                            <div class="menu-item embla__slide">
+                                <img src={{$menu->image}} alt="">
+                                <a href="/menus/breakfast_menu">{{$menu->name}}</a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="embla__controls">
+                    <div class="embla__buttons">
+                        <button
+                            class="embla__button embla__button--prev"
+                            type="button"
+                            disabled=""
+                        >
+                            <svg class="embla__button__svg" viewBox="0 0 532 532">
+                                <path
+                                    fill="#fff"
+                                    d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
+                                ></path>
+                            </svg></button
+                        ><button
+                            class="embla__button embla__button--next"
+                            type="button"
+                            disabled=""
+                        >
+                            <svg class="embla__button__svg" viewBox="0 0 532 532">
+                                <path
+                                    fill="#fff"
+                                    d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
+        @endif
     </div>
-    @endif
     <div class="contact p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">Hart + Co</h2>
         <div class="address mb-3">27 AUGUSTA PLACE CV32 5EL Royal Leamington Spa</div>
@@ -116,35 +141,55 @@
 
     <div id="events" class="events p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">Events</h2>
-        <div class="glide events py-4 events-container d-flex justify-content-center px-2" data-aos="fade-up">
-            <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
-                    <li class="glide__slide event-item">
-                        <img src='images/hartphotos/IMG_5504.jpg' alt="">
-                        <h5><a href="">
-                                Get Your Tickets Here</a></h5>
-                    </li>
-                    <li class="glide__slide event-item">
-                        <img src='images/hartphotos/IMG_5505.jpg' alt="">
-                        <h5><a href="">
-                                Get Your Tickets Here</a></h5>
-                    </li>
-                    <li class="glide__slide event-item">
-                        <img src='images/hartphotos/IMG_5509.jpg' alt="">
-                        <h5><a href="">
-                                Get Your Tickets Here</a></h5>
-                    </li>
-                    <li class="glide__slide event-item">
-                        <img src='images/hartphotos/IMG_5507.jpg' alt="">
-                        <h5><a href="">
-                                Get Your Tickets Here</a></h5>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+        <div class="events py-4 events-container" data-aos="fade-up">
+            <div class="emblaEvents">
+                <div class="embla__viewport">
+                    <div class="embla__container">
+                        <div class="glide__slide event-item">
+                            <img src='images/hartphotos/IMG_5504.jpg' alt="">
+                            <a href="">Get Your Tickets Here</a>
+                        </div>
+                        <div class="glide__slide event-item">
+                            <img src='images/hartphotos/IMG_5505.jpg' alt="">
+                            <a href="">Get Your Tickets Here</a>
+                        </div>
+                        <div class="glide__slide event-item">
+                            <img src='images/hartphotos/IMG_5509.jpg' alt="">
+                            <a href="">Get Your Tickets Here</a>
+                        </div>
+                        <div class="glide__slide event-item">
+                            <img src='images/hartphotos/IMG_5507.jpg' alt="">
+                            <a href="">Get Your Tickets Here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="embla__controls">
+                    <div class="embla__buttons">
+                        <button
+                            class="embla__button embla__button--prev"
+                            type="button"
+                            disabled=""
+                        >
+                            <svg class="embla__button__svg" viewBox="0 0 532 532">
+                                <path
+                                    fill="#fff"
+                                    d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
+                                ></path>
+                            </svg></button
+                        ><button
+                            class="embla__button embla__button--next"
+                            type="button"
+                            disabled=""
+                        >
+                            <svg class="embla__button__svg" viewBox="0 0 532 532">
+                                <path
+                                    fill="#fff"
+                                    d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

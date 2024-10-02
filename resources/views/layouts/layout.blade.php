@@ -7,7 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script src="https://unpkg.com/embla-carousel-auto-scroll/embla-carousel-auto-scroll.umd.js"></script>
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <title>Hart & Co @yield('title')</title>
 </head>
 <body>

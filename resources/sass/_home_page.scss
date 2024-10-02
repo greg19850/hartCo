@@ -121,60 +121,100 @@
         }
 
         .menus-container {
-            flex-wrap: wrap;
+            width: 90%;
+            .embla {
+                overflow: hidden;
+                cursor: grab;
 
-            .menu-item {
-                position: relative;
-                text-align: center;
-                height: 400px;
+                .embla__container {
+                    display: flex;
 
-                &::after {
-                    content: ""; // ::before and ::after both require content
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-image: linear-gradient(120deg, #eaee44, #33d0ff);
-                    // mix-blend-mode: color;
-                    mix-blend-mode: hue;
-                    // mix-blend-mode: hard-light;
-                    opacity: 0.6;
-                    z-index: 5;
-                }
+                    .menu-item {
+                        flex: 0 0 33%;
+                        margin: 10px;
+                        height: auto;
+                        position: relative;
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
+                        &::after {
+                            content: ""; // ::before and ::after both require content
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-image: linear-gradient(120deg, #eaee44, #33d0ff);
+                            // mix-blend-mode: color;
+                            mix-blend-mode: hue;
+                            // mix-blend-mode: hard-light;
+                            opacity: 0.6;
+                            z-index: 5;
+                        }
 
-                h5 {
-                    position: absolute;
-                    text-transform: uppercase;
-                    padding: 10px;
-                    font-weight: bold;
-                    background-color: #ac87c5;
-                    color: #fff;
-                    bottom: 10px;
-                    left: 50%;
-                    width: 70%;
-                    transform: translateX(-50%);
-                    z-index: 6;
-                    transition: 0.1s;
-                    border-radius: 5px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
 
-                    a {
-                        color: #fff;
-                        text-decoration: none;
-                    }
-
-                    &:hover {
-                        background-color: #fff;
 
                         a {
-                            color: #ff90bc;
+                            display: block;
+                            color: #fff;
+                            position: absolute;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            padding: 10px;
+                            font-weight: bold;
+                            background-color: #ac87c5;
+                            bottom: 10px;
+                            left: 50%;
+                            width: 70%;
+                            transform: translateX(-50%);
+                            z-index: 6;
+                            transition: 0.1s;
+                            border-radius: 5px;
+                            text-align: center;
+
+                            &:hover {
+                                background-color: #fff;
+                                color: #ff90bc;
+                            }
                         }
                     }
+                }
+
+                .embla__controls {
+                    float: right;
+                }
+                .embla__buttons {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 0.6rem;
+                    align-items: center;
+                }
+                .embla__button {
+                    -webkit-tap-highlight-color: rgba(230, 230, 230, 0.5);
+                    -webkit-appearance: none;
+                    appearance: none;
+                    background-color: transparent;
+                    touch-action: manipulation;
+                    display: inline-flex;
+                    text-decoration: none;
+                    cursor: pointer;
+                    border: 0;
+                    padding: 0;
+                    margin: 0;
+                    width: 3.6rem;
+                    height: 3.6rem;
+                    z-index: 1;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .embla__button__svg {
+                    width: 35%;
+                    height: 35%;
                 }
             }
         }
@@ -185,7 +225,7 @@
         flex-direction: column;
         align-items: flex-start;
         width: 90%;
-        margin: 20px auto;
+        margin: 0 auto;
 
         h2{
             font-weight: bold;
@@ -288,8 +328,104 @@
         }
 
         .events-container {
-            flex-wrap: wrap;
+            width: 90%;
+            margin: 0 auto;
 
+            .emblaEvents {
+                overflow: hidden;
+                cursor: grab;
+
+                .embla__container {
+                    display: flex;
+
+                    .event-item {
+                        flex: 0 0 33%;
+                        margin: 10px;
+                        height: auto;
+                        position: relative;
+
+                        &::after {
+                            content: ""; // ::before and ::after both require content
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-image: linear-gradient(120deg, #eaee44, #33d0ff);
+                            // mix-blend-mode: color;
+                            mix-blend-mode: hue;
+                            // mix-blend-mode: hard-light;
+                            opacity: 0.6;
+                            z-index: 5;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+
+                        a {
+                            display: block;
+                            color: #fff;
+                            position: absolute;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            padding: 10px;
+                            font-weight: bold;
+                            background-color: #ac87c5;
+                            bottom: 10px;
+                            left: 50%;
+                            width: 70%;
+                            transform: translateX(-50%);
+                            z-index: 6;
+                            transition: 0.1s;
+                            border-radius: 5px;
+                            text-align: center;
+
+                            &:hover {
+                                background-color: #fff;
+                                color: #ff90bc;
+                            }
+                        }
+                    }
+                }
+
+                .embla__controls {
+                    float: right;
+                }
+                .embla__buttons {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 0.6rem;
+                    align-items: center;
+                }
+                .embla__button {
+                    -webkit-tap-highlight-color: rgba(230, 230, 230, 0.5);
+                    -webkit-appearance: none;
+                    appearance: none;
+                    background-color: transparent;
+                    touch-action: manipulation;
+                    display: inline-flex;
+                    text-decoration: none;
+                    cursor: pointer;
+                    border: 0;
+                    padding: 0;
+                    margin: 0;
+                    width: 3.6rem;
+                    height: 3.6rem;
+                    z-index: 1;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .embla__button__svg {
+                    width: 35%;
+                    height: 35%;
+                }
+            }
             .event-item {
                 position: relative;
                 text-align: center;
