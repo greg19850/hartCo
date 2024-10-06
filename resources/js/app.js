@@ -198,8 +198,24 @@ var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 // Adding layer to the map
 map.addLayer(layer);
 
+// Icon options
+var iconOptions = {
+    iconUrl: '/images/hart logo.png',
+    iconSize: [30, 30]
+}
+
+// Creating a custom icon
+var customIcon = L.icon(iconOptions);
+
+// Options for the marker
+var markerOptions = {
+    icon: customIcon
+}
+
 // Creating marker
-var marker = new L.Marker([52.289340, -1.537646]);
+var marker = new L.Marker([52.289368, -1.537606], markerOptions);
+
+marker.bindPopup('Hart + Co').openPopup();
 
 // Adding marker to the map
 marker.addTo(map);
