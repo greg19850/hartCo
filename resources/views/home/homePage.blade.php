@@ -84,10 +84,10 @@
     </div>
     <div class="contact p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">Hart + Co</h2>
-        <div class="address mb-3">27 AUGUSTA PLACE CV32 5EL Royal Leamington Spa</div>
+        <div class="address mb-3" data-aos="fade-up">{{$contactInfo->address ?? $defaultContactInfo['address']}} {{$contactInfo->postcode ?? $defaultContactInfo['postcode']}} {{$contactInfo->city ?? $defaultContactInfo['city']}}</div>
         <div class="hours-and-map mb-3">
-            <div id = "map" style = "width: 400px; height: 300px"></div>
-            <ul class="opening-hours">
+            <div id = "map" style = "width: 400px; height: 300px" data-aos="fade-up"></div>
+            <ul class="opening-hours" data-aos="fade-up">
                 <h4>Opening Hours</h4>
                 <li>Friday: 10:00 AM - 11:00 PM</li>
                 <li>Saturday: 10:00 AM- 11:00 PM</li>
@@ -103,15 +103,15 @@
             </ul>
         </div>
         <div class="reservations">
-            <h4 class="me-5">
+            <h4 class="me-5" data-aos="fade-up">
                 All Reservations can be placed through our social media:
             </h4>
-            <div class="socials d-flex justify-content-center mt-3">
-                <a href="https://www.instagram.com/hartleamington/?hl=en">
+            <div class="socials d-flex justify-content-center mt-3" data-aos="fade-up">
+                <a href="{{$contactInfo->instagram ?? $defaultContactInfo['instagram']}}" target="_blank">
                     <x-entypo-instagram /></a>
-                <a href="https://www.facebook.com/hartrestaurants1">
+                <a href="{{$contactInfo->facebook ?? $defaultContactInfo['facebook']}}" target="_blank">
                     <x-entypo-facebook class="facebook-icon" /></a>
-                <a href="mailto:reservations@hartrestaurants.co.uk">
+                <a href="mailto:{{$contactInfo->email ?? $defaultContactInfo['email']}}" target="_blank">
                     <x-entypo-email /></a>
             </div>
         </div>

@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $defaultInfo = [
             'address' => '27 AUGUSTA PLACE',
             'postcode' => 'CV32 5EL',
-            'city' => 'Lemington Spa',
+            'city' => 'Royal Lemington Spa',
             'phone' => 'N/A',
             'email' => 'reservations@hartrestaurants.co.uk',
             'facebook' => 'https://www.facebook.com/hartrestaurants1/',
