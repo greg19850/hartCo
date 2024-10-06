@@ -86,9 +86,7 @@
         <h2 class="text-uppercase" data-aos="fade-up">Hart + Co</h2>
         <div class="address mb-3">27 AUGUSTA PLACE CV32 5EL Royal Leamington Spa</div>
         <div class="hours-and-map mb-3">
-            <iframe width="400" height="300" style="border:0" loading="lazy" allowfullscreen
-                    src="https://www.google.com/maps/embed/v1/place?q=HART%20%2B%20CO%2C%20%2027%20Augusta%20Place%2C%20Leamington%20Spa%2C%20UK&key=AIzaSyAO0cZT9L0ZQOBhFHA0JzU3DPxYOWl8TVc">
-            </iframe>
+            <div id = "map" style = "width: 400px; height: 300px"></div>
             <ul class="opening-hours">
                 <h4>Opening Hours</h4>
                 <li>Friday: 10:00 AM - 11:00 PM</li>
