@@ -37,14 +37,14 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label for="event_date" class="form-label">Event Date (optional) </label>
+                                    <label for="event_date" class="form-label">Event Date</label>
                                     <input type="text" name="date" class="form-control" id="event_date"
                                            value="{{ old('date') }}" aria-label="Event Date">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label for="event_link" class="form-label">Event Link</label>
+                                    <label for="event_link" class="form-label">Event Link (optional)</label>
                                     <input type="url" name="link" class="form-control" id="event_link"
                                            value="{{ old('link') }}" placeholder="https://example.com"
                                            aria-label="Event Link" pattern="https://.*"

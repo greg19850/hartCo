@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "HartCo website",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Hart+Co Lemington website",
     "keywords": [
         "laravel",
         "framework"

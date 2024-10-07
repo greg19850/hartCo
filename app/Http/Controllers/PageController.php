@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactInfo;
+use App\Models\Event;
 use App\Models\FamilyDescription;
 use App\Models\Menu;
 use App\Models\Motto;
@@ -25,14 +26,15 @@ class PageController extends Controller
         }
 
         $menus = Menu::all();
-
         $contactInfo = ContactInfo::first();
+        $events = Event::all();
 
         return view('home.homePage', [
             'motto' => $text,
             'famDescription' => $description,
             'menus' => $menus,
-            'contactInfo' => $contactInfo
+            'contactInfo' => $contactInfo,
+            'events' => $events,
         ]);
     }
 }
