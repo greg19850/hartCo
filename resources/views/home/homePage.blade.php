@@ -36,8 +36,8 @@
 
     <div id="menus" class="menus d-flex flex-column align-items-center p-3">
         <h2 class="text-uppercase" data-aos="fade-up">Check Our Menus</h2>
-        @if(!$menus)
-        <p>Menus section coming soon</p>
+        @if(!count($menus))
+            <p class="coming-soon">Coming Soon!</p>
         @else
         <div class="menus pt-4 menus-container" data-aos="fade-up">
             <div class="embla">
@@ -138,57 +138,53 @@
     </div>
 
     <div id="events" class="events p-3 text-center">
-        <h2 class="text-uppercase" data-aos="fade-up">Events</h2>
+        <h2 class="text-uppercase" data-aos="fade-up">Upcoming Events</h2>
         <div class="events py-4 events-container" data-aos="fade-up">
-            <div class="emblaEvents">
-                <div class="embla__viewport">
-                    <div class="embla__container">
-                        <div class="glide__slide event-item">
-                            <img src='images/hartphotos/IMG_5504.jpg' alt="">
-                            <a href="">Get Your Tickets Here</a>
+            @if(!count($events))
+                <p class="coming-soon">Coming Soon!</p>
+            @else
+                <div class="emblaEvents">
+                    <div class="embla__viewport">
+                        <div class="embla__container">
+                            @foreach($events as $event)
+                                <div class="glide__slide event-item">
+                                    <img src='{{$event->image}}' alt="eventy image">
+                                    @if($event->link)
+                                        <a href="{{$event->link}}" target="_blank"> <x-entypo-link class="event-link" />Get Your Tickets Here</a>
+                                    @endif
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="glide__slide event-item">
-                            <img src='images/hartphotos/IMG_5505.jpg' alt="">
-                            <a href="">Get Your Tickets Here</a>
-                        </div>
-                        <div class="glide__slide event-item">
-                            <img src='images/hartphotos/IMG_5509.jpg' alt="">
-                            <a href="">Get Your Tickets Here</a>
-                        </div>
-                        <div class="glide__slide event-item">
-                            <img src='images/hartphotos/IMG_5507.jpg' alt="">
-                            <a href="">Get Your Tickets Here</a>
+                    </div>
+                    <div class="embla__controls">
+                        <div class="embla__buttons">
+                            <button
+                                class="embla__button embla__button--prev"
+                                type="button"
+                                disabled=""
+                            >
+                                <svg class="embla__button__svg" viewBox="0 0 532 532">
+                                    <path
+                                        fill="#fff"
+                                        d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
+                                    ></path>
+                                </svg></button
+                            ><button
+                                class="embla__button embla__button--next"
+                                type="button"
+                                disabled=""
+                            >
+                                <svg class="embla__button__svg" viewBox="0 0 532 532">
+                                    <path
+                                        fill="#fff"
+                                        d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
+                                    ></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="embla__controls">
-                    <div class="embla__buttons">
-                        <button
-                            class="embla__button embla__button--prev"
-                            type="button"
-                            disabled=""
-                        >
-                            <svg class="embla__button__svg" viewBox="0 0 532 532">
-                                <path
-                                    fill="#fff"
-                                    d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
-                                ></path>
-                            </svg></button
-                        ><button
-                            class="embla__button embla__button--next"
-                            type="button"
-                            disabled=""
-                        >
-                            <svg class="embla__button__svg" viewBox="0 0 532 532">
-                                <path
-                                    fill="#fff"
-                                    d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
-                                ></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
     <div id="hire" class="hire p-3 text-center">
