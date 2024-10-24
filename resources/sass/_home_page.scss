@@ -30,6 +30,7 @@
     h2 {
         color: #fff;
     }
+
     .heart-up-icon {
         cursor: pointer;
         position: fixed;
@@ -52,7 +53,7 @@
         }
     }
 
-    .coming-soon{
+    .coming-soon {
         color: #fff;
         font-size: 18px;
     }
@@ -74,6 +75,7 @@
 
         .carousel-item {
             height: 100vh;
+
             img {
                 height: 100%;
             }
@@ -85,11 +87,13 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
             h1 {
                 font-size: 80px;
                 color: #fff;
                 text-align: center;
             }
+
             .heart-down-icon {
                 cursor: pointer;
                 z-index: 10;
@@ -127,6 +131,7 @@
 
         .menus-container {
             width: 90%;
+
             .embla {
                 overflow: hidden;
                 cursor: grab;
@@ -190,12 +195,14 @@
                 .embla__controls {
                     float: right;
                 }
+
                 .embla__buttons {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
                     gap: 0.6rem;
                     align-items: center;
                 }
+
                 .embla__button {
                     -webkit-tap-highlight-color: rgba(230, 230, 230, 0.5);
                     -webkit-appearance: none;
@@ -225,23 +232,23 @@
         }
     }
 
-    .contact{
+    .contact {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 90%;
         margin: 0 auto;
 
-        h2{
+        h2 {
             font-weight: bold;
             text-align: center;
         }
 
-        .address{
+        .address {
             color: #fff;
         }
 
-        .hours-and-map{
+        .hours-and-map {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -254,18 +261,19 @@
             }
         }
 
-        .reservations{
+        .reservations {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             width: 100%;
 
-            h4{
+            h4 {
                 color: #fff;
             }
 
-            .socials{
+            .socials {
                 align-self: center;
+
                 svg {
                     color: #fff;
                     width: 45px;
@@ -346,22 +354,43 @@
                     .event-item {
                         flex: 0 0 33%;
                         margin: 10px;
-                        height: auto;
+                        height: 400px;
                         position: relative;
 
-                        &::after {
-                            content: ""; // ::before and ::after both require content
+                        //&::after {
+                        //    content: ""; // ::before and ::after both require content
+                        //    position: absolute;
+                        //    top: 0;
+                        //    left: 0;
+                        //    width: 100%;
+                        //    height: 100%;
+                        //    background-image: linear-gradient(120deg, #eaee44, #33d0ff);
+                        //    // mix-blend-mode: color;
+                        //    mix-blend-mode: hue;
+                        //    // mix-blend-mode: hard-light;
+                        //    opacity: 0.6;
+                        //    z-index: 5;
+                        //}
+
+                        .see-more-event-btn {
                             position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background-image: linear-gradient(120deg, #eaee44, #33d0ff);
-                            // mix-blend-mode: color;
-                            mix-blend-mode: hue;
-                            // mix-blend-mode: hard-light;
-                            opacity: 0.6;
-                            z-index: 5;
+                            display: block;
+                            background: transparent;
+                            padding: 10px;
+                            font-weight: bold;
+                            color: #fff;
+                            border: none;
+                            border-radius: 5px;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: 6;
+                            transition: 0.1s;
+
+                            &:hover {
+                                background-color: #fff;
+                                color: #ff90bc;
+                            }
                         }
 
                         img {
@@ -393,7 +422,7 @@
                                 color: #ff90bc;
                             }
 
-                            .event-link{
+                            .event-link {
                                 width: 25px;
                                 margin-right: 5px;
                             }
@@ -404,20 +433,20 @@
                 .embla__controls {
                     float: right;
                 }
+
                 .embla__buttons {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
                     gap: 0.6rem;
                     align-items: center;
                 }
+
                 .embla__button {
                     -webkit-tap-highlight-color: rgba(230, 230, 230, 0.5);
                     -webkit-appearance: none;
                     appearance: none;
                     background-color: transparent;
                     touch-action: manipulation;
-                    display: inline-flex;
-                    text-decoration: none;
                     cursor: pointer;
                     border: 0;
                     padding: 0;
@@ -436,10 +465,18 @@
                     height: 35%;
                 }
             }
-            .event-item {
+        }
+    }
+
+    .event-modal {
+        .modal-dialog {
+            max-width: max-content !important;
+            max-height: max-content !important;
+
+            .modal-content{
                 position: relative;
-                text-align: center;
-                height: 400px;
+                width: 80vw;
+                height: 80vh;
 
                 &::after {
                     content: ""; // ::before and ::after both require content
@@ -448,51 +485,100 @@
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background-image: linear-gradient(120deg, #eaee44, #33d0ff);
-                    // mix-blend-mode: color;
-                    mix-blend-mode: hue;
-                    // mix-blend-mode: hard-light;
-                    opacity: 0.6;
+                    background-color: #000;
+                    opacity: 0.3;
                     z-index: 5;
+                }
+
+                button{
+                    position: absolute;
+                    top: -20px;
+                    right: -40px;
+                    background-color: transparent;
+                    border: none;
+
+                    .cross {
+                        width: 45px;
+                        color: #fff;
+                    }
+                }
+
+
+                .event-name{
+                    color: #fff;
+                    position: absolute;
+                    top: 30px;
+                    left: 50%;
+                    padding: 5px;
+                    font-weight: bold;
+                    transform: translateX(-50%);
+                    z-index: 6;
+                    text-align: center;
+                }
+
+                .event-date{
+                    color: #fff;
+                    position: absolute;
+                    top: 80px;
+                    left: 50%;
+                    width: 80%;
+                    padding: 5px;
+                    font-weight: bold;
+                    font-size: 18px;
+                    transform: translateX(-50%);
+                    z-index: 6;
+                    text-align: center;
+                }
+
+                .event-description{
+                    color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 80%;
+                    padding: 5px;
+                    transform: translate(-50%, -50%);
+                    z-index: 6;
+                    text-align: center;
+                }
+
+
+
+                a {
+                    display: block;
+                    color: #fff;
+                    position: absolute;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    padding: 5px 10px;
+                    font-weight: bold;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 6;
+                    transition: 0.1s;
+                    border-radius: 5px;
+                    text-align: center;
+
+                    .event-link {
+                        width: 25px;
+                        margin-right: 5px;
+                    }
+
+                    &:hover {
+                        background-color: #fff;
+                        color: #ff90bc;
+                    }
                 }
 
                 img {
                     width: 100%;
                     height: 100%;
                 }
-
-                h5 {
-                    position: absolute;
-                    text-transform: uppercase;
-                    padding: 10px;
-                    font-weight: bold;
-                    // background-color: #ac87c5;
-                    color: #fff;
-                    text-align: center;
-                    bottom: 10px;
-                    left: 0;
-                    right: 0;
-                    z-index: 6;
-                    transition: 0.1s;
-                    border-radius: 5px;
-
-                    a {
-                        color: #fff;
-                        text-decoration: none;
-                        svg {
-                            width: 25px;
-                        }
-                    }
-
-                    &:hover {
-                        a {
-                            color: #ff90bc;
-                        }
-                    }
-                }
             }
         }
     }
+
     .hire {
         margin: 20px auto;
         width: 90%;

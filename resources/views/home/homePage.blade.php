@@ -148,7 +148,8 @@
                         <div class="embla__container">
                             @foreach($events as $event)
                                 <div class="glide__slide event-item">
-                                    <img src='{{$event->image}}' alt="eventy image">
+                                    <button type="button" class="see-more-event-btn" data-bs-toggle="modal" data-bs-target="#eventModal_{{$event->id}}">See more...</button>
+                                    <img src='{{$event->image}}' alt="event image">
                                     @if($event->link)
                                         <a href="{{$event->link}}" target="_blank"> <x-entypo-link class="event-link" />Get Your Tickets Here</a>
                                     @endif
@@ -198,6 +199,11 @@
     <div id="faq" class="faq p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">FAQ's</h2>
     </div>
+    @if(count($events))
+        @foreach($events as $event)
+            <x-event-modal :event="$event"  />
+        @endforeach
+    @endif
     <x-terms-conditions-modal />
 </div>
 @endsection
