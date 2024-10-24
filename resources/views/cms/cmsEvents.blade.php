@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 mt-5">
+                        <div class="event-preview-container col-5 mt-5">
                             <div class="row mb-3 event-image-preview">
                                 <div class="col event-image-container">
                                     <p>Upload Image to see preview</p>
@@ -95,9 +95,11 @@
             <div class="events-list px-1">
                 @foreach($events as $event)
                     <div class="card m-2" style="width: 30%;">
-                        <img src="{{asset($event->image)}}" class="card-img-top" alt="{{$event->name}}" style="height: 60%;">
+                        <img src="{{asset($event->image)}}" class="card-img-top" alt="{{$event->name}}">
                         <div class="card-body">
-                            <h5 class="card-title">{{$event->name}}</h5>
+                            <h5 class="card-title mb-1">{{$event->name}}</h5>
+                            <p class="mb-3">{{$event->date}}</p>
+                            <p class="mb-1">{!!$event->description!!}</p>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-event-delete" data-eventid={{$event->id}}>Delete</button>
                         </div>
                     </div>

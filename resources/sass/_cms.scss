@@ -87,7 +87,7 @@ body.cms-body {
 
     .edit-menu-card {
         .top-panel {
-            height: 280px;
+            height: 350px;
 
             .edit-img-btn {
                 display: block;
@@ -275,13 +275,16 @@ body.cms-body {
 // Events
 
 .cms-events{
-    .event-image-preview{
-        height: 87%;
-        .event-image-container{
-            height: 60%;
-            img{
-                width: 100%;
-                height: 100%;
+    .event-preview-container{
+        height: 600px;
+        .event-image-preview{
+            height: 90%;
+            .event-image-container{
+                height: 80%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
     }
@@ -303,6 +306,29 @@ body.cms-body {
 
         &.active {
             display: block;
+        }
+    }
+
+    .events-list{
+        display: flex;
+        flex-wrap: wrap;
+
+        .card{
+            width: 32%;
+            height: 500px;
+
+            .card-img-top{
+                height: 50%;
+            }
+
+            .card-body{
+                height: 50%;
+                position: relative;
+                button{
+                    position: absolute;
+                    bottom: 5px;
+                }
+            }
         }
     }
 }

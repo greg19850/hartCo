@@ -27,32 +27,36 @@
         </div>
         <div class="controls">
             @if(!count($subMenu->menuItem))
-                <a href="{{route('cms.addMenuItemsForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}" class="btn edit-category btn-success"><i class="bi bi-plus-square-dotted"></i></a>
+                <a href="{{route('cms.addMenuItemsForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}"
+                   class="btn edit-category btn-success"><i class="bi bi-plus-square-dotted"></i></a>
             @endif
-            <a href="{{route('cms.editMenuCategoryForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}" class="btn edit-category btn-warning"><i class="bi bi-pencil-square"></i></a>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#sub-menu-delete-confirm-modal"><i class="bi bi-trash3"></i></button>
+            <a href="{{route('cms.editMenuCategoryForm', ['menuId' => $subMenu->menu_id, 'subMenuId' => $subMenu->id])}}"
+               class="btn edit-category btn-warning"><i class="bi bi-pencil-square"></i></a>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#sub-menu-delete-confirm-modal"><i class="bi bi-trash3"></i></button>
         </div>
     </div>
     <div class="menu-items-show">
         <h5>Menu Items:</h5>
         @foreach($subMenu->menuItem as $menuItem)
-        <div>
-            <div class="d-flex">
-                <p class="w-50 fw-bold">
-                {{$menuItem->name}}
-                    @if($menuItem->vegan)
-                    <span>(V)</span>
+            <div>
+                <div class="d-flex">
+                    <p class="w-50 fw-bold">
+                        {{$menuItem->name}}
+                        @if($menuItem->vegan)
+                            <span>(V)</span>
+                        @endif
+                    </p>
+                    @if($menuItem->price)
+                        <p>
+                            £{{$menuItem->price}}
+                        </p>
                     @endif
-                </p>
-
+                </div>
                 <p>
-                £{{$menuItem->price}}
+                    {{$menuItem->ingredients}}
                 </p>
             </div>
-            <p>
-                {{$menuItem->ingredients}}
-            </p>
-        </div>
         @endforeach
     </div>
     <x-sub-menu-delete-confirm-modal :subMenu="$subMenu" :deleteText="$subMenuDeleteText"/>
