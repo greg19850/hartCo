@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddEventRequest;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class CmsEventController extends Controller
 {
     public function showEventsPanel()
     {
-        $events = Event::orderBy('date', 'ASC')->get();
+        $events = Event::orderBy(DB::raw("STR_TO_DATE(date, '%d-%m-%Y')"))->get();
 
         return view('cms.cmsEvents', ['events' => $events]);
     }
