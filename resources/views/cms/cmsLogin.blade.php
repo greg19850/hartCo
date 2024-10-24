@@ -6,7 +6,7 @@
             @csrf
             <div class="login-logo my-3">
                 <div class="login-img-container me-4">
-                    <img src='{{url('/images/hart logo.png')}}' alt="logo"/>
+                    <x-hart-logo />
                 </div>
                 <div class="login-logo-text">CMS Panel Login</div>
             </div>

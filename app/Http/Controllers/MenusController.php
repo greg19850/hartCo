@@ -2,36 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class MenusController extends Controller
 {
-    public function showBreakfastMenu()
+    public function showMenu($menuId)
     {
-        return view('menus.breakfastMenu');
-    }
+        $menu = Menu::where('id', $menuId)->with(['subMenu.menuItem'])->with('menuRule')->firstOrFail();
 
-    public function showMainMenu()
-    {
-        return view('menus.mainMenu');
-    }
-    public function showBrunchMenu()
-    {
-        return view('menus.brunchMenu');
-    }
-
-    public function showSetMenu()
-    {
-        return view('menus.setMenu');
-    }
-
-    public function showSnackMenu()
-    {
-        return view('menus.snackMenu');
-    }
-
-    public function showDrinksMenu()
-    {
-        return view('menus.drinksMenu');
+        return view('menus.singleMenu', ['menu' => $menu]);
     }
 }

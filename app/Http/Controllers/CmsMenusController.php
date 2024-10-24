@@ -40,7 +40,7 @@ class CmsMenusController extends Controller
 
             $imgUrl = Storage::url($link);
         } else {
-            $imgUrl = "/images/menu_default.jpg";
+            $imgUrl = asset('storage/images/menu_default.jpg') ;
         }
 
         Menu::create([

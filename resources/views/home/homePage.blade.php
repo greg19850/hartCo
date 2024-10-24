@@ -46,7 +46,7 @@
                         @foreach($menus as $menu)
                             <div class="menu-item embla__slide">
                                 <img src={{$menu->image}} alt="">
-                                <a href="/menus/breakfast_menu">{{$menu->name}}</a>
+                                <a href="/menu/{{$menu->id}}">{{$menu->name}}</a>
                             </div>
                         @endforeach
                     </div>

@@ -142,7 +142,7 @@
                     .menu-item {
                         flex: 0 0 33%;
                         margin: 10px;
-                        height: auto;
+                        height: 400px;
                         position: relative;
 
                         &::after {
@@ -475,7 +475,7 @@
 
             .modal-content{
                 position: relative;
-                width: 80vw;
+                width: 50vw;
                 height: 80vh;
 
                 &::after {

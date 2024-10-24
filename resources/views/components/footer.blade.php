@@ -1,7 +1,5 @@
 <div class="footer d-flex flex-column align-items-center justify-content-between p-1">
-    <div class="img-container">
-        <img src='images/hart logo.png' alt="logo" />
-    </div>
+
     <div class="footer-details d-flex align-items-start px-2">
         <ul class="opening-hours m-0 p-0">
             <h4>Opening Hours</h4>
@@ -17,6 +15,9 @@
                 Thursday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
             </li>
         </ul>
+        <div class="img-container">
+            <x-hart-logo />
+        </div>
         <div class="contact d-flex flex-column">
             <h2>Hart + Co </h2>
             <div class="address mb-2">27 AUGUSTA PLACE CV32 5EL Royal Leamington Spa</div>

@@ -1,7 +1,7 @@
 <div class="cms-nav p-1">
     <div class="logo row my-3">
         <div class="img-container col-5">
-            <img src='{{url('/images/hart logo.png')}}' alt="logo" />
+            <x-hart-logo />
         </div>
         <div class="text col-7">Welcome {{\Illuminate\Support\Facades\Auth::guard('admin')->user()['name']}}</div>
     </div>
