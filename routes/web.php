@@ -25,18 +25,7 @@ use App\Http\Controllers\CmsSettingsController;
 */
 
 Route::get('/', [PageController::class, 'homePage'])->name('homepage');
-
-Route::prefix("/menus")->group(
-    function () {
-        Route::get('breakfast_menu', [MenusController::class, 'showBreakfastMenu'])->name('showBreakfastMenu');
-        Route::get('main_menu', [MenusController::class, 'showMainMenu'])->name('showMainMenu');
-        Route::get('brunch_menu', [MenusController::class, 'showBrunchMenu'])->name('showBrunchMenu');
-        Route::get('set_menu', [MenusController::class, 'showSetMenu'])->name('showSetMenu');
-        Route::get('snack_menu', [MenusController::class, 'showSnackMenu'])->name('showSnackMenu');
-        Route::get('drinks_menu', [MenusController::class, 'showDrinksMenu'])->name('showDrinksMenu');
-    }
-);
-
+Route::get('menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
 
 Route::prefix("/cms")->group(
     function () {

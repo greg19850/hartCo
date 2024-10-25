@@ -20,9 +20,9 @@
 </head>
 <body>
     <header>
-        <div class="img-container">
-            <img src='images/hart logo.png' alt="logo" />
-        </div>
+        <a class="img-container" href="{{route('homepage')}}">
+            <x-hart-logo />
+        </a>
         <x-tabler-menu-deep class="menu-icon" />
         <x-nav-menu />
     </header>
