@@ -4,6 +4,7 @@
 @import "header";
 @import "nav-menu";
 @import "home_page";
+@import "home_page_responsive";
 @import "menu";
 @import "tc_modal";
 @import "footer";
@@ -21,6 +22,7 @@ html,
 body {
     min-height: 100vh;
     position: relative;
+    overflow-x: hidden;
 }
 
 .page-content{

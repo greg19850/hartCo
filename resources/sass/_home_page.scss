@@ -254,6 +254,11 @@
             justify-content: center;
             align-self: center;
 
+            #map{
+                width: 400px;
+                height: 300px;
+            }
+
             ul {
                 list-style: none;
                 color: #fff;
@@ -304,6 +309,7 @@
 
         ul {
             list-style: none;
+            padding-left: 0;
         }
 
         .btn {
@@ -552,6 +558,7 @@
                     text-transform: uppercase;
                     padding: 5px 10px;
                     font-weight: bold;
+                    width: 100%;
                     bottom: 20px;
                     left: 50%;
                     transform: translateX(-50%);
@@ -593,3 +600,5 @@
         }
     }
 }
+
+

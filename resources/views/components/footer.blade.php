@@ -1,20 +1,21 @@
-<div class="footer d-flex flex-column align-items-center justify-content-between p-1">
-
-    <div class="footer-details d-flex align-items-start px-2">
-        <ul class="opening-hours m-0 p-0">
-            <h4>Opening Hours</h4>
-            <li>Friday: 10:00 AM - 11:00 PM</li>
-            <li>Saturday: 10:00 AM- 11:00 PM</li>
-            <li>Sunday: 10:00 AM- 4:00 PM</li>
-            <li>Monday: 9:30 AM - 2:00 PM</li>
-            <li>Tuesday: 9:30 AM - 3:00 PM / 6:00 PM- 10:00 PM (reservations only )</li>
-            <li>
-                Wednesday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
-            </li>
-            <li>
-                Thursday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
-            </li>
-        </ul>
+<footer class="d-flex flex-column align-items-center justify-content-between p-1">
+    <div class="footer-details px-2">
+        <div class="opening-hours">
+            <h5>Opening Hours</h5>
+            <ul class="m-0 p-0">
+                <li>Friday: 10:00 AM - 11:00 PM</li>
+                <li>Saturday: 10:00 AM- 11:00 PM</li>
+                <li>Sunday: 10:00 AM- 4:00 PM</li>
+                <li>Monday: 9:30 AM - 2:00 PM</li>
+                <li>Tuesday: 9:30 AM - 3:00 PM / 6:00 PM- 10:00 PM (reservations only )</li>
+                <li>
+                    Wednesday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
+                </li>
+                <li>
+                    Thursday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
+                </li>
+            </ul>
+        </div>
         <div class="img-container">
             <x-hart-logo />
         </div>
@@ -34,6 +35,9 @@
     <ul class="footer-menu d-flex align-items-center justify-content-center mb-0 mt-2">
         <li class="me-2"><a href="#about">About</a></li>
         <li class="me-2"><a href="#menus">Menu</a></li>
-        <li class="me-2"><a href="#">FAQs</a></li>
     </ul>
-</div>
+    <div class="footer-bottom text-center mt-2">
+        <p class="mb-0">© 2024 Hart+Co. All rights reserved.</p>
+        <p class="creator mb-0">Created by <a href="mailto:gregmdev30@gmail.com">gregmdev</a>
+    </div>
+</footer>
