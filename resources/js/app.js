@@ -200,7 +200,7 @@ map.addLayer(layer);
 
 // Icon options
 var iconOptions = {
-    iconUrl: '/images/hart logo.png',
+    iconUrl: '/storage/images/hart logo.png',
     iconSize: [30, 30]
 }
 

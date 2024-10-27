@@ -25,7 +25,7 @@
 }
 
 .home-page {
-    background-color: #ff90bc;
+    //background-color: #ff90bc;
 
     h2 {
         color: #fff;
@@ -122,7 +122,7 @@
     }
 
     .menus {
-        background-color: #ff90bc;
+        //background-color: #ff90bc;
 
         h2 {
             color: #fff;
@@ -145,20 +145,20 @@
                         height: 400px;
                         position: relative;
 
-                        &::after {
-                            content: ""; // ::before and ::after both require content
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background-image: linear-gradient(120deg, #eaee44, #33d0ff);
-                            // mix-blend-mode: color;
-                            mix-blend-mode: hue;
-                            // mix-blend-mode: hard-light;
-                            opacity: 0.6;
-                            z-index: 5;
-                        }
+                        //&::after {
+                        //    content: ""; // ::before and ::after both require content
+                        //    position: absolute;
+                        //    top: 0;
+                        //    left: 0;
+                        //    width: 100%;
+                        //    height: 100%;
+                        //    background-image: linear-gradient(120deg, #eaee44, #33d0ff);
+                        //    // mix-blend-mode: color;
+                        //    mix-blend-mode: hue;
+                        //    // mix-blend-mode: hard-light;
+                        //    opacity: 0.6;
+                        //    z-index: 5;
+                        //}
 
                         img {
                             width: 100%;
@@ -292,7 +292,7 @@
     .masterclass {
         margin: 20px auto;
         width: 90%;
-        background-color: #ac87c5;
+        //background-color: #ac87c5;
         background-color: #fff;
         color: #ff90bc;
         border-radius: 10px;
@@ -333,7 +333,7 @@
     }
 
     .events {
-        background-color: #ff90bc;
+        //background-color: #ff90bc;
 
         h2 {
             color: #fff;
@@ -478,17 +478,17 @@
                 width: 50vw;
                 height: 80vh;
 
-                &::after {
-                    content: ""; // ::before and ::after both require content
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #000;
-                    opacity: 0.3;
-                    z-index: 5;
-                }
+                //&::after {
+                //    content: ""; // ::before and ::after both require content
+                //    position: absolute;
+                //    top: 0;
+                //    left: 0;
+                //    width: 100%;
+                //    height: 100%;
+                //    background-color: #000;
+                //    opacity: 0.3;
+                //    z-index: 5;
+                //}
 
                 button{
                     position: absolute;
@@ -582,7 +582,7 @@
     .hire {
         margin: 20px auto;
         width: 90%;
-        background-color: #ac87c5;
+        //background-color: #ac87c5;
         background-color: #fff;
         color: #ff90bc;
         border-radius: 10px;
