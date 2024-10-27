@@ -1,10 +1,16 @@
-.page-content{
+.single-menu-content{
     background-color: #ff90bc;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #d5d5d5, #ff90bc), repeating-radial-gradient(circle at center center, #d5d5d5, #d5d5d5, 8px, transparent 16px, transparent 8px);
+    background-blend-mode: multiply;
 }
+
+
 .single-menu{
     width: 60%;
     margin: 0 auto;
     color: #fff;
+
 
     .menu-title{
         border-bottom: 1px solid #fff;
@@ -31,14 +37,19 @@
     }
 
     .submenu{
-        border-bottom: 1px solid #fff;
-        
+
+
+        h3{
+            font-weight: bold;
+        }
+
 
         .menu-items-list{
             display: flex;
             flex-wrap: wrap;
             width: 100%;
             margin: 0 auto;
+            border-bottom: 1px solid #fff;
 
             .menu-item{
                 width: 50%;
