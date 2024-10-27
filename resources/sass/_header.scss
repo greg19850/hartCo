@@ -35,3 +35,21 @@ header {
         border-radius: 10px;
     }
 }
+
+@media screen and (max-width: 480px) {
+    header{
+        .img-container{
+            width: 50px;
+        }
+
+        .menu-icon {
+            font-size: 150px;
+            width: 40px;
+            height: 40px;
+            padding: 2px;
+            border-radius: 10px;
+        }
+    }
+
+
+}

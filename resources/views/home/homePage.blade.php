@@ -7,7 +7,7 @@
     <x-tabler-heart-up class="heart-up-icon" />
     <div id="hart-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="motto d-flex flex-column align-items-center justify-content-center">
-            <h1>{{$motto}}</h1>
+            <h1 class="motto-text">{{$motto}}</h1>
             <x-tabler-heart-down class="heart-down-icon" />
         </div>
         <div class="carousel-inner">
@@ -86,7 +86,7 @@
         <h2 class="text-uppercase" data-aos="fade-up">Hart + Co</h2>
         <div class="address mb-3" data-aos="fade-up">{{$contactInfo->address ?? $defaultContactInfo['address']}} {{$contactInfo->postcode ?? $defaultContactInfo['postcode']}} {{$contactInfo->city ?? $defaultContactInfo['city']}}</div>
         <div class="hours-and-map mb-3">
-            <div id = "map" style = "width: 400px; height: 300px" data-aos="fade-up"></div>
+            <div id = "map" data-aos="fade-up"></div>
             <ul class="opening-hours" data-aos="fade-up">
                 <h4>Opening Hours</h4>
                 <li>Friday: 10:00 AM - 11:00 PM</li>
@@ -133,7 +133,7 @@
             <button type="button" class="btn mb-3" data-bs-toggle="modal" data-bs-target="#tc-modal" data-aos="fade-up">
                 Read Masterclass Terms and Conditions
             </button>
-            <a href="https://www.instagram.com/hartleamington/?hl=en" class='d-block' data-aos="fade-up">For Bookings DM us on instagram</a>
+            <a href="https://www.instagram.com/hartleamington/?hl=en" class='d-block'>For Bookings DM us on instagram</a>
         </ul>
     </div>
 

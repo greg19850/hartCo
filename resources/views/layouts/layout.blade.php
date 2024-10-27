@@ -30,56 +30,9 @@
     <div class="page-content container-fluid p-0">
         @yield('content')
     </div>
-
     <x-footer />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        var sliders = document.getElementsByClassName("glide");
-
-
-        for (var i = 0; i < sliders.length; i++) {
-            if (i === 0) {
-                const config = {
-                    type: 'carousel'
-                    , perView: 3
-                    , animationDuration: 1000
-                    , breakpoints: {
-                        900: {
-                            perView: 2
-                        }
-                        , 500: {
-                            perView: 1
-                        }
-                    }
-                }
-
-                var glide = new Glide(sliders[i], config);
-                glide.mount();
-            } else if (i === 1) {
-                const config = {
-                    type: 'carousel'
-                    , perView: 2
-                    , animationDuration: 1000
-                    , autoplay: 2000
-                    , breakpoints: {
-                        900: {
-                            perView: 2
-                        }
-                        , 500: {
-                            perView: 1
-                        }
-                    }
-                }
-
-                var glide = new Glide(sliders[i], config);
-                glide.mount();
-            }
-
-        }
-
-    </script>
     <script>
         AOS.init();
 
