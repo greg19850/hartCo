@@ -14,10 +14,10 @@
 
             <div class="submenu mb-3">
                 @foreach($menu->subMenu as $subMenu)
-                    <div class="row mb-1">
-                        <h3 class="col-9 align-self-center">{{ $subMenu->title }}</h3>
+                    <div class="row my-2">
+                        <h3 class="col-8 md-col-9 align-self-center">{{ $subMenu->title }}</h3>
                         @if($subMenu->price)
-                            <p class="col-3 mb-0 align-self-center"> Price: £{{$subMenu->price}}{!! $subMenu->per_person ? 'pp' : '' !!}</p>
+                            <p class="menu-price col-4 md-col-3 mb-0 align-self-center"> Price: £{{$subMenu->price}}{!! $subMenu->per_person ? 'pp' : '' !!}</p>
                         @endif
                     </div>
 

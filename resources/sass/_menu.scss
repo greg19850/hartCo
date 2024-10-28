@@ -39,6 +39,7 @@
     .submenu{
         h3{
             font-weight: bold;
+            margin-bottom: 0;
         }
 
 
@@ -62,6 +63,55 @@
             }
         }
     }
+}
 
+@media screen and (max-width: 768px) {
+    .single-menu {
+        width: 90%;
+
+        .rules {
+            padding: 5px;
+            //border: 1px solid #fff;
+            border-radius: 5px;
+            max-width: 90%;
+            margin: 0 auto 30px;
+        }
+
+        .submenu {
+            .menu-price{
+                text-align: end;
+            }
+
+            .menu-items-list {
+                .menu-item {
+                    width: 100%;
+
+                    .item-price {
+                        text-align: end;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .single-menu {
+        .submenu {
+            .menu-items-list {
+                .menu-item {
+                    .ingredients {
+                        font-size: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
 
 }
+
+
+
+
