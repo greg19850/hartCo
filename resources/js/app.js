@@ -1,20 +1,9 @@
 import "./bootstrap";
 
-// up and down arrows to scroll page
-const upArrow = document.querySelector(".heart-up-icon");
-const downArrow = document.querySelector(".heart-down-icon");
-
 const burgerBtn = document.querySelector(".menu-icon");
 const closeMenuBtn = document.querySelector(".close-menu-btn ");
 const menuOptions = document.querySelectorAll(".menuItem");
 
-const showArrow = () => {
-    if (window.scrollY >= window.innerHeight) {
-        upArrow.classList.add("active");
-    } else {
-        upArrow.classList.remove("active");
-    }
-};
 
 const openMenu = () => {
     document.querySelector(".nav-menu").classList.toggle("open");
@@ -22,18 +11,6 @@ const openMenu = () => {
 const closeMenu = () => {
     document.querySelector(".nav-menu").classList.toggle("open");
 };
-
-const scrollBeyondBanner = () => {
-    console.log(window.innerHeight);
-    window.scrollBy(0, window.innerHeight);
-};
-const scrollToTop = () => {
-    window.scrollBy(0, -window.scrollY);
-};
-
-document.addEventListener("scroll", showArrow);
-downArrow.addEventListener("click", scrollBeyondBanner);
-upArrow.addEventListener("click", scrollToTop);
 
 burgerBtn.addEventListener("click", openMenu);
 closeMenuBtn.addEventListener("click", closeMenu);
@@ -52,6 +29,7 @@ const nextBtn = emblaNode.querySelector('.embla__button--next')
 
 const options = {
     loop: true,
+    align: 'start'
 }
 // const plugins = []
 
@@ -117,21 +95,24 @@ const nextEventBtn = emblaEventNode.querySelector('.embla__button--next')
 
 const eventOptions = {
     loop: true,
+    align: 'start'
 }
-// const plugins = [EmblaCarouselAutoScroll({
-//     stopOnMouseEnter: true,
-//     // stopOnInteraction: false,
-//     speed: 1,
-//     breakpoints: {
-//         '(max-width: 768px)': {
-//             speed: 1
-//         }
-//     }
-// })]
+const plugins = [EmblaCarouselAutoScroll({
+    stopOnMouseEnter: true,
+    stopOnInteraction: false,
+    speed: 1,
+    breakpoints: {
+        '(max-width: 768px)': {
+            speed: 1
+        }
+    }
+})]
 
-const emblaEventApi = EmblaCarousel(viewportEventNode, eventOptions)
+const emblaEventApi = EmblaCarousel(viewportEventNode, eventOptions, plugins);
+const autoScrollPlugin = plugins[0];
 
-const addTogglePrevNextBtnsActiveEvent = (emblaApi, prevBtn, nextBtn) => {
+
+const addEventTogglePrevNextBtnsActive = (emblaApi, prevBtn, nextBtn) => {
     const togglePrevNextBtnsState = () => {
         if (emblaApi.canScrollPrev()) prevBtn.removeAttribute('disabled')
         else prevBtn.setAttribute('disabled', 'disabled')
@@ -151,36 +132,41 @@ const addTogglePrevNextBtnsActiveEvent = (emblaApi, prevBtn, nextBtn) => {
     }
 }
 
-const addPrevNextBtnsClickHandlersEvent = (emblaApi, prevBtn, nextBtn) => {
+const addEventPrevNextBtnsClickHandlers = (emblaApi, prevBtn, nextBtn) => {
     const scrollPrev = () => {
-        emblaApi.scrollPrev()
+        autoScrollPlugin.stop();
+        emblaApi.scrollPrev();
+        setTimeout(() => { autoScrollPlugin.play(); }, 1000);
     }
     const scrollNext = () => {
-        emblaApi.scrollNext()
+        autoScrollPlugin.stop();
+        emblaApi.scrollNext();
+        setTimeout(() => { autoScrollPlugin.play(); }, 1000);
     }
     prevBtn.addEventListener('click', scrollPrev, false)
     nextBtn.addEventListener('click', scrollNext, false)
 
-    const removeTogglePrevNextBtnsActive = addTogglePrevNextBtnsActiveEvent(
+    const removeEventTogglePrevNextBtnsActive = addEventTogglePrevNextBtnsActive(
         emblaApi,
         prevBtn,
         nextBtn
     )
 
     return () => {
-        removeTogglePrevNextBtnsActive()
+        removeEventTogglePrevNextBtnsActive()
         prevBtn.removeEventListener('click', scrollPrev, false)
         nextBtn.removeEventListener('click', scrollNext, false)
     }
 }
 
-const removePrevNextBtnsClickHandlersEvent = addPrevNextBtnsClickHandlersEvent(
+const removeEventPrevNextBtnsClickHandlers = addEventPrevNextBtnsClickHandlers(
     emblaEventApi,
     prevEventBtn,
-    nextEventBtn
+    nextEventBtn,
 )
 
-emblaEventApi.on('destroy', removePrevNextBtnsClickHandlersEvent)
+emblaEventApi.on('destroy', removeEventPrevNextBtnsClickHandlers)
+
 
 // Creating map options
 var mapOptions = {

@@ -82,7 +82,7 @@
         </div>
         @endif
     </div>
-    <div class="contact p-3 text-center">
+    <div id="reservations" class="contact p-3 text-center">
         <h2 class="text-uppercase" data-aos="fade-up">Hart + Co</h2>
         <div class="address mb-3" data-aos="fade-up">{{$contactInfo->address ?? $defaultContactInfo['address']}} {{$contactInfo->postcode ?? $defaultContactInfo['postcode']}} {{$contactInfo->city ?? $defaultContactInfo['city']}}</div>
         <div class="hours-and-map mb-3">
@@ -102,7 +102,7 @@
                 </li>
             </ul>
         </div>
-        <div class="reservations">
+        <div  class="reservations">
             <h4 class="me-5" data-aos="fade-up">
                 All Reservations can be placed through our social media:
             </h4>
@@ -206,4 +206,28 @@
     @endif
     <x-terms-conditions-modal />
 </div>
+<script>
+    // up and down arrows to scroll page
+    const upArrow = document.querySelector(".heart-up-icon");
+    const downArrow = document.querySelector(".heart-down-icon");
+
+    const showArrow = () => {
+        if (window.scrollY >= window.innerHeight) {
+            upArrow.classList.add("active");
+        } else {
+            upArrow.classList.remove("active");
+        }
+    };
+    const scrollToTop = () => {
+        window.scrollBy(0, -window.scrollY);
+    };
+
+    const scrollBeyondBanner = () => {
+        window.scrollBy(0, window.innerHeight);
+    };
+
+    document.addEventListener("scroll", showArrow);
+    downArrow.addEventListener("click", scrollBeyondBanner);
+    upArrow.addEventListener("click", scrollToTop);
+</script>
 @endsection

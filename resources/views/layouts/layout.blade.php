@@ -23,7 +23,9 @@
         <a class="img-container" href="{{route('homepage')}}">
             <x-hart-logo />
         </a>
-        <x-tabler-menu-deep class="menu-icon" />
+        <button class="menu-button">
+            <x-tabler-menu-deep class="menu-icon" />
+        </button>
         <x-nav-menu />
     </header>
 
@@ -35,7 +37,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-
     </script>
 </body>
 </html>
