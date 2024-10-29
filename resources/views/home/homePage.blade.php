@@ -12,13 +12,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src='images/hartphotos/IMG_5508.jpg' class="d-block w-100" alt="...">
+                <img src='/images/hartphotos/IMG_5508.jpg' class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src='images/hartphotos/IMG_5503.jpg' class="d-block w-100" alt="...">
+                <img src='/images/hartphotos/IMG_5503.jpg' class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src='images/hartphotos/IMG_5509.jpg' class="d-block w-100" alt="...">
+                <img src='/images/hartphotos/IMG_5509.jpg' class="d-block w-100" alt="...">
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
                         @foreach($menus as $menu)
                             <div class="menu-item embla__slide">
                                 <img src={{$menu->image}} alt="">
-                                <a href="/menu/{{$menu->id}}">{{$menu->name}}</a>
+                                <a href="{{route('showMenu',['menuId' => $menu->id])}}">{{$menu->name}}</a>
                             </div>
                         @endforeach
                     </div>

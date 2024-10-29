@@ -1,7 +1,7 @@
 {
-    "name": "HartCo website",
+    "name": "HartCo",
     "type": "project",
-    "description": "Hart+Co Leamington website",
+    "description": "HartCo Leamington website",
     "keywords": [
         "laravel",
         "framework"
