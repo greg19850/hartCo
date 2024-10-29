@@ -24,8 +24,12 @@ use App\Http\Controllers\CmsSettingsController;
 |
 */
 
-Route::get('/', [PageController::class, 'homePage'])->name('homepage');
-Route::get('menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
+Route::get('/', function(){
+    return view('placeholder');
+})->name('placeholder');
+
+Route::get('/wip/home', [PageController::class, 'homePage'])->name('homepage');
+Route::get('/wip/home/menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
 
 Route::prefix("/cms")->group(
     function () {
