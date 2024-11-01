@@ -87,20 +87,23 @@
         <div class="address mb-3" data-aos="fade-up">{{$contactInfo->address ?? $defaultContactInfo['address']}} {{$contactInfo->postcode ?? $defaultContactInfo['postcode']}} {{$contactInfo->city ?? $defaultContactInfo['city']}}</div>
         <div class="hours-and-map mb-3">
             <div id = "map" data-aos="fade-up"></div>
-            <ul class="opening-hours" data-aos="fade-up">
+            <div class="opening-hours">
                 <h4>Opening Hours</h4>
-                <li>Friday: 10:00 AM - 11:00 PM</li>
-                <li>Saturday: 10:00 AM- 11:00 PM</li>
-                <li>Sunday: 10:00 AM- 4:00 PM</li>
-                <li>Monday: 9:30 AM - 2:00 PM</li>
-                <li>Tuesday: 9:30 AM - 3:00 PM / 6:00 PM- 10:00 PM (reservations only )</li>
-                <li>
-                    Wednesday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
-                </li>
-                <li>
-                    Thursday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
-                </li>
-            </ul>
+                <ul data-aos="fade-up">
+                    <li>Friday: 10:00AM - 12:30PM</li>
+                    <li>Saturday: 10:00AM - 12:30PM</li>
+                    <li>Sunday: 10:00AM - 4:00PM</li>
+                    <li>Monday: 9:30AM - 2:00PM</li>
+                    <li>Tuesday: 9:30AM - 3:00 PM / 6:00PM - 10:00PM (reservations only )</li>
+                    <li>
+                        Wednesday: 9:30AM - 3:00PM / 6:00PM - 11:00PM
+                    </li>
+                    <li>
+                        Thursday: 9:30AM - 3:00PM / 6:00PM - 11:00PM
+                    </li>
+                </ul>
+            </div>
+
         </div>
         <div  class="reservations">
             <h4 class="me-5" data-aos="fade-up">
@@ -207,6 +210,37 @@
     <x-terms-conditions-modal />
 </div>
 <script>
+    // Creating a map object
+    var map = new L.map('map', mapOptions);
+
+    // Creating a Layer object
+    var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+    // Adding layer to the map
+    map.addLayer(layer);
+
+    // Icon options
+    var iconOptions = {
+        iconUrl: '/storage/images/hart logo.png',
+        iconSize: [30, 30]
+    }
+
+    // Creating a custom icon
+    var customIcon = L.icon(iconOptions);
+
+    // Options for the marker
+    var markerOptions = {
+        icon: customIcon
+    }
+
+    // Creating marker
+    var marker = new L.Marker([52.289368, -1.537606], markerOptions);
+
+    marker.bindPopup('Hart + Co').openPopup();
+
+    // Adding marker to the map
+    marker.addTo(map);
+
     // up and down arrows to scroll page
     const upArrow = document.querySelector(".heart-up-icon");
     const downArrow = document.querySelector(".heart-down-icon");
@@ -229,5 +263,7 @@
     document.addEventListener("scroll", showArrow);
     downArrow.addEventListener("click", scrollBeyondBanner);
     upArrow.addEventListener("click", scrollToTop);
+
+
 </script>
 @endsection
