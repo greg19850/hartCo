@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('serving_time')->nullable();
             $table->string('image')->nullable();
+            $table->string('menu_image')->nullable();
+            $table->boolean('show_menu_image')->default(false);
 
             $table->softDeletes();
 

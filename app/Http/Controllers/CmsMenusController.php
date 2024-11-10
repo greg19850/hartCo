@@ -84,22 +84,22 @@ class CmsMenusController extends Controller
         ]);
     }
 
-    public function updateMenuImg(EditMenuImageRequest $request, int $menuId)
+    public function updateMenuPoster(EditMenuImageRequest $request, int $menuId)
     {
         if (!$menuToUpdate = Menu::where('id', $menuId)->first()) {
             return redirect()->back()->withError("Sorry, menu not found");
         }
 
-        $currentImg = basename($menuToUpdate->image);
+//        $currentImg = basename($menuToUpdate->image);
+//
+//        if (Storage::disk('public')->exists($currentImg)) {
+//            Storage::disk('public')->delete($currentImg);
+//        }
 
-        if (Storage::disk('public')->exists($currentImg)) {
-            Storage::disk('public')->delete($currentImg);
-        }
-
-        $hasFile = $request->hasFile('menu_img_edit');
+        $hasFile = $request->hasFile('menu_poster_edit');
 
         if ($hasFile) {
-            $imgFile = $request->file('menu_img_edit');
+            $imgFile = $request->file('menu_poster_edit');
 
             $link = Storage::putFile('public', $imgFile);
 
@@ -112,7 +112,65 @@ class CmsMenusController extends Controller
 
         $menuToUpdate->save();
 
-        return redirect()->back()->with('success', 'Menu Image updated');
+        return redirect()->back()->with('success', 'Menu poster updated');
+    }
+
+    public function updateMenuImage(Request $request, int $menuId)
+    {
+        $request->validate(
+            [
+                'menu_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120'
+            ],
+            [
+                'menu_image.required' => 'The menu image is required.',
+                'menu_image.image' => 'The menu image must be an image file.',
+                'menu_image.mimes' => 'Incorrect file type',
+                'menu_image.max' => 'Max size of image exceeded, max size of file: 5mb'
+            ]
+        );
+
+        if (!$menuToUpdate = Menu::where('id', $menuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu not found");
+        }
+
+//        $currentImg = basename($menuToUpdate->image);
+//
+//        if (Storage::disk('public')->exists($currentImg)) {
+//            Storage::disk('public')->delete($currentImg);
+//        }
+
+        $imgFile = $request->file('menu_image');
+
+        $link = Storage::putFile('public', $imgFile);
+
+        $imgUrl = Storage::url($link);
+        $menuToUpdate->menu_image = $imgUrl;
+
+        $menuToUpdate->save();
+
+        return redirect()->back()->with('success', 'Menu image updated');
+    }
+
+    public function selectImageAsMenu(Request $request, int $menuId)
+    {
+        $menuImageState = $request->has('show_menu_image');
+
+        if (!$menuToUpdate = Menu::where('id', $menuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu not found");
+        }
+
+        if ($menuImageState && is_null($menuToUpdate->menu_image)) {
+            return redirect()->back()->with('error', 'Please upload a menu image before toggling this option.');
+        }
+
+        $menuToUpdate->show_menu_image = $menuImageState;
+        $menuToUpdate->save();
+
+        if($menuToUpdate->show_menu_image){
+            return redirect()->back()->with('success', 'Menu Image will be used');
+        } else{
+            return redirect()->back()->with('success', 'You can now create menu');
+        }
     }
 
     public function updateMenuDetails(EditMenuDetailsRequest $request, int $menuId)
@@ -277,14 +335,6 @@ class CmsMenusController extends Controller
         };
 
         $categoryToDelete->delete();
-
-        // $rules = SubMenu::where('menu_id', $menuId)->get();
-
-        // foreach ($rules as $index => $rule) {
-        //     $rule->position = $index + 1;
-
-        //     $rule->save();
-        // }
 
         return redirect()->route('cms.editMenu', $menuId)->with('success', 'Menu Category Removed');
     }

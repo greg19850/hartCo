@@ -21,9 +21,6 @@ if (createMenuForm) {
 }
 
 
-
-
-
 // Hide menu items submit button
 $('.submit-menu-items').hide();
 
@@ -116,7 +113,7 @@ $("#edit_menu_items").submit(function () {
 function processMenuItems() {
     let allFilled = true;
 
-    $('.menu-item-name').each(function() {
+    $('.menu-item-name').each(function () {
         if ($(this).val().trim() === '') {
             allFilled = false;
             $('.submit-menu-items').prop('disabled', true);
@@ -129,6 +126,14 @@ function processMenuItems() {
 }
 
 processMenuItems();
-$('.menu-items-list').on('input', '.menu-item-name', function() {
+$('.menu-items-list').on('input', '.menu-item-name', function () {
     processMenuItems();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuImageToggle = document.getElementById('menuImageToggle');
+    const menuImageForm = document.getElementById('menuImageForm');
+    menuImageToggle.addEventListener('change', () => {
+        menuImageForm.submit();
+    });
 });

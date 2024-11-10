@@ -25,10 +25,35 @@ body {
     overflow-x: hidden;
 }
 
+body.modal-open {
+    overflow: hidden;
+    width: 100vw;
+}
+
 .page-content{
     background-color: #ff90bc;
     opacity: 1;
     background-image:  radial-gradient(#fff 0.65px, transparent 0.65px), radial-gradient(#fff 0.65px, #ff90bc 0.65px);
     background-size: 26px 26px;
     background-position: 0 0,13px 13px;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f5e6ff;
+    //background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ff90bc;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+
+    &:hover{
+        background-color: #ff709a;
+    }
 }

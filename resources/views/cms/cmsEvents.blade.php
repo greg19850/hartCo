@@ -59,7 +59,7 @@
                                     <label for="event_description" class="form-label">Event Description
                                         (optional)</label>
                                     <textarea class="form-control" name="description" id="event_description"
-                                              rows="3"></textarea>
+                                              rows="3">{{ old('description') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -97,10 +97,14 @@
                     <div class="card m-2" style="width: 30%;">
                         <img src="{{asset($event->image)}}" class="card-img-top" alt="{{$event->name}}">
                         <div class="card-body">
-                            <h5 class="card-title mb-1">{{$event->name}}</h5>
-                            <p class="mb-3">{{$event->date}}</p>
+                            <div class="top mb-2">
+                                <div class="info">
+                                    <h5 class="card-title mb-1">{{$event->name}}</h5>
+                                    <p class="mb-0">{{$event->date}}</p>
+                                </div>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-event-delete" data-eventid={{$event->id}}>Delete</button>
+                            </div>
                             <p class="mb-1">{!!$event->description!!}</p>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-event-delete" data-eventid={{$event->id}}>Delete</button>
                         </div>
                     </div>
                 @endforeach
