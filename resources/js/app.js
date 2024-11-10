@@ -87,6 +87,127 @@ const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
 emblaApi.on('destroy', removePrevNextBtnsClickHandlers)
 
 
+// Embla activities carousel
+const emblaActivityNode = document.querySelector('.emblaActivities')
+const viewportActivityNode = emblaActivityNode.querySelector('.embla__viewport')
+const prevActivityBtn = emblaActivityNode.querySelector('.embla__button--prev')
+const nextActivityBtn = emblaActivityNode.querySelector('.embla__button--next')
+const dotsNode = emblaActivityNode.querySelector('.embla__dots')
+
+const activityOptions = {
+    loop: true,
+    align: 'start'
+}
+
+const emblaActivityApi = EmblaCarousel(viewportActivityNode, activityOptions);
+
+// Create Dots
+const addDotBtnsAndClickHandlers = (emblaApi, dotsNode) => {
+    let dotNodes = []
+
+    const addDotBtnsWithClickHandlers = () => {
+        dotsNode.innerHTML = emblaApi
+            .scrollSnapList()
+            .map(() => '<button class="embla__dot" type="button"></button>')
+            .join('')
+
+        const scrollTo = (index) => {
+            emblaApi.scrollTo(index)
+        }
+
+        dotNodes = Array.from(dotsNode.querySelectorAll('.embla__dot'))
+        dotNodes.forEach((dotNode, index) => {
+            dotNode.addEventListener('click', () => scrollTo(index), false)
+        })
+    }
+
+    const toggleDotBtnsActive = () => {
+        const previous = emblaApi.previousScrollSnap()
+        const selected = emblaApi.selectedScrollSnap()
+        dotNodes[previous].classList.remove('embla__dot--selected')
+        dotNodes[selected].classList.add('embla__dot--selected')
+    }
+
+    emblaApi
+        .on('init', addDotBtnsWithClickHandlers)
+        .on('reInit', addDotBtnsWithClickHandlers)
+        .on('init', toggleDotBtnsActive)
+        .on('reInit', toggleDotBtnsActive)
+        .on('select', toggleDotBtnsActive)
+
+    return () => {
+        dotsNode.innerHTML = ''
+    }
+}
+
+addDotBtnsAndClickHandlers(emblaActivityApi, dotsNode)
+
+const addActivityTogglePrevNextBtnsActive = (emblaApi, prevBtn, nextBtn) => {
+    const togglePrevNextBtnsState = () => {
+        if (emblaApi.canScrollPrev()) prevBtn.removeAttribute('disabled')
+        else prevBtn.setAttribute('disabled', 'disabled')
+
+        if (emblaApi.canScrollNext()) nextBtn.removeAttribute('disabled')
+        else nextBtn.setAttribute('disabled', 'disabled')
+    }
+
+    emblaApi
+        .on('select', togglePrevNextBtnsState)
+        .on('init', togglePrevNextBtnsState)
+        .on('reInit', togglePrevNextBtnsState)
+
+    return () => {
+        prevBtn.removeAttribute('disabled')
+        nextBtn.removeAttribute('disabled')
+    }
+}
+
+const addActivityPrevNextBtnsClickHandlers = (emblaApi, prevBtn, nextBtn) => {
+    const scrollPrev = () => {
+        autoScrollPlugin.stop();
+        emblaApi.scrollPrev();
+        setTimeout(() => {
+            autoScrollPlugin.play();
+        }, 1000);
+    }
+    const scrollNext = () => {
+        autoScrollPlugin.stop();
+        emblaApi.scrollNext();
+        setTimeout(() => {
+            autoScrollPlugin.play();
+        }, 1000);
+    }
+    prevBtn.addEventListener('click', scrollPrev, false)
+    nextBtn.addEventListener('click', scrollNext, false)
+
+    const removeActivityTogglePrevNextBtnsActive = addActivityTogglePrevNextBtnsActive(
+        emblaApi,
+        prevBtn,
+        nextBtn
+    )
+
+    return () => {
+        removeActivityTogglePrevNextBtnsActive()
+        prevBtn.removeEventListener('click', scrollPrev, false)
+        nextBtn.removeEventListener('click', scrollNext, false)
+    }
+}
+
+const removeActivityPrevNextBtnsClickHandlers = addActivityPrevNextBtnsClickHandlers(
+    emblaActivityApi,
+    prevActivityBtn,
+    nextActivityBtn,
+)
+const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
+    emblaApi,
+    dotsNode
+)
+
+emblaActivityApi.on('destroy', removeActivityPrevNextBtnsClickHandlers)
+emblaActivityApi.on('destroy', removeDotBtnsAndClickHandlers)
+
+
+
 // Embla events carousel
 const emblaEventNode = document.querySelector('.emblaEvents')
 const viewportEventNode = emblaEventNode.querySelector('.embla__viewport')
@@ -136,12 +257,16 @@ const addEventPrevNextBtnsClickHandlers = (emblaApi, prevBtn, nextBtn) => {
     const scrollPrev = () => {
         autoScrollPlugin.stop();
         emblaApi.scrollPrev();
-        setTimeout(() => { autoScrollPlugin.play(); }, 1000);
+        setTimeout(() => {
+            autoScrollPlugin.play();
+        }, 1000);
     }
     const scrollNext = () => {
         autoScrollPlugin.stop();
         emblaApi.scrollNext();
-        setTimeout(() => { autoScrollPlugin.play(); }, 1000);
+        setTimeout(() => {
+            autoScrollPlugin.play();
+        }, 1000);
     }
     prevBtn.addEventListener('click', scrollPrev, false)
     nextBtn.addEventListener('click', scrollNext, false)
@@ -166,11 +291,4 @@ const removeEventPrevNextBtnsClickHandlers = addEventPrevNextBtnsClickHandlers(
 )
 
 emblaEventApi.on('destroy', removeEventPrevNextBtnsClickHandlers)
-
-
-// Creating map options
-var mapOptions = {
-    center: [52.289340, -1.537646],
-    zoom: 18
-}
 

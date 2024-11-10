@@ -7,7 +7,6 @@
             </div>
             <div class="modal-body">
                 <ul>
-                    <li>Party size MUST be over 6 people on Fridays, Saturdays and Sundays (Smaller party sizes welcome on weekdays) and is available to book 7 days a week between 9am and 7pm (subject to hours)</li>
                     <li>Deposit of £10pp MUST be made to guarantee bookings (this is non-refundable, exchangable or transferable)</li>
                     <li>The Masterclass will last 1.5hrs (ish)</li>
                     <li>£37pp</li>

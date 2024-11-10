@@ -22,7 +22,7 @@ class EditMenuImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'menu_img_edit' => 'nullable|mimes:jpeg,jpg,png,gif|max:5120'
+            'menu_poster_edit' => 'nullable|mimes:jpeg,jpg,png,gif|max:5120'
         ];
     }
 
@@ -34,8 +34,8 @@ class EditMenuImageRequest extends FormRequest
     public function messages()
     {
         return [
-            'menu_img_edit.max' => 'Max size of image exceeded, max size of file: 5mb',
-            'menu_img_edit.mimes' => 'Incorrect file type'
+            'menu_poster_edit.max' => 'Max size of image exceeded, max size of file: 5mb',
+            'menu_poster_edit.mimes' => 'Incorrect file type'
         ];
     }
 }

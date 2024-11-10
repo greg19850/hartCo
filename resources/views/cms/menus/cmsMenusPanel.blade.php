@@ -9,7 +9,7 @@
     <hr />
     <div class="menus-container py-3">
         @if(count($menus) === 0)
-        <p>No Menus Available. After Creating Menu, it will be available here.</p>
+        <p>Create your first menu</p>
         @else
         <div class="d-flex flex-wrap">
             @foreach($menus as $menu)
@@ -43,7 +43,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="menu_img" class="form-label">Menu Image (optional):</label>
+                            <label for="menu_img" class="form-label">Menu Poster (optional):</label>
                             <input type="file" class="form-control" id="menu_img" name="menu_img" @error('menu_img') is-invalid @enderror>
                             @error('menu_img')
                             <small class="pt-1" style="color: red">{{ $message }}</small>

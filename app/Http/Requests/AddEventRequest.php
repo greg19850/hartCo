@@ -23,7 +23,7 @@ class AddEventRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'date' => 'required',
         ];
     }

@@ -1,8 +1,8 @@
 .single-menu-content{
-    background-color: #ff90bc;
-    opacity: 1;
-    background-image: radial-gradient(circle at center center, #d5d5d5, #ff90bc), repeating-radial-gradient(circle at center center, #d5d5d5, #d5d5d5, 8px, transparent 16px, transparent 8px);
-    background-blend-mode: multiply;
+    //background-color: #ff90bc;
+    //opacity: 1;
+    //background-image: radial-gradient(circle at center center, #d5d5d5, #ff90bc), repeating-radial-gradient(circle at center center, #d5d5d5, #d5d5d5, 8px, transparent 16px, transparent 8px);
+    //background-blend-mode: multiply;
 }
 
 
@@ -10,7 +10,6 @@
     width: 60%;
     margin: 0 auto;
     color: #fff;
-
 
     .menu-title{
         border-bottom: 1px solid #fff;
@@ -26,6 +25,16 @@
         }
     }
 
+    .show-menu-image{
+        height: auto;
+        width: 100%;
+        cursor: pointer;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
 
 
     .rules{
@@ -64,6 +73,72 @@
         }
     }
 }
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;  /* Adjusted to take up more screen width */
+    max-width: 1200px;  /* Adjusted maximum width */
+}
+
+/* Caption of Modal Image (image text) - You can style this */
+#caption {
+    margin: auto;
+    display: block;
+    width: 90%;  /* Adjusted to match image width */
+    max-width: 1200px;  /* Adjusted maximum width */
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .single-menu {

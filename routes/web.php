@@ -74,8 +74,12 @@ Route::prefix("/cms")->group(
                     Route::prefix('/cms/menus/edit_menu/{menuId}')->group(
                         function () {
                             Route::get('/', [CmsMenusController::class, 'editMenu'])->name('cms.editMenu');
-                            Route::post('/update_img', [CmsMenusController::class, 'updateMenuImg'])->name('cms.updateMenuImg');
+                            Route::post('/update_poster', [CmsMenusController::class, 'updateMenuPoster'])->name('cms.updateMenuPoster');
                             Route::post('/update_menu_details', [CmsMenusController::class, 'updateMenuDetails'])->name('cms.updateMenuDetails');
+
+                            Route::post('/update_img', [CmsMenusController::class, 'updateMenuImage'])->name('cms.updateMenuImage');
+
+                            Route::post('/select_image_as_menu', [CmsMenusController::class, 'selectImageAsMenu'])->name('cms.selectImageAsMenu');
 
                             Route::get('/add_menu_rules_form', [CmsMenusController::class, 'addMenuRulesForm'])->name('cms.addMenuRulesForm');
                             Route::post('/add_menu_rules', [CmsMenusController::class, 'addMenuRules'])->name('cms.addMenuRules');

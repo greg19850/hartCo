@@ -2,19 +2,20 @@
     <div class="footer-details px-2">
         <div class="opening-hours">
             <h5>Opening Hours</h5>
-            <ul class="m-0 p-0">
-                <li>Friday: 10:00 AM - 11:00 PM</li>
-                <li>Saturday: 10:00 AM- 11:00 PM</li>
-                <li>Sunday: 10:00 AM- 4:00 PM</li>
-                <li>Monday: 9:30 AM - 2:00 PM</li>
-                <li>Tuesday: 9:30 AM - 3:00 PM / 6:00 PM- 10:00 PM (reservations only )</li>
+            <ul class="m-0 p-0 mb-1">
+                <li>Friday: 10:00AM - 03:00PM / 05:00PM - 00:30PM</li>
+                <li>Saturday: 10:00AM - 00:30AM</li>
+                <li>Sunday: 10:00AM - 03:00PM</li>
+                <li>Monday: 10:00AM - 02:00PM (*RO)</li>
+                <li>Tuesday: 10:00AM - 02:00 PM (*RO) / 06:00PM - 10:00PM</li>
                 <li>
-                    Wednesday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
+                    Wednesday: 10:00AM - 03:00 PM / 06:00PM - 11:00PM
                 </li>
                 <li>
-                    Thursday: 9:30 AM - 3:00 PM / 6:00 PM- 11:00 PM
+                    Thursday: 10:00AM - 03:00 PM / 06:00PM - 11:00PM
                 </li>
             </ul>
+            <p>*RO - Reservations only</p>
         </div>
         <div class="img-container">
             <x-hart-logo />
