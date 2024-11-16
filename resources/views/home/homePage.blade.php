@@ -36,7 +36,6 @@
 
         <div id="menus" class="menus d-flex flex-column align-items-center p-3">
             <h2 class="text-uppercase" data-aos="fade-up">Check Our Menus</h2>
-            <p class="happy-hour">Happy Hour Text</p>
             @if(!count($menus))
                 <p class="coming-soon">Coming Soon!</p>
             @else
@@ -85,6 +84,16 @@
                 </div>
             @endif
         </div>
+
+        {{--Happy Hour--}}
+        <div class="happy-hour">
+            <h2 class="text-uppercase mb-3" data-aos="fade-up">Hart Happy Hour</h2>
+            <h5 class="text-uppercase mb-3 fw-bold" data-aos="fade-up">Fridays + Saturdays 9PM till midnight</h5>
+            <h5 class="text-uppercase mb-3" data-aos="fade-up">50% off all drinks with discount code: <strong>FAMILYDISCOUNT</strong></h5>
+            <p data-aos="fade-up">This discount is <strong>ONLY</strong> available when ordering through the QR code and <strong>NOT</strong> when ordering with a member of the family. If you do order with a member of the family the discount will <strong>NOT</strong> be applied.</p>
+        </div>
+        {{-- Reservations --}}
+
         <div id="reservations" class="contact p-3 text-center">
             <h2 class="text-uppercase" data-aos="fade-up">Hart + Co</h2>
             <div class="address mb-3"
@@ -105,9 +114,6 @@
                 <div class="opening-hours">
                     <h4>Opening Hours</h4>
                     <ul data-aos="fade-up">
-                        <li>Friday: 10:00AM - 03:00PM / 05:00PM - 00:30PM</li>
-                        <li>Saturday: 10:00AM - 00:30AM</li>
-                        <li>Sunday: 10:00AM - 03:00PM</li>
                         <li>Monday: 10:00AM - 02:00PM (*RO)</li>
                         <li>Tuesday: 10:00AM - 02:00 PM (*RO) / 06:00PM - 10:00PM</li>
                         <li>
@@ -116,6 +122,9 @@
                         <li>
                             Thursday: 10:00AM - 03:00 PM / 06:00PM - 11:00PM
                         </li>
+                        <li>Friday: 10:00AM - 03:00PM / 05:00PM - 00:30PM</li>
+                        <li>Saturday: 10:00AM - 00:30AM</li>
+                        <li>Sunday: 10:00AM - 03:00PM</li>
                     </ul>
                     <p>*RO - Reservations only</p>
                 </div>
@@ -123,7 +132,7 @@
             </div>
             <div class="reservations">
                 <h4 class="me-5" data-aos="fade-up">
-                    We do not have a phone. Reservations are essential, and can be placed through our social media:
+                    We do not have a phone. Reservations are essential, and can be made by dropping us a message on our social media:
                 </h4>
                 <div class="socials d-flex justify-content-center mt-3" data-aos="fade-up">
                     <a href="{{$contactInfo->instagram ?? $defaultContactInfo['instagram']}}" target="_blank">
@@ -205,19 +214,17 @@
                             <div class="embla__container">
                                 @foreach($events as $event)
                                     <div class="glide__slide event-item">
-                                        <div class="event-info">
-                                            <h5 class="event-name">{{$event->name}}</h5>
-                                            <p class="event-date">{{$event->date}}</p>
-                                        </div>
-                                        <button type="button" class="see-more-event-btn" data-bs-toggle="modal"
-                                                data-bs-target="#eventModal_{{$event->id}}">See more...
-                                        </button>
                                         <img src='{{$event->image}}' alt="event image">
-                                        @if($event->link)
-                                            <a href="{{$event->link}}" target="_blank">
-                                                <x-entypo-link class="event-link"/>
-                                                Get Your Tickets Here</a>
-                                        @endif
+                                        <div class="event-info">
+                                            <button type="button" class="see-more-event-btn" data-bs-toggle="modal"
+                                                    data-bs-target="#eventModal_{{$event->id}}">See more...
+                                            </button>
+                                            @if($event->link)
+                                                <a href="{{$event->link}}" target="_blank">
+                                                    <x-entypo-link class="event-link"/>
+                                                    Get Your Tickets Here</a>
+                                            @endif
+                                        </div>
                                     </div>
                                 @endforeach
                             </div>
@@ -265,10 +272,28 @@
             <p data-aos="fade-up">Drop us a message with all of your event details including date, timings and number of
                 guests and we can provide more info!</p>
         </div>
-        <div id="faq" class="faq p-3 text-center">
-            <h2 class="text-uppercase" data-aos="fade-up">FAQ's</h2>
+        <div id="faq" class="faq p-3 text-center" data-aos="fade-up">
+            <h2 class="text-uppercase fw-bold">FAQ's</h2>
+            <button type="button" class="btn faq-btn mb-3">Show Frequently Asked Questions</button>
+            <div id="faqAccordion" class="accordion">
+                @foreach($faqs as $faq)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading{{ $loop->index }}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $loop->index }}" aria-expanded="false" aria-controls="collapse{{ $loop->index }}">
+                                {{ $faq->question }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ $loop->index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $loop->index }}" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {!! $faq->answer !!}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
-        @if(count($events))
+
+    @if(count($events))
             @foreach($events as $event)
                 <x-event-modal :event="$event"/>
             @endforeach
@@ -300,6 +325,13 @@
         downArrow.addEventListener("click", scrollBeyondBanner);
         upArrow.addEventListener("click", scrollToTop);
 
-
+        $('.faq-btn').click(function () {
+            $('#faqAccordion').toggleClass('show')
+            if ($('#faqAccordion').hasClass('show')) {
+                $(this).text('Hide Frequently Asked Questions');
+            } else {
+                $(this).text('Show Frequently Asked Questions');
+            }
+        })
     </script>
 @endsection

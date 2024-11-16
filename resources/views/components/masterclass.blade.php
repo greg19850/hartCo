@@ -21,7 +21,7 @@
     <button type="button" class="btn t-and-c mb-3" data-bs-toggle="modal" data-bs-target="#tc-modal" data-aos="fade-up">
         Read Masterclass Terms and Conditions
     </button>
-    <button type="button" class="how-to-book mb-3" data-bs-toggle="modal" data-bs-target="#how-to-book-modal" data-aos="fade-up">
+    <button type="button" class="how-to-book mb-3" data-bs-toggle="modal" data-bs-target="#how-to-book-modal">
         How To Book A Masterclass
     </button>
 </div>

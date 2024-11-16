@@ -12,9 +12,9 @@ class CmsEventController extends Controller
 {
     public function showEventsPanel()
     {
-        $events = Event::orderBy(DB::raw("STR_TO_DATE(date, '%d-%m-%Y')"))->get();
+        $events = Event::orderByRaw("STR_TO_DATE(date, '%d/%m/%Y')")->get();
 
-        return view('cms.cmsEvents', ['events' => $events]);
+        return view('cms.cmsEvents', compact('events'));
     }
 
     public function addEvent(AddEventRequest $request)

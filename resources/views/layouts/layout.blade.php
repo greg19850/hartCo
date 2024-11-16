@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     <script src="https://unpkg.com/embla-carousel-auto-scroll/embla-carousel-auto-scroll.umd.js"></script>
@@ -23,9 +24,13 @@
         <a class="img-container" href="{{route('homepage')}}">
             <x-hart-logo />
         </a>
+        <a href="https://www.order.store/gb/store/hart-%2B-co/uUHPBKxhQROFjIGZJy_BMQ" class="uber" target="_blank">
+            {{ svg('si-ubereats') }}
+        </a>
         <button class="menu-button">
             <x-tabler-menu-deep class="menu-icon" />
         </button>
+
         <x-nav-menu />
     </header>
 

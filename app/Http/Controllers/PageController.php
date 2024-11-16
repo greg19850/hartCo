@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ContactInfo;
 use App\Models\Event;
 use App\Models\FamilyDescription;
+use App\Models\Faq;
 use App\Models\Menu;
 use App\Models\Motto;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class PageController extends Controller
 
         $menus = Menu::all();
         $contactInfo = ContactInfo::first();
-        $events = Event::all();
+        $events = Event::orderByRaw("STR_TO_DATE(date, '%d/%m/%Y')")->get();
+        $faqs = Faq::all();
 
         return view('home.homePage', [
             'motto' => $text,
@@ -35,6 +37,7 @@ class PageController extends Controller
             'menus' => $menus,
             'contactInfo' => $contactInfo,
             'events' => $events,
+            'faqs' => $faqs,
         ]);
     }
 }

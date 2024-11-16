@@ -1,4 +1,3 @@
-{{--@dd($event);--}}
 <div class="modal fade event-modal" id="eventModal_{{$event->id}}" tabindex="-1" aria-labelledby="eventModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -14,7 +13,10 @@
             @if($event->link)
                 <a href="{{$event->link}}" target="_blank"> <x-entypo-link class="event-link" />Get Your Tickets Here</a>
             @endif
-{{--            <img src='{{$event->image}}' alt="event image">--}}
         </div>
     </div>
 </div>
+
+
+
+
