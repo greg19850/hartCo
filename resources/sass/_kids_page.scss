@@ -1,0 +1,58 @@
+.kids-page{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+
+    .kids-description{
+
+        .klin-link {
+            background-color: transparent;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #fff;
+            transition: 0.1s;
+            padding: 5px 10px;
+            border-radius: 5px;
+
+
+            &:hover {
+                background-color: #fff;
+                color: #ff90bc;
+                border-color: #fff;
+            }
+        }
+
+        .socials {
+            align-self: center;
+
+            svg {
+                color: #fff;
+                width: 45px;
+                margin: 2px 15px;
+
+                &.facebook-icon {
+                    color: #4267b2;
+                    background-color: #fff;
+                }
+            }
+        }
+
+        ul{
+            list-style: none;
+        }
+    }
+
+    .kids-menu{
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .kids-mocktail{
+        width: 100%;
+    }
+}

@@ -271,11 +271,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            align-self: center;
+            align-self: start;
 
             #map {
                 width: 400px;
                 height: 300px;
+                margin-right: 25px;
 
                 iframe {
                     border-radius: 10px;
@@ -291,11 +292,10 @@
                     list-style: none;
                     padding-left: 0;
 
+                    li{
+                        font-size: 12px;
+                    }
                 }
-            }
-
-            p {
-                font-size: 12px
             }
         }
 
@@ -398,6 +398,24 @@
 
                                     &:hover {
                                         transform: scale(1.1);
+                                    }
+                                }
+                            }
+
+                            &#kids-section{
+                                a {
+                                    background-color: transparent;
+                                    text-decoration: none;
+                                    padding: 10px;
+                                    color: #ff90bc;
+                                    border: 1px solid #ff90bc;
+                                    border-radius: 15px;
+                                    transition: 0.1s;
+
+                                    &:hover {
+                                        background-color: #ff90bc;
+                                        color: #fff;
+                                        border-color: #ff90bc;
                                     }
                                 }
                             }

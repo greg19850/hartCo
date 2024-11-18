@@ -11,6 +11,7 @@ use App\Http\Controllers\CmsFaqController;
 use App\Http\Controllers\CmsEventController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CmsSettingsController;
+use App\Http\Controllers\KidsController;
 
 
 /*
@@ -30,6 +31,7 @@ Route::get('/', function(){
 
 Route::get('/wip/home', [PageController::class, 'homePage'])->name('homepage');
 Route::get('/wip/home/menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
+Route::get('/wip/home/kids_parties',  [KidsController::class, 'showKidsPage'])->name('showKidsPage');
 
 Route::prefix("/cms")->group(
     function () {
