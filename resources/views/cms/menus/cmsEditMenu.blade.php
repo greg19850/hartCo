@@ -64,7 +64,7 @@
                 <h5 class="mb-0"></h5>
                 <form id="menuImageForm" action="{{route('cms.selectImageAsMenu', $menu->id)}}" method="POST">
                     @csrf
-                    <div class="custom-control custom-switch">
+                    <div class="custom-control custom-switch mb-3">
                         <label class="custom-control-label" for="menuImageToggle">use Image?</label>
                         <label class="switch">
                             <input type="checkbox" id="menuImageToggle"
@@ -77,18 +77,37 @@
             <form id='menu_img_form' name='menu_img_form' class='menu-img-form' method="POST"
                   action="{{route('cms.updateMenuImage' , $menu->id)}}" enctype="multipart/form-data">
                 @csrf
-                <div class="image-container">
-                    @if($menu->menu_image)
-                        <img src={{$menu->menu_image}} class="card-img-top" alt="...">
-                    @else
-                        <p>Add Menu Image</p>
-                    @endif
+                <div class="image-containers mb-3">
+                    <div class="container">
+                        @if($menu->menu_image)
+                            <img src={{$menu->menu_image}} class="card-img-top" alt="...">
+                        @else
+                            <p>Add Menu Image</p>
+                        @endif
+                    </div>
+                    <div class="container">
+                        @if($menu->menu_image_2)
+                            <img src={{$menu->menu_image_2}} class="card-img-top" alt="...">
+                        @else
+                            <p>Add menu image 2</p>
+                        @endif
+                    </div>
                 </div>
-                <input type="file" class="menu-image form-control my-3" id="menu_image" name="menu_image"
-                       @error('menu_image') is-invalid @enderror>
+                <div class="image-inputs">
+                    <div class="menu-image">
+                        <label for="menu_image">Choose main menu image</label>
+                        <input type="file" class="form-control my-3" id="menu_image" name="menu_image"
+                               @error('menu_image') is-invalid @enderror>
+                    </div>
+                    <div class="menu-image">
+                        <label for="menu_imag2">Choose menu image 2(optional)</label>
+                        <input type="file" class="form-control my-3" id="menu_image_2" name="menu_image_2"
+                               @error('menu_image-2') is-invalid @enderror>
+                    </div>
+                </div>
                 <div class="d-flex align-items-center mt-3">
                     <button type="submit" id='menu_image_btn' class="menu-image-btn btn btn-primary">Update Menu
-                        Image
+                        Images
                     </button>
                     <div class="spinner-menu-image spinner-border ms-4" role="status">
                         <span class="visually-hidden">Loading...</span>

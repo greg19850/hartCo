@@ -6,8 +6,8 @@
     <div class="kids-page py-4">
         <h1 class="fw-bold my-5">Children Parties</h1>
         <div class="kids-description d-flex flex-column align-items-center">
-            <p>We have teamed up with the amazing Crazy Kiln, to offer pottery painting workshops as well as our mixologists offering mocktail making classes for children!</p>
-            <p>To find out more pleas visit <a class="klin-link" href="https://www.crazykiln.co.uk/childrens-party-packages">Crazy Kiln website</a></p>
+            <p class="mb-0">We have teamed up with the amazing Crazy Kiln, to offer pottery painting workshops as well as our mixologists offering mocktail making classes for children!</p>
+            <p class="my-5">To find out more pleas visit <a class="klin-link" href="https://www.crazykiln.co.uk/childrens-party-packages">Crazy Kiln website</a></p>
             <p>If this activities doesn't sound like your thing and you're just after pancakes and food, no worries, just drop us a message to book a regular table.</p>
             <div class="socials d-flex justify-content-center my-3">
                 <a href="{{$contactInfo->instagram ?? $defaultContactInfo['instagram']}}" target="_blank">
@@ -21,7 +21,7 @@
                 </a>
             </div>
             <p>Go as wild as you like with decorations and games, we just ask for strictly <strong>no confetti please</strong>.</p>
-            <p>As we are primally a bar we have restricted our children party times to:</p>
+            <p>As we are primarily a bar we have restricted our children party times to:</p>
             <ul class="d-flex flex-column align-items-center">
                 <li>Week Days</li>
                 <li>Saturday mornings: 9AM till 12PM</li>

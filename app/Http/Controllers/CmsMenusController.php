@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\MenuItem;
+use App\Rules\MenuImageExists;
 use Illuminate\Support\Facades\Storage;
 
 // Request
@@ -105,7 +106,8 @@ class CmsMenusController extends Controller
 
             $imgUrl = Storage::url($link);
         } else {
-            $imgUrl = "/images/menu_default.jpg";
+//            $imgUrl = "/images/menu_default.jpg";
+            $imgUrl = asset('storage/images/menu_default.jpg');
         }
 
         $menuToUpdate->image = $imgUrl;
@@ -117,15 +119,26 @@ class CmsMenusController extends Controller
 
     public function updateMenuImage(Request $request, int $menuId)
     {
+        $menuImageExists = Menu::whereNotNull('menu_image')->exists();
+
         $request->validate(
             [
-                'menu_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120'
+                'menu_image' => [
+                    $menuImageExists ? 'nullable' : 'required',
+                    'image',
+                    'mimes:jpeg,png,jpg,gif,svg',
+                    'max:5120',
+                ],
+                'menu_image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120'
             ],
             [
                 'menu_image.required' => 'The menu image is required.',
                 'menu_image.image' => 'The menu image must be an image file.',
                 'menu_image.mimes' => 'Incorrect file type',
-                'menu_image.max' => 'Max size of image exceeded, max size of file: 5mb'
+                'menu_image.max' => 'Max size of image exceeded, max size of file: 5mb',
+                'menu_image_2.image' => 'The menu image must be an image file.',
+                'menu_image_2.mimes' => 'Incorrect file type',
+                'menu_image_2.max' => 'Max size of image exceeded, max size of file: 5mb'
             ]
         );
 
@@ -140,11 +153,19 @@ class CmsMenusController extends Controller
 //        }
 
         $imgFile = $request->file('menu_image');
+        $imgFile2 = $request->file('menu_image_2');
 
-        $link = Storage::putFile('public', $imgFile);
+        if($imgFile){
+            $link = Storage::putFile('public', $imgFile);
+            $imgUrl = Storage::url($link);
+            $menuToUpdate->menu_image = $imgUrl;
+        }
 
-        $imgUrl = Storage::url($link);
-        $menuToUpdate->menu_image = $imgUrl;
+        if($imgFile2){
+            $link2 = Storage::putFile('public', $imgFile2);
+            $imgUrl2 = Storage::url($link2);
+            $menuToUpdate->menu_image_2 = $imgUrl2;
+        }
 
         $menuToUpdate->save();
 

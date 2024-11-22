@@ -10,17 +10,21 @@
                 <h1 class="motto-text">{{$motto}}</h1>
                 <x-tabler-heart-down class="heart-down-icon"/>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src='/images/hartphotos/IMG_5508.jpg' class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src='/images/hartphotos/IMG_5503.jpg' class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src='/images/hartphotos/IMG_5509.jpg' class="d-block w-100" alt="...">
-                </div>
-            </div>
+{{--            <div class="carousel-inner">--}}
+{{--                <div class="carousel-item active">--}}
+{{--                    <img src='/images/hartphotos/IMG_5508.jpg' class="d-block w-100" alt="...">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src='/images/hartphotos/IMG_5503.jpg' class="d-block w-100" alt="...">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src='/images/hartphotos/IMG_5509.jpg' class="d-block w-100" alt="...">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <video class="home-vid" autoplay muted loop>
+                <source src="{{ asset('storage/videos/home_vid.MP4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         {{-- about us --}}
@@ -115,14 +119,14 @@
                     <h4>Opening Hours</h4>
                     <ul data-aos="fade-up">
                         <li>Monday: 10:00AM - 02:00PM (Reservations only)</li>
-                        <li>Tuesday: 10:00AM - 02:00 PM (Reservations only) then 06:00PM - 10:00PM</li>
+                        <li>Tuesday: 10:00AM - 02:00PM (Reservations only) then 06:00PM - 10:00PM (Reservations only)</li>
                         <li>
-                            Wednesday: 10:00AM - 03:00 PM then 06:00PM - 11:00PM
+                            Wednesday: 10:00AM - 03:00PM then 06:00PM - 11:00PM
                         </li>
                         <li>
-                            Thursday: 10:00AM - 03:00 PM then 06:00PM - 11:00PM
+                            Thursday: 10:00AM - 03:00PM then 06:00PM - 11:00PM
                         </li>
-                        <li>Friday: 10:00AM - 03:00PM then 05:00PM - 00:30PM</li>
+                        <li>Friday: 10:00AM - 03:00PM then 05:00PM - 00:30AM</li>
                         <li>Saturday: 10:00AM - 00:30AM</li>
                         <li>Sunday: 10:00AM - 03:00PM</li>
                     </ul>

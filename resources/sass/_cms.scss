@@ -210,24 +210,37 @@ body.cms-body {
             .menu-img-form{
                 min-height: 300px;
 
-                .image-container{
-                    width: 200px;
-                    height: 200px;
-                    border: 1px solid #ddd;
+                .image-containers{
                     display: flex;
                     align-items: center;
                     justify-content: center;
 
+                    .container{
+                        width: 200px;
+                        height: 200px;
+                        border: 1px solid #ddd;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
 
-                    img{
-                        width: 100%;
-                        height: 100%;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
                 }
 
-                .menu-image{
-                    width: 50%;
+                .image-inputs{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .menu-image{
+                        width: 50%;
+                        padding: 10px;
+                    }
                 }
+
 
                 .spinner-menu-image{
                     display: none;
