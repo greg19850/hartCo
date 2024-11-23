@@ -13,7 +13,10 @@
             </div>
             @if($menu->menu_image && $menu->show_menu_image)
                 <div class="show-menu-image">
-                    <img class="menu-image" src="{{$menu->menu_image}}" alt="Menu Image">
+                    <img class="menu-image" src="{{$menu->menu_image}}" alt="Menu Image" onclick="openModal(this)">
+                    @if($menu->menu_image_2)
+                        <img class="menu-image" src="{{$menu->menu_image_2}}" alt="Menu Image" onclick="openModal(this)">
+                    @endif
                 </div>
             @else
                 <div class="submenu mb-3">
@@ -59,33 +62,37 @@
         </div>
     </div>
 
-    <div id='imageModal' class='modal'>
-        <span class='close'>&times;</span>
-        <img class='modal-content' id='imgModal'>
+    <div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="imgModalContent">
+            <!-- Images will be dynamically added here -->
+        </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('imageModal');
-            const img = document.querySelector('.menu-image');
-            const modalImg = document.getElementById('imgModal');
-            const closeBtn = document.getElementsByClassName('close')[0];
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalContent = document.getElementById("imgModalContent");
+            var captionText = document.getElementById("caption");
 
-            img.onclick = function(){
-                modal.style.display = 'block';
-                modalImg.src = this.src;
-            }
+            // Clear previous images
+            modalContent.innerHTML = '';
 
-            closeBtn.onclick = function() {
-                modal.style.display = 'none';
-            }
+            // Get all images in the show-menu-image container
+            var images = document.querySelectorAll('.show-menu-image .menu-image');
+            images.forEach(function(img) {
+                // Clone the image element
+                var imgClone = img.cloneNode(true);
+                // Add cloned image to modal content
+                modalContent.appendChild(imgClone);
+            });
 
-            // Close modal when clicking outside the image
-            modal.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            }
-        });
+            modal.style.display = "block";
+            captionText.innerHTML = element.alt;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
 
     </script>
 @endsection

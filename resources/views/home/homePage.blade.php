@@ -212,7 +212,7 @@
                 @if(!count($events))
                     <p class="coming-soon">Coming Soon!</p>
                 @else
-                    <div class="emblaEvents">
+                    <div id="emblaEvents" class="emblaEvents">
                         <div class="embla__viewport">
                             <div class="embla__container">
                                 @foreach($events as $event)

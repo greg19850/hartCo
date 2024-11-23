@@ -172,6 +172,32 @@ class CmsMenusController extends Controller
         return redirect()->back()->with('success', 'Menu image updated');
     }
 
+    public function deleteMenuImage($menuId)
+    {
+        if (!$menuToUpdate = Menu::where('id', $menuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu not found");
+        }
+
+        $menuToUpdate->menu_image = null;
+        $menuToUpdate->show_menu_image = false;
+
+        $menuToUpdate->save();
+
+        return redirect()->back()->with('success', 'Menu image deleted successfully');
+    }
+
+    public function deleteMenuImageTwo($menuId)
+    {
+        if (!$menuToUpdate = Menu::where('id', $menuId)->first()) {
+            return redirect()->back()->withError("Sorry, menu not found");
+        }
+
+        $menuToUpdate->menu_image_2 = null;
+
+        $menuToUpdate->save();
+
+        return redirect()->back()->with('success', 'Menu image deleted successfully');
+    }
     public function selectImageAsMenu(Request $request, int $menuId)
     {
         $menuImageState = $request->has('show_menu_image');

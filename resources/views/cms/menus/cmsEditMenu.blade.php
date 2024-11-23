@@ -74,25 +74,42 @@
                     </div>
                 </form>
             </div>
-            <form id='menu_img_form' name='menu_img_form' class='menu-img-form' method="POST"
-                  action="{{route('cms.updateMenuImage' , $menu->id)}}" enctype="multipart/form-data">
-                @csrf
+            <div class="menu-img-section">
                 <div class="image-containers mb-3">
-                    <div class="container">
+                    <div class="img-block">
+                        <div class="container">
+                            @if($menu->menu_image)
+                                <img src={{$menu->menu_image}} class="card-img-top" alt="...">
+                            @else
+                                <p>Add Menu Image</p>
+                            @endif
+                        </div>
                         @if($menu->menu_image)
-                            <img src={{$menu->menu_image}} class="card-img-top" alt="...">
-                        @else
-                            <p>Add Menu Image</p>
+                            <form action="{{route('cms.deleteMenuImage', $menu->id)}}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger img-remove mt-2">Remove Image</button>
+                            </form>
                         @endif
                     </div>
-                    <div class="container">
+                    <div class="img-block">
+                        <div class="container">
+                            @if($menu->menu_image_2)
+                                <img src={{$menu->menu_image_2}} class="card-img-top" alt="...">
+                            @else
+                                <p>Add menu image 2</p>
+                            @endif
+                        </div>
                         @if($menu->menu_image_2)
-                            <img src={{$menu->menu_image_2}} class="card-img-top" alt="...">
-                        @else
-                            <p>Add menu image 2</p>
+                            <form action="{{route('cms.deleteMenuImageTwo', $menu->id)}}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger img-remove mt-2">Remove Image</button>
+                            </form>
                         @endif
                     </div>
                 </div>
+                <form id='menu_img_form' name='menu_img_form' class='menu-img-form' method="POST"
+                      action="{{route('cms.updateMenuImage' , $menu->id)}}" enctype="multipart/form-data">
+                    @csrf
                 <div class="image-inputs">
                     <div class="menu-image">
                         <label for="menu_image">Choose main menu image</label>
@@ -100,11 +117,12 @@
                                @error('menu_image') is-invalid @enderror>
                     </div>
                     <div class="menu-image">
-                        <label for="menu_imag2">Choose menu image 2(optional)</label>
+                        <label for="menu_image_2">Choose menu image 2(optional)</label>
                         <input type="file" class="form-control my-3" id="menu_image_2" name="menu_image_2"
                                @error('menu_image-2') is-invalid @enderror>
                     </div>
                 </div>
+
                 <div class="d-flex align-items-center mt-3">
                     <button type="submit" id='menu_image_btn' class="menu-image-btn btn btn-primary">Update Menu
                         Images
@@ -118,6 +136,7 @@
                 <small class="pt-1" style="color: red">{{ $message }}</small>
                 @enderror
             </form>
+            </div>
         </div>
         @if(!$menu->show_menu_image)
             <div class='menu-rules mb-5'>

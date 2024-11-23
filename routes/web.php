@@ -80,6 +80,8 @@ Route::prefix("/cms")->group(
                             Route::post('/update_menu_details', [CmsMenusController::class, 'updateMenuDetails'])->name('cms.updateMenuDetails');
 
                             Route::post('/update_img', [CmsMenusController::class, 'updateMenuImage'])->name('cms.updateMenuImage');
+                            Route::post('/delete_image', [CmsMenusController::class, 'deleteMenuImage'])->name('cms.deleteMenuImage');
+                            Route::post('/delete_image_2', [CmsMenusController::class, 'deleteMenuImageTwo'])->name('cms.deleteMenuImageTwo');
 
                             Route::post('/select_image_as_menu', [CmsMenusController::class, 'selectImageAsMenu'])->name('cms.selectImageAsMenu');
 
