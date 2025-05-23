@@ -37,7 +37,7 @@
         <li class="me-2"><a href="#menus">Menu</a></li>
     </ul>
     <div class="footer-bottom text-center mt-2">
-        <p class="mb-0">© 2024 Hart+Co. All rights reserved.</p>
+        <p class="mb-0">© <?php echo date('Y'); ?> Hart+Co. All rights reserved.</p>
         <p class="creator mb-0">Created by <a href="mailto:gregmdev30@gmail.com">gregmdev</a>
     </div>
 </footer>

@@ -10,19 +10,18 @@
                 <h1 class="motto-text">{{$motto}}</h1>
                 <x-tabler-heart-down class="heart-down-icon"/>
             </div>
-{{--            <div class="carousel-inner">--}}
-{{--                <div class="carousel-item active">--}}
-{{--                    <img src='/images/hartphotos/IMG_5508.jpg' class="d-block w-100" alt="...">--}}
-{{--                </div>--}}
-{{--                <div class="carousel-item">--}}
-{{--                    <img src='/images/hartphotos/IMG_5503.jpg' class="d-block w-100" alt="...">--}}
-{{--                </div>--}}
-{{--                <div class="carousel-item">--}}
-{{--                    <img src='/images/hartphotos/IMG_5509.jpg' class="d-block w-100" alt="...">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <video class="home-vid" autoplay muted loop>
-                <source src="{{ asset('storage/videos/home_vid.MP4') }}" type="video/mp4">
+            <video class="home-vid" autoplay playsinline muted loop>
+                <!--@notmobile-->
+                <!--    <source src="{{ asset('storage/videos/Hart Video UPDATED.mp4') }}" type="video/mp4">-->
+                
+                <!--@elsenotmobile-->
+                <!--    <source src="{{ asset('storage/videos/home_vid.MP4') }}" type="video/mp4">-->
+                <!--@endnotmobile-->
+                @handheld
+                    <source src="{{ asset('storage/videos/home_vid.MP4') }}" type="video/mp4">
+                @elsehandheld
+                    <source src="{{ asset('storage/videos/Hart Video UPDATED.mp4') }}" type="video/mp4">
+                @endhandheld
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -134,8 +133,8 @@
 
             </div>
             <div class="reservations">
-                <h4 class="me-5" data-aos="fade-up">
-                    We do not have a phone. Reservations are essential, and can be made by dropping us a message on our social media:
+                <h5 class="me-5" data-aos="fade-up">
+                    Reservations are absolutely essential and can be made by dropping us a message on Instagram, Facebook or via email. Reservations must be made at least 24hours in advance. We do not have a telephone and all communication is made through Instagram, Facebook or email only! Our inboxes are open 24 hours a day!
                 </h4>
                 <div class="socials d-flex justify-content-center mt-3" data-aos="fade-up">
                     <a href="{{$contactInfo->instagram ?? $defaultContactInfo['instagram']}}" target="_blank">
@@ -212,6 +211,11 @@
                 @if(!count($events))
                     <p class="coming-soon">Coming Soon!</p>
                 @else
+                    <div class="see-all-events mb-3">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#allEventsModal">
+                            See All Events
+                        </button>
+                    </div>
                     <div id="emblaEvents" class="emblaEvents">
                         <div class="embla__viewport">
                             <div class="embla__container">
@@ -268,12 +272,14 @@
         <div id="hire" class="hire p-3 text-center">
             <h2 class="text-uppercase" data-aos="fade-up">Private Hire</h2>
             <p data-aos="fade-up">We do hire HART out!</p>
-            <p data-aos="fade-up">We can hire out small areas of the bar or the entire venue.</p>
-            <p data-aos="fade-up">There is no charge or minimum spend to hire out small areas.</p>
-            <p data-aos="fade-up">There is no charge but a minimum spend which varies depending on the date you book to
-                hire the entire venue.</p>
-            <p data-aos="fade-up">Drop us a message with all of your event details including date, timings and number of
-                guests and we can provide more info!</p>
+            <p data-aos="fade-up">You can book out a table, an area, our private room, half the venue or the whole venue.</p>
+            <p data-aos="fade-up">Our biggest single table will seat 20 people.</p>
+            <p data-aos="fade-up">To book an area you will need between 15-30 people.</p>
+            <p data-aos="fade-up">To book our private room you will need a maximum of 20 people.</p>
+            <p data-aos="fade-up">To book half the venue you will need between 50-70 guests.</p>
+            <p data-aos="fade-up">To book the full venue (except for downstairs) you will need between 80-120 guests).</p>
+            <p data-aos="fade-up">There are no hire charges but there is a minimum spend required depending on the date that you book for.</p>
+            <p data-aos="fade-up">Drop us a message with all of your event details including date, timings, occasion and number of guests and we can provide you with some more info!</p>
         </div>
         <div id="faq" class="faq p-3 text-center" data-aos="fade-up">
             <h2 class="text-uppercase fw-bold">FAQ's</h2>
@@ -303,8 +309,55 @@
         @endif
         <x-terms-conditions-modal/>
         <x-how-to-book-modal/>
+
+        <div class="modal fade" id="allEventsModal" tabindex="-1" aria-labelledby="allEventsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="allEventsModalLabel">All Events</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        @if(count($events))
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                            @foreach($events as $event)
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="{{$event->image}}" class="card-img-top" alt="event image">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">{{ $event->name ?? 'Event' }}</h5>
+                                        <div class="card-text flex-grow-1" style="
+                                            max-height: 160px;
+                                            overflow-y: auto;
+                                            overflow-x: hidden;
+                                            word-break: break-word;
+                                            white-space: normal;
+                                            hyphens: auto;
+                                            padding-right: 0.5rem;">
+                                            {!! $event->description !!}
+                                        </div>
+                                        @if($event->link)
+                                        <a href="{{$event->link}}" class="btn btn-sm btn-outline-primary mt-2" target="_blank">Get Tickets</a>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                        @else
+                        <p>No events available.</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     <script>
+     document.addEventListener("DOMContentLoaded", function () {
         // up and down arrows to scroll page
         const upArrow = document.querySelector(".heart-up-icon");
         const downArrow = document.querySelector(".heart-down-icon");
@@ -336,5 +389,10 @@
                 $(this).text('Show Frequently Asked Questions');
             }
         })
+        
+        function checkScreenSize() { 
+            return window.innerWidth <= 480; 
+        }
+    });
     </script>
 @endsection

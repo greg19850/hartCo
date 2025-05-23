@@ -25,13 +25,13 @@ use App\Http\Controllers\KidsController;
 |
 */
 
-Route::get('/', function(){
-    return view('placeholder');
-})->name('placeholder');
+// Route::get('/', function(){
+//     return view('placeholder');
+// })->name('placeholder');
 
-Route::get('/wip/home', [PageController::class, 'homePage'])->name('homepage');
-Route::get('/wip/home/menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
-Route::get('/wip/home/kids_parties',  [KidsController::class, 'showKidsPage'])->name('showKidsPage');
+Route::get('/', [PageController::class, 'homePage'])->name('homepage');
+Route::get('/menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
+Route::get('/children_parties',  [KidsController::class, 'showKidsPage'])->name('showKidsPage');
 
 Route::prefix("/cms")->group(
     function () {

@@ -772,10 +772,6 @@
 
 
 
-
-
-
-
         #faqAccordion {
             max-height: 0;
             overflow: hidden;
@@ -832,4 +828,9 @@
     z-index: 0;
 }
 
-
+#allEventsModal {
+    .card-img-top {
+        height: 300px;
+        object-fit: contain;
+    }
+}
