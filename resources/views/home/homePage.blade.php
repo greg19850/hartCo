@@ -212,7 +212,7 @@
                     <p class="coming-soon">Coming Soon!</p>
                 @else
                     <div class="see-all-events mb-3">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#allEventsModal">
+                        <button type="button" class="btn see-more-event-btn" data-bs-toggle="modal" data-bs-target="#allEventsModal">
                             See All Events
                         </button>
                     </div>
@@ -314,7 +314,7 @@
             <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="allEventsModalLabel">All Events</h5>
+                        <h5 class="modal-title" id="allEventsModalLabel">Events</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -327,17 +327,15 @@
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">{{ $event->name ?? 'Event' }}</h5>
                                         <div class="card-text flex-grow-1" style="
-                                            max-height: 160px;
-                                            overflow-y: auto;
-                                            overflow-x: hidden;
-                                            word-break: break-word;
-                                            white-space: normal;
-                                            hyphens: auto;
-                                            padding-right: 0.5rem;">
+                                            max-height: 200px;
+                                            overflow-y: auto
+                                            ">
                                             {!! $event->description !!}
                                         </div>
                                         @if($event->link)
-                                        <a href="{{$event->link}}" class="btn btn-sm btn-outline-primary mt-2" target="_blank">Get Tickets</a>
+                                        <a href="{{ $event->link }}" class="btn btn-outline-light get-tickets-btn mt-2" target="_blank">
+                                            Get Tickets
+                                        </a>
                                         @endif
 
                                     </div>

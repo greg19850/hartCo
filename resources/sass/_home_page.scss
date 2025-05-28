@@ -828,9 +828,59 @@
     z-index: 0;
 }
 
+.see-all-events{
+    .see-more-event-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    transition: 0.1s;
+
+        &:hover {
+            background-color: #fff;
+            color: #ff90bc;
+            border-color: #fff;
+        }
+    }   
+}
+
+
 #allEventsModal {
-    .card-img-top {
-        height: 300px;
-        object-fit: contain;
+    .modal-content{
+         background-color: #ff90bc;
+
+         #allEventsModalLabel{
+            color: #fff;
+            font-weight: bold;
+            // text-transform: uppercase;
+         }
+
+         .btn-close{
+            background-color: #fff;
+         }
+
+        .card-img-top {
+            height: 300px;
+            object-fit: contain;
+        }
+
+        .get-tickets-btn{
+            display: block;
+            color: #ff90bc;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            font-weight: bold;
+            border: 1px solid #ff90bc;
+            border-radius: 5px;
+            transition: 0.1s;
+            text-align: center;
+
+            &:hover {
+                background-color: #ff90bc;
+                color: #fff;
+            }
+        }
     }
 }
+
+
