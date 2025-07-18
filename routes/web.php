@@ -11,8 +11,6 @@ use App\Http\Controllers\CmsFaqController;
 use App\Http\Controllers\CmsEventController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CmsSettingsController;
-use App\Http\Controllers\KidsController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +29,8 @@ use App\Http\Controllers\KidsController;
 
 Route::get('/', [PageController::class, 'homePage'])->name('homepage');
 Route::get('/menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
-Route::get('/children_parties',  [KidsController::class, 'showKidsPage'])->name('showKidsPage');
+Route::get('/children-parties',  [PageController::class, 'kidsPage'])->name('kidsPage');
+Route::get('/mobile-van',  [PageController::class, 'mobileVanPage'])->name('mobileVanPage');
 
 Route::prefix("/cms")->group(
     function () {
@@ -115,5 +114,3 @@ Route::prefix("/cms")->group(
         });
     }
 );
-
-

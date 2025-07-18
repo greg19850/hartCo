@@ -2,6 +2,17 @@
 
 /*
 |--------------------------------------------------------------------------
+| Suppress PHP 8.4 Deprecation Warnings
+|--------------------------------------------------------------------------
+|
+| Suppress implicit nullability deprecation warnings from third-party packages
+| until they are updated to be compatible with PHP 8.4
+|
+*/
+error_reporting(E_ALL & ~E_DEPRECATED);
+
+/*
+|--------------------------------------------------------------------------
 | Create The Application
 |--------------------------------------------------------------------------
 |

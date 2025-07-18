@@ -1,156 +1,57 @@
 @media screen and (max-width: 768px) {
-    .home-page{
-        .menus {
-            .menus-container {
-                width: 100%;
+    .home-page {
+        --spacing-lg: 2rem;
+        --spacing-md: 1.5rem;
+        --spacing-sm: 1rem;
 
-                .embla {
-                    .embla__container {
-                        .menu-item {
-                            flex: 0 0 49%;
-                            margin: 5px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .contact {
-            .hours-and-map {
-                #map{
-                    width: 70vw;
-                }
-                .opening-hours {
-
-                    ul {
-
-                        margin: 15px 0 0 10px;
-
-                        li{
-                            font-size: 14px;
-                        }
-                    }
-                }
-            }
-
-            .reservations {
-                h4 {
-                    text-align: left;
-                    margin: 0 !important;
-                }
-            }
-        }
-
-
-        .events {
-            .events-container {
-                width: 100%;
-
-                .emblaEvents {
-                    .embla__container {
-                        .event-item {
-                            flex: 0 0 49%;
-                            height: 350px;
-                            padding: 5px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .event-modal {
-            .modal-dialog {
-                .modal-content{
-                    position: relative;
-                    width: 100vw;
-                    height: 60vh;
-
-                    button{
-                        top: 0;
-                        right: 0;
-
-                        .cross {
-                            width: 35px;
-                        }
-                    }
-
-
-                    .event-name{
-                        font-size: 25px;
-                    }
-
-                    .event-date{
-                        color: #fff;
-                        position: absolute;
-                        top: 80px;
-                        left: 50%;
-                        width: 80%;
-                        padding: 5px;
-                        font-weight: bold;
-                        font-size: 20px;
-                        transform: translateX(-50%);
-                        z-index: 6;
-                        text-align: center;
-                    }
-
-                    .event-description{
-                        width: 100%;
-                    }
-
-                    a {
-                        .event-link {
-                            width: 25px;
-                            margin-right: 5px;
-                        }
-
-                        &:hover {
-                            background-color: transparent;
-                            color: #fff;
-                        }
-                    }
-                }
-            }
-        }
-
-        .hire {
+        .about-us {
+            flex-direction: column;
             width: 95%;
+            gap: var(--spacing-md);
 
-            h2 {
-                color: #ff90bc;
-                font-weight: bold;
-            }
-
-            p{
-                font-size: 12px;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .home-page{
-        #hart-carousel{
-            .motto{
+            .text-section {
                 width: 100%;
-                h1{
-                    font-size: 60px;
+                margin-bottom: var(--spacing-md);
+                padding: var(--spacing-sm);
+            }
+
+            .image-section {
+                width: 100%;
+                min-height: 300px;
+                justify-content: center;
+
+                .background-image {
+                    width: 90%;
+
+                    img {
+                        height: 300px;
+                    }
+                }
+
+                .foreground-image {
+                    left: 10%;
+                    width: 50%;
+                    top: 70%;
                 }
             }
         }
 
         .menus {
+            padding: var(--spacing-md) 0;
+
             .menus-container {
                 width: 100%;
 
                 .embla {
                     .embla__container {
                         .menu-item {
-                            flex: 0 0 100%;
+                            flex: 0 0 49%;
                             margin: 5px;
                             height: 350px;
 
                             a {
-                                width: 80%;
+                                font-size: 14px;
+                                padding: 10px 15px;
                             }
                         }
                     }
@@ -159,63 +60,72 @@
         }
 
         .contact {
-            width: 100%;
-
-            .address {
-                color: #fff;
-                text-align: left;
-            }
-
             .hours-and-map {
                 flex-direction: column;
+                gap: var(--spacing-md);
 
-                #map{
+                #map {
                     width: 90vw;
+                    max-width: 500px;
                 }
 
-                .opening-hours{
-                    ul {
-                        padding: 0;
-                        margin: 15px 0 0;
+                .opening-hours {
+                    width: 100%;
+                    text-align: center;
 
-                        li{
+                    ul {
+                        margin: 0;
+                        padding: var(--spacing-sm);
+
+                        li {
                             font-size: 14px;
+                            padding: 6px 0;
                         }
                     }
                 }
-
             }
 
             .reservations {
-                h4 {
-                    text-align: left;
-                    margin: 0 !important;
+                text-align: center;
+                width: 100%;
+
+                h5 {
+                    text-align: center;
+                    margin: var(--spacing-sm) 0;
+                    font-size: 16px;
+                    line-height: 1.5;
                 }
-            }
-        }
 
-        .masterclass {
-            margin: 20px auto;
-            width: 95%;
-            //background-color: #ac87c5;
-            background-color: #fff;
-            color: #ff90bc;
-            border-radius: 10px;
-
-            p, li{
-                font-size: 12px;
+                .socials {
+                    margin-top: var(--spacing-md);
+                }
             }
         }
 
         .events {
+            padding: var(--spacing-md) 0;
+
             .events-container {
                 width: 100%;
 
                 .emblaEvents {
                     .embla__container {
                         .event-item {
-                            flex: 0 0 100%;
+                            flex: 0 0 49%;
                             height: 350px;
+                            margin: 5px;
+
+                            .event-info {
+                                .see-more-event-btn {
+                                    font-size: 14px;
+                                    padding: 8px 16px;
+                                }
+
+                                a {
+                                    font-size: 14px;
+                                    padding: 8px 12px;
+                                }
+                            }
                         }
                     }
                 }
@@ -224,12 +134,12 @@
 
         .event-modal {
             .modal-dialog {
-                .modal-content{
+                .modal-content {
                     position: relative;
                     width: 100vw;
                     height: 60vh;
 
-                    button{
+                    button {
                         top: 0;
                         right: 0;
 
@@ -238,13 +148,12 @@
                         }
                     }
 
-
-                    .event-name{
+                    .event-name {
                         font-size: 25px;
                     }
 
-                    .event-date{
-                        color: #fff;
+                    .event-date {
+                        color: var(--text-light);
                         position: absolute;
                         top: 80px;
                         left: 50%;
@@ -257,7 +166,7 @@
                         text-align: center;
                     }
 
-                    .event-description{
+                    .event-description {
                         width: 100%;
                     }
 
@@ -269,7 +178,7 @@
 
                         &:hover {
                             background-color: transparent;
-                            color: #fff;
+                            color: var(--text-light);
                         }
                     }
                 }
@@ -278,16 +187,260 @@
 
         .hire {
             width: 95%;
+            padding: var(--spacing-md);
 
             h2 {
-                color: #ff90bc;
-                font-weight: bold;
+                color: var(--primary-color);
+                font-weight: 600;
             }
 
-            p{
-                font-size: 12px;
+            p {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: var(--spacing-sm);
             }
         }
     }
 }
 
+@media screen and (max-width: 576px) {
+    .home-page {
+        --spacing-lg: 1.5rem;
+        --spacing-md: 1rem;
+        --spacing-sm: 0.75rem;
+
+        .about-us {
+            .image-section {
+                justify-content: center;
+
+                .background-image {
+                    width: 100%;
+                }
+
+                .foreground-image {
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 40%;
+                    top: 75%;
+                }
+            }
+        }
+
+        #hart-carousel {
+            .motto {
+                width: 100%;
+                padding: 0 var(--spacing-sm);
+
+                h1 {
+                    font-size: clamp(40px, 8vw, 60px);
+                    line-height: 1.2;
+                    text-align: center;
+                }
+            }
+        }
+
+        .menus {
+            .menus-container {
+                width: 100%;
+                padding: 0 var(--spacing-sm);
+
+                .embla {
+                    .embla__container {
+                        .menu-item {
+                            flex: 0 0 95%;
+                            margin: 8px;
+                            height: 350px;
+
+                            a {
+                                width: 85%;
+                                font-size: 13px;
+                                padding: 10px 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .happy-hour {
+            h5 {
+                text-align: center;
+            }
+        }
+
+        .contact {
+            width: 100%;
+            padding: var(--spacing-sm);
+
+            .address {
+                color: var(--text-light);
+                text-align: center;
+                font-size: 16px;
+            }
+
+            .hours-and-map {
+                flex-direction: column;
+                gap: var(--spacing-md);
+
+                #map {
+                    width: 95vw;
+                    max-width: 400px;
+                    height: 250px;
+                }
+
+                .opening-hours {
+                    width: 100%;
+
+                    ul {
+                        padding: var(--spacing-sm);
+                        margin: 0;
+
+                        li {
+                            font-size: 13px;
+                            padding: 4px 0;
+                        }
+                    }
+                }
+            }
+
+            .reservations {
+                text-align: center;
+
+                h4 {
+                    text-align: center;
+                    margin: var(--spacing-sm) 0;
+                    font-size: 14px;
+                    line-height: 1.4;
+                }
+
+                .socials {
+                    svg {
+                        width: 40px;
+                        margin: 0 10px;
+                    }
+                }
+            }
+        }
+        .activities {
+            .activities-container {
+                width: 90%;
+                margin: 0 auto;
+
+                .emblaActivities {
+                    overflow: hidden;
+                    cursor: grab;
+
+                    .embla__container {
+                        .activity-item {
+                            height: 700px;
+
+                            .activity-section {
+                                &.masterclass {
+                                    margin: 20px auto;
+                                    p,
+                                    li {
+                                        font-size: 12px;
+                                    }
+                                }
+
+                                &#baby-shower-section {
+                                    p,
+                                    li {
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .events {
+            .events-container {
+                width: 100%;
+                padding: 0 var(--spacing-sm);
+
+                .emblaEvents {
+                    .embla__container {
+                        .event-item {
+                            flex: 0 0 95%;
+                            height: 350px;
+                            margin: 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .event-modal {
+            .modal-dialog {
+                .modal-content {
+                    position: relative;
+                    width: 100vw;
+                    height: 60vh;
+
+                    button {
+                        top: 0;
+                        right: 0;
+
+                        .cross {
+                            width: 35px;
+                        }
+                    }
+
+                    .event-name {
+                        font-size: 25px;
+                    }
+
+                    .event-date {
+                        color: var(--text-light);
+                        position: absolute;
+                        top: 80px;
+                        left: 50%;
+                        width: 80%;
+                        padding: 5px;
+                        font-weight: bold;
+                        font-size: 20px;
+                        transform: translateX(-50%);
+                        z-index: 6;
+                        text-align: center;
+                    }
+
+                    .event-description {
+                        width: 100%;
+                    }
+
+                    a {
+                        .event-link {
+                            width: 25px;
+                            margin-right: 5px;
+                        }
+
+                        &:hover {
+                            background-color: transparent;
+                            color: var(--text-light);
+                        }
+                    }
+                }
+            }
+        }
+
+        .hire {
+            width: 95%;
+            padding: var(--spacing-sm);
+
+            h2 {
+                color: var(--primary-color);
+                font-weight: 600;
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 13px;
+                line-height: 1.4;
+                margin-bottom: 12px;
+            }
+        }
+    }
+}

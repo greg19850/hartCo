@@ -6,9 +6,7 @@
     align-items: center;
     color: #fff;
 
-    .kids-description{
-
-        .klin-link {
+       .klin-link {
             background-color: transparent;
             text-decoration: none;
             color: #fff;
@@ -25,6 +23,7 @@
             }
         }
 
+    .kids-description{
         .socials {
             align-self: center;
 
@@ -53,7 +52,10 @@
     }
 
     .kids-mocktail{
-        width: 100%;
+        img{
+            width: 100%;
+        }
+
     }
 
     .mocktail-t-c{
