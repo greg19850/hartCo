@@ -3,6 +3,7 @@
 @section('title', 'Mobile Cocktail Bar')
 
 @section('content')
+<div class="mobile-van-page">
     <div id="van-video">
         <div class="van-motto d-flex flex-column align-items-center justify-content-center">
             <h1 class="motto-text">We're HART + CO</h1>
@@ -157,4 +158,5 @@
             minDate: 'current date'
         });
     </script>
+</div>
 @endsection
