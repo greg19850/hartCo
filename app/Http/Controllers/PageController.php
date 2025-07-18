@@ -31,7 +31,7 @@ class PageController extends Controller
         $events = Event::orderByRaw("STR_TO_DATE(date, '%d/%m/%Y')")->get();
         $faqs = Faq::all();
 
-        return view('home.homePage', [
+        return view('pages.homePage', [
             'motto' => $text,
             'famDescription' => $description,
             'menus' => $menus,
@@ -39,5 +39,13 @@ class PageController extends Controller
             'events' => $events,
             'faqs' => $faqs,
         ]);
+    }
+
+    public function kidsPage(){
+        return view('pages.kids-page');
+    }
+
+    public function mobileVanPage(){
+        return view('pages.mobile-van-page');
     }
 }
