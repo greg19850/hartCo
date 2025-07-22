@@ -76,7 +76,8 @@
 
     .van-title-text {
         max-width: 1200px;
-        margin: var(--spacing-lg) auto;
+        margin: 0 auto;
+        // margin: var(--spacing-lg) auto;
         padding: var(--spacing-md);
         text-align: center;
 
@@ -85,7 +86,7 @@
             font-size: 1.2rem;
             line-height: 1.7;
             margin-bottom: var(--spacing-md);
-            
+
             &:last-child {
                 font-weight: 600;
                 font-size: 1.3rem;
@@ -98,6 +99,27 @@
         max-width: 1200px;
         margin: var(--spacing-lg) auto;
         padding: var(--spacing-md);
+
+        .van-title-text {
+            max-width: 1200px;
+            margin: 0 auto;
+            // margin: var(--spacing-lg) auto;
+            padding: var(--spacing-md);
+            text-align: center;
+
+            p {
+                color: var(--text-light);
+                font-size: 1.2rem;
+                line-height: 1.7;
+                margin-bottom: var(--spacing-md);
+
+                &:last-child {
+                    font-weight: 600;
+                    font-size: 1.3rem;
+                    color: var(--text-light);
+                }
+            }
+        }
 
         h2 {
             color: var(--text-light);
@@ -143,7 +165,8 @@
 
     .van-img-section {
         max-width: 1200px;
-        margin: var(--spacing-lg) auto;
+        margin: 0 auto;
+        // margin: var(--spacing-lg) auto;
         padding: var(--spacing-md);
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
