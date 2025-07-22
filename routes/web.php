@@ -11,6 +11,7 @@ use App\Http\Controllers\CmsFaqController;
 use App\Http\Controllers\CmsEventController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CmsSettingsController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/', [PageController::class, 'homePage'])->name('homepage');
 Route::get('/menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
 Route::get('/children-parties',  [PageController::class, 'kidsPage'])->name('kidsPage');
 Route::get('/mobile-van',  [PageController::class, 'mobileVanPage'])->name('mobileVanPage');
+Route::post('/contact', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
 Route::prefix("/cms")->group(
     function () {

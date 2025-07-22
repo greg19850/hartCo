@@ -112,6 +112,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'contact_email' => env('MAIL_CONTACT_EMAIL', 'info@hartandco.com'),
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

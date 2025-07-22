@@ -1,59 +1,334 @@
-#van-video {
+.mobile-van-page {
+    --primary-color: #ff90bc;
+    --secondary-color: #ac87c5;
+    --text-light: #fff;
+    --text-dark: #333;
+    --card-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px;
+    --border-radius: 15px;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+
+    #van-video {
         position: relative;
+        height: 100vh;
+        overflow: hidden;
 
         &::after {
-            content: ""; // ::before and ::after both require content
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba($color: #000000, $alpha: 0.7);
-            opacity: 0.7;
+            background: rgba(0, 0, 0, 0.6);
             z-index: 5;
         }
-
-        //.carousel-item {
-        //    height: 100vh;
-        //
-        //    img {
-        //        height: 100%;
-        //    }
-        //}
 
         .home-vid {
             height: 100vh;
             width: 100vw;
-            object-fit: fill;
+            object-fit: cover;
         }
+
         .van-motto {
             z-index: 6;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            text-align: center;
 
             h1 {
-                font-size: 80px;
-                color: #fff;
-                text-align: center;
+                font-size: clamp(2.5rem, 8vw, 5rem);
+                color: var(--text-light);
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                margin-bottom: var(--spacing-sm);
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             }
 
-            h2{
-                color: #fff;
-                text-align: center;
+            h2 {
+                color: var(--text-light);
+                font-size: clamp(1.2rem, 3vw, 1.8rem);
+                font-weight: 400;
+                margin-bottom: var(--spacing-md);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
             }
 
             .heart-down-icon {
                 cursor: pointer;
-                z-index: 10;
-                // color: #fff;
-                color: #ff90bc;
+                color: var(--primary-color);
                 width: 50px;
                 height: 50px;
-                animation: arrowDown 1000ms;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
+                animation: arrowDown 1000ms infinite linear;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
     }
+
+    .van-title-text {
+        max-width: 1200px;
+        margin: 0 auto;
+        // margin: var(--spacing-lg) auto;
+        padding: var(--spacing-md);
+        text-align: center;
+
+        p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+
+            &:last-child {
+                font-weight: 600;
+                font-size: 1.3rem;
+                color: var(--text-light);
+            }
+        }
+    }
+
+    .why-hart {
+        max-width: 1200px;
+        margin: var(--spacing-lg) auto;
+        padding: var(--spacing-md);
+
+        .van-title-text {
+            max-width: 1200px;
+            margin: 0 auto;
+            // margin: var(--spacing-lg) auto;
+            padding: var(--spacing-md);
+            text-align: center;
+
+            p {
+                color: var(--text-light);
+                font-size: 1.2rem;
+                line-height: 1.7;
+                margin-bottom: var(--spacing-md);
+
+                &:last-child {
+                    font-weight: 600;
+                    font-size: 1.3rem;
+                    color: var(--text-light);
+                }
+            }
+        }
+
+        h2 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.025em;
+        }
+
+        .reason-desc {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            h3 {
+                color: var(--text-light);
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-bottom: var(--spacing-sm);
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            p {
+                color: var(--text-light);
+                font-size: 1rem;
+                line-height: 1.6;
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .van-img-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        // margin: var(--spacing-lg) auto;
+        padding: var(--spacing-md);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-md);
+
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-8px) scale(1.02);
+            }
+        }
+    }
+
+    .contact-form {
+        max-width: 800px;
+        margin: var(--spacing-lg) auto;
+        padding: var(--spacing-lg);
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        backdrop-filter: blur(10px);
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.025em;
+        }
+
+        .fs-field {
+            margin-bottom: var(--spacing-md);
+
+            .fs-label {
+                display: block;
+                color: var(--text-dark);
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .fs-input,
+            .fs-textarea {
+                width: 100%;
+                padding: 1rem;
+                border: 2px solid #e1e5e9;
+                border-radius: 10px;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                background-color: #fff;
+                color: var(--text-dark);
+
+                &:focus {
+                    outline: none;
+                    border-color: var(--primary-color);
+                    box-shadow: 0 0 0 3px rgba(255, 144, 188, 0.1);
+                    transform: translateY(-2px);
+                }
+
+                &::placeholder {
+                    color: #9ca3af;
+                }
+            }
+
+            .fs-textarea {
+                resize: vertical;
+                min-height: 120px;
+            }
+        }
+
+        .fs-button-group {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+
+            .fs-button {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: var(--text-light);
+                border: none;
+                padding: 1rem 3rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                border-radius: 50px;
+                font-size: 1rem;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 144, 188, 0.3);
+
+                &:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 25px rgba(255, 144, 188, 0.4);
+                    background: linear-gradient(135deg, #ff6ba8, #9b7bc1);
+                }
+
+                &:active {
+                    transform: translateY(-1px);
+                }
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 768px) {
+        .van-title-text,
+        .why-hart,
+        .contact-form {
+            margin: var(--spacing-md) var(--spacing-sm);
+            padding: var(--spacing-md);
+        }
+
+        .why-hart {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .reason-desc {
+                h3 {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .van-img-section {
+            grid-template-columns: 1fr;
+            margin: var(--spacing-md) var(--spacing-sm);
+        }
+
+        .contact-form {
+            .fs-button {
+                padding: 0.875rem 2rem;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .van-motto {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        .contact-form {
+            margin: var(--spacing-sm);
+            padding: var(--spacing-md);
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}

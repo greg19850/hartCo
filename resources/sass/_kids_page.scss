@@ -1,64 +1,322 @@
-.kids-page{
-    width: 80%;
+.kids-page {
+    --primary-color: #ff90bc;
+    --secondary-color: #ac87c5;
+    --text-light: #fff;
+    --text-dark: #333;
+    --card-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px;
+    --border-radius: 15px;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
+    padding: var(--spacing-md);
 
-       .klin-link {
-            background-color: transparent;
-            text-decoration: none;
-            color: #fff;
-            border: 1px solid #fff;
-            transition: 0.1s;
-            padding: 5px 10px;
-            border-radius: 5px;
+    h1 {
+        color: var(--text-light);
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+        letter-spacing: -0.025em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
 
+    h2 {
+        color: var(--text-light);
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: var(--spacing-md);
+        letter-spacing: -0.025em;
+    }
 
-            &:hover {
-                background-color: #fff;
-                color: #ff90bc;
-                border-color: #fff;
+    .kids-description {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        box-shadow: var(--card-shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-sm);
+
+            &:first-child {
+                font-weight: 600;
+                font-size: 1.3rem;
             }
         }
 
-    .kids-description{
-        .socials {
-            align-self: center;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
 
-            svg {
-                color: #fff;
-                width: 45px;
-                margin: 2px 15px;
+            li {
+                color: var(--text-light);
+                font-size: 1.1rem;
+                padding: 0.75rem 1rem;
+                margin-bottom: 0.5rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                border-left: 4px solid var(--primary-color);
+                transition: all 0.3s ease;
 
-                &.facebook-icon {
-                    color: #4267b2;
-                    background-color: #fff;
+                &:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateX(10px);
+                }
+
+                &::before {
+                    content: "🎉";
+                    margin-right: 0.5rem;
                 }
             }
         }
-
-        ul{
-            list-style: none;
-        }
     }
 
-    .kids-menu{
-        img{
+    .kids-menu,
+    .kids-mocktail {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        box-shadow: var(--card-shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .menu-image,
+        .mocktail-image {
             width: 100%;
+            max-width: 800px;
             height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            margin-top: var(--spacing-md);
+
+            &:hover {
+                transform: scale(1.02);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            }
         }
     }
 
-    .kids-mocktail{
-        img{
-            width: 100%;
+    .pottery-painting {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        box-shadow: var(--card-shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
         }
 
+        p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .klin-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 144, 188, 0.3);
+            border: none;
+
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(255, 144, 188, 0.4);
+                background: linear-gradient(135deg, #ff6ba8, #9b7bc1);
+                color: var(--text-light);
+                text-decoration: none;
+            }
+        }
     }
 
-    .mocktail-t-c{
-        align-self: flex-start;
+    .booking {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        box-shadow: var(--card-shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 144, 188, 0.3);
+
+                &:hover {
+                    transform: translateY(-5px) scale(1.1);
+                    box-shadow: 0 8px 25px rgba(255, 144, 188, 0.4);
+                }
+
+                svg {
+                    color: var(--text-light);
+                    width: 30px;
+                    height: 30px;
+
+                    &.facebook-icon {
+                        color: var(--text-light);
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 768px) {
+        padding: var(--spacing-md) var(--spacing-sm);
+
+        .kids-description,
+        .kids-menu,
+        .kids-mocktail,
+        .pottery-painting,
+        .booking {
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .kids-description {
+            ul li {
+                font-size: 1rem;
+                padding: 0.5rem 0.75rem;
+            }
+        }
+
+        .pottery-painting {
+            .klin-link {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .booking {
+            .socials {
+                gap: var(--spacing-sm);
+
+                a {
+                    width: 50px;
+                    height: 50px;
+
+                    svg {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: var(--spacing-sm);
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        .kids-description,
+        .kids-menu,
+        .kids-mocktail,
+        .pottery-painting,
+        .booking {
+            padding: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .kids-description {
+            p {
+                font-size: 1rem;
+            }
+
+            ul li {
+                font-size: 0.9rem;
+            }
+        }
+
+        .pottery-painting {
+            .klin-link {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.85rem;
+            }
+        }
     }
 }

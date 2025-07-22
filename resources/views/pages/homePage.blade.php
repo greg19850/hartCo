@@ -40,7 +40,7 @@
             </div>
             <div class="image-section">
                 <div class="background-image" data-aos="fade-up">
-                    <img src="{{ asset('storage/images/team-test.jpg') }}" alt="Team photo">
+                    <img src="{{ asset('storage/images/hartFam.jpg') }}" alt="Team photo">
                 </div>
                 <div class="foreground-image" data-aos="fade-up">
                     {{-- <img src="{{ asset('storage/images/drink-test.webp') }}" alt="Drink photo"> --}}
@@ -51,7 +51,7 @@
         </div>
 
         {{-- Mobile Van --}}
-        <div id="mobile" class="mobile" data-aos="fade-up">
+        {{-- <div id="mobile" class="mobile" data-aos="fade-up">
             <div class="mobile-content">
                 <h2 class="text-uppercase" data-aos="fade-up">We're HART + CO, mobile cocktail bar
                     specialists</h2>
@@ -59,7 +59,7 @@
                 <a href="{{route('mobileVanPage')}}" class="btn mobile-btn mb-3" data-aos="fade-up">Check our
                     mobile van page</a>
             </div>
-        </div>
+        </div> --}}
 
         {{-- menus --}}
 
