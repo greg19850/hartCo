@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactInfo;
 use App\Models\Event;
+use App\Models\EventBanner;
 use App\Models\FamilyDescription;
 use App\Models\Faq;
 use App\Models\Menu;
@@ -25,7 +26,7 @@ class PageController extends Controller
         } else {
             $description = $familyDescription->description;
         }
-
+        $upcomingBanner = EventBanner::upcoming()->first();
         $menus = Menu::all();
         $contactInfo = ContactInfo::first();
         $events = Event::orderByRaw("STR_TO_DATE(date, '%d/%m/%Y')")->get();
@@ -38,6 +39,7 @@ class PageController extends Controller
             'contactInfo' => $contactInfo,
             'events' => $events,
             'faqs' => $faqs,
+            'upcomingBanner' => $upcomingBanner
         ]);
     }
 

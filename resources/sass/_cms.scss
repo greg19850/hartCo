@@ -362,6 +362,16 @@ body.cms-body {
     }
 }
 
+.cms-event-banners{
+    .spinner-add-banner, .spinner-banner-delete{
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
 // FAQ
 .cms-faq {
     .spinner-faq, .spinner-faq-edit {
@@ -550,4 +560,3 @@ body.cms-body {
         font-size: 14px;
     }
 }
-

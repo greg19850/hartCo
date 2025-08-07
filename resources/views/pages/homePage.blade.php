@@ -359,10 +359,53 @@
             </div>
         </div>
 
-
+        {{-- Event Banner Modal --}}
+        @if ($upcomingBanner)
+            <div class="modal fade" id="eventBannerModal" tabindex="-1" aria-labelledby="eventBannerModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content bg-transparent border-0">
+                        <div class="modal-header border-0 pb-0">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center p-0">
+                            <img src="{{ $upcomingBanner->image }}" alt="{{ $upcomingBanner->title }}"
+                                class="img-fluid" style="max-height: 80vh; width: auto;">
+                            @if ($upcomingBanner->link)
+                                <div class="mt-3">
+                                    <a href="{{ $upcomingBanner->link }}" target="_blank"
+                                        class="btn btn-primary btn-lg">Get Tickets</a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            @if ($upcomingBanner)
+                // Check if user has seen this banner today
+                const bannerId = {{ $upcomingBanner->id }};
+                const bannerSeenKey = 'eventBanner_' + bannerId + '_' + new Date().toDateString();
+
+                if (!localStorage.getItem(bannerSeenKey)) {
+                    // Show modal after 2 seconds
+                    setTimeout(function() {
+                        const bannerModal = new bootstrap.Modal(document.getElementById(
+                        'eventBannerModal'));
+                        bannerModal.show();
+
+                        // Mark as seen for today
+                        localStorage.setItem(bannerSeenKey, 'true');
+                    }, 2000);
+                }
+            @endif
+
+
             // up and down arrows to scroll page
             const upArrow = document.querySelector(".heart-up-icon");
             const downArrow = document.querySelector(".heart-down-icon");

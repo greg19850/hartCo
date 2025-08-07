@@ -10,6 +10,7 @@ use App\Http\Controllers\CmsMenusController;
 use App\Http\Controllers\CmsFaqController;
 use App\Http\Controllers\CmsEventController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\CmsEventBannerController;
 use App\Http\Controllers\CmsSettingsController;
 use App\Http\Controllers\ContactController;
 
@@ -36,7 +37,6 @@ Route::post('/contact', [ContactController::class, 'submitContactForm'])->name('
 
 Route::prefix("/cms")->group(
     function () {
-
         Route::match(['get', 'post'], 'login', [AdminAuthController::class, 'login'])->name('cms.login');
         Route::get( 'forget_password', [AdminAuthController::class, 'forgetPassword'])->name('cms.forgetPassword');
         Route::post( 'forget_password', [AdminAuthController::class, 'forgetPasswordPost'])->name('cms.forgetPasswordPost');
@@ -53,6 +53,12 @@ Route::prefix("/cms")->group(
             Route::get('home', [CmsHomeController::class, 'showCmsHome'])->name('cms.showCmsHome');
             Route::post('home/post_motto', [CmsHomeController::class, 'updateMotto'])->name('cms.updateMotto');
             Route::post('home/post_description', [CmsHomeController::class, 'updateDescription'])->name('cms.updateDescription');
+
+            // Event Banner
+            Route::get('/event-banners', [CmsEventBannerController::class, 'index'])->name('cms.eventBanners');
+            Route::post('/event-banners', [CmsEventBannerController::class, 'store'])->name('cms.addEventBanner');
+            Route::patch('/banners/{id}/toggle-active', [CmsEventBannerController::class, 'toggleActive'])->name('cms.toggleEventBanner');
+            Route::delete('/event-banners/{id}', [CmsEventBannerController::class, 'destroy'])->name('cms.deleteEventBanner');
 
             // CMS FAQ
             Route::get('/faq', [CmsFaqController::class, 'showFaqPanel'])->name('cms.showFaqPanel');
