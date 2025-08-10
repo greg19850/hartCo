@@ -9,6 +9,7 @@
         <li><a class="menuItem" href={{ route('kidsPage') }} data-text="Children">Children Parties</a></li>
         <li><a class="menuItem" href="/#events" data-text="Events">Events</a></li>
         <li><a class="menuItem" href="/#hire" data-text="Hire">Private Hire</a></li>
+        <li><a class="menuItem" href="{{ route('christmasPage') }}" data-text="Christmas">Christmas</a></li>
         <li><a class="menuItem" href="/#faq" data-text="FAQ">FAQ</a></li>
     </ul>
     <x-tabler-arrow-left-from-arc class="close-menu-btn" />

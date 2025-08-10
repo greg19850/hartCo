@@ -50,4 +50,8 @@ class PageController extends Controller
     public function mobileVanPage(){
         return view('pages.mobile-van-page');
     }
+
+    public function christmasPage(){
+        return view('pages.christmas-page');
+    }
 }
