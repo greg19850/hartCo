@@ -33,6 +33,7 @@ Route::get('/', [PageController::class, 'homePage'])->name('homepage');
 Route::get('/menu/{menuId}',  [MenusController::class, 'showMenu'])->name('showMenu');
 Route::get('/children-parties',  [PageController::class, 'kidsPage'])->name('kidsPage');
 Route::get('/mobile-van',  [PageController::class, 'mobileVanPage'])->name('mobileVanPage');
+Route::get('/christmas',  [PageController::class, 'christmasPage'])->name('christmasPage');
 Route::post('/contact', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
 Route::prefix("/cms")->group(

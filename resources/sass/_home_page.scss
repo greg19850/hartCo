@@ -279,6 +279,52 @@
         }
     }
 
+    .christmas {
+        padding: var(--spacing-lg) 0;
+        margin: 50px auto;
+
+        h2 {
+            color: var(--text-light);
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            position: relative;
+
+            &::after {
+                content: "🎄✨";
+                margin-left: 0.5rem;
+                font-size: 0.8em;
+            }
+        }
+
+        p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .christmas-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border: 2px solid var(--secondary-color);
+            padding: 16px 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+            text-decoration: none;
+
+            &:hover {
+                background-color: transparent;
+                color: var(--secondary-color);
+                border-color: var(--secondary-color);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(172, 135, 197, 0.3);
+            }
+        }
+    }
+
     .menus {
         padding: var(--spacing-lg) 0;
 

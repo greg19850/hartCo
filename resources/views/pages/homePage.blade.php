@@ -115,6 +115,17 @@
                 the discount will <strong>NOT</strong> be applied.
             </p>
         </div>
+
+        {{-- Christmas Section --}}
+        <div id="christmas" class="christmas p-3 text-center">
+            <h2 class="text-uppercase" data-aos="fade-up">Christmas at HART + CO</h2>
+            <p data-aos="fade-up">Experience the magic of the festive season with us</p>
+            <p data-aos="fade-up">Discover our Christmas celebration moments and holiday atmosphere</p>
+            <div class="christmas-button-container" data-aos="fade-up">
+                <a href="{{ route('christmasPage') }}" class="btn christmas-btn">View Christmas Page</a>
+            </div>
+        </div>
+
         {{-- Reservations --}}
 
         <div id="reservations" class="contact p-3 text-center">
